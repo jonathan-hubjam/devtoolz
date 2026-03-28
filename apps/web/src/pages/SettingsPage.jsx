@@ -1,6 +1,6 @@
+'use client';
 import React, { useRef } from 'react';
-import { Helmet } from 'react-helmet';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowLeft, Upload, Trash2, Image as ImageIcon, Settings, AlertCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -59,18 +59,13 @@ const SettingsPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Settings - JWT Decoder</title>
-        <meta name="description" content="Configure your application settings and preferences." />
-      </Helmet>
-
       <div className="min-h-screen bg-background">
         {/* Header */}
         <header className="border-b border-border/50 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <div className="flex items-center gap-4">
               <Button variant="ghost" size="icon" asChild className="rounded-full">
-                <Link to="/">
+                <Link href="/">
                   <ArrowLeft className="w-5 h-5" />
                   <span className="sr-only">Back to Home</span>
                 </Link>
