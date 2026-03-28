@@ -1,6 +1,10 @@
 # Dependencies
 node_modules/
 
+# PocketBase binary and data
+apps/pocketbase/pocketbase
+apps/pocketbase/pb_data/
+
 # Next.js
 apps/web/.next/
 apps/web/out/
