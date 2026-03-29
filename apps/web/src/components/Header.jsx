@@ -2,7 +2,8 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Terminal, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 import { cn } from '@/lib/utils';
@@ -26,9 +27,7 @@ const Header = () => {
             className="flex items-center gap-2 transition-opacity hover:opacity-90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md group"
             aria-label="DevToolz Home"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm group-hover:shadow-md transition-all">
-              <Terminal className="h-5 w-5" />
-            </div>
+            <Image src="/logo.svg" alt="DevToolz" width={32} height={32} className="rounded-lg" />
             <span className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">DevToolz</span>
           </Link>
 
@@ -64,9 +63,7 @@ const Header = () => {
                 <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
                 <div className="flex flex-col gap-6 mt-6">
                   <Link href="/" className="flex items-center gap-2 group">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-                      <Terminal className="h-5 w-5" />
-                    </div>
+                    <Image src="/logo.svg" alt="DevToolz" width={32} height={32} className="rounded-lg" />
                     <span className="text-xl font-bold tracking-tight group-hover:text-primary transition-colors">DevToolz</span>
                   </Link>
                   <nav className="flex flex-col gap-2">
