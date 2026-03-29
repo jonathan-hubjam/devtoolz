@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Trash2, AlignLeft, Minimize2, AlertCircle, CheckCircle2, ArrowRight, Clipboard, FileJson, FileCode } from 'lucide-react';
+import { Copy, Trash2, AlignLeft, Minimize2, AlertCircle, CheckCircle2, ArrowRight, Clipboard, FileJson, FileCode, ShieldCheck, Hash, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
@@ -307,20 +307,26 @@ const JSONFormatterPage = () => {
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center">
-                JWT Decoder <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <ShieldCheck className="w-5 h-5 text-blue-500" />
+                JWT Decoder
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/base64-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center">
-                Base64 Encoder <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Hash className="w-5 h-5 text-green-500" />
+                Base64 Encoder
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Encode and decode strings or files using Base64 encoding.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center">
-                Unix Timestamp <ArrowRight className="w-4 h-4 ml-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Clock className="w-5 h-5 text-amber-500" />
+                Unix Timestamp
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
