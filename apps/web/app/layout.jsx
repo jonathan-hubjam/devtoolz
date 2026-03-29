@@ -6,6 +6,9 @@ import { Toaster } from '@/components/ui/toaster';
 export const metadata = {
   title: 'DevToolz - Free Developer Tools',
   description: 'Free online developer tools for formatting, encoding and debugging.',
+  icons: {
+    icon: '/favicon.png',
+  },
   openGraph: {
     title: 'DevToolz - Free Developer Tools',
     description: 'Free online developer tools for formatting, encoding and debugging.',
