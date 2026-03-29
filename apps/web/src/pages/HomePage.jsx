@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash } from 'lucide-react';
+import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash, Clock, Link2, Fingerprint } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 
@@ -200,6 +200,116 @@ const HomePage = () => {
                 </Button>
               </CardFooter>
             </Card>
+
+
+            <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-amber-500/30 group">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-xl">Unix Timestamp</CardTitle>
+                <CardDescription className="text-sm mt-2">
+                  Convert Unix timestamps to human-readable dates and back. Auto-detects seconds vs milliseconds with UTC and local time display.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500/50" />
+                    Auto-detects seconds & milliseconds
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500/50" />
+                    UTC and local time display
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-amber-500/50" />
+                    Current timestamp button
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-4 mt-auto border-t border-border/40">
+                <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
+                  <Link href="/unix-timestamp">
+                    Open Tool
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-cyan-500/30 group">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Link2 className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-xl">URL Encoder</CardTitle>
+                <CardDescription className="text-sm mt-2">
+                  Encode and decode URLs with percent-encoding instantly. Two-way real-time conversion with RFC 3986 compliance.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500/50" />
+                    Two-way real-time encoding
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500/50" />
+                    RFC 3986 compliant
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500/50" />
+                    Error detection for malformed URLs
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-4 mt-auto border-t border-border/40">
+                <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
+                  <Link href="/url-encoder">
+                    Open Tool
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-rose-500/30 group">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Fingerprint className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-xl">Hash Generator</CardTitle>
+                <CardDescription className="text-sm mt-2">
+                  Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly. All four algorithms shown simultaneously with copy buttons.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500/50" />
+                    4 algorithms at once
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500/50" />
+                    Uppercase / lowercase toggle
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-rose-500/50" />
+                    Hashes empty string on load
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-4 mt-auto border-t border-border/40">
+                <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
+                  <Link href="/hash-generator">
+                    Open Tool
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
           </div>
         </div>
       </section>
