@@ -18,6 +18,7 @@ const Header = () => {
     { name: 'JWT Decoder', path: '/jwt-decoder' },
     { name: 'Unix Timestamp', path: '/unix-timestamp' },
     { name: 'URL Encoder', path: '/url-encoder' },
+    { name: 'Hash Generator', path: '/hash-generator' },
   ];
 
   return (
