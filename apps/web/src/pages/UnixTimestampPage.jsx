@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Clock, Calendar, ArrowRightLeft, ArrowRight, CheckCircle2, FileJson, Hash, ShieldCheck, Zap } from 'lucide-react';
+import { Copy, Clock, Calendar, ArrowRightLeft, ArrowRight, CheckCircle2, FileJson, Hash, ShieldCheck, Zap, Clipboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -119,6 +119,18 @@ const UnixTimestampPage = () => {
     toast({ title: `${label} copied to clipboard` });
   };
 
+  const handlePasteFromClipboard = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text.trim()) {
+        convertFromTimestamp(text.trim());
+        toast({ title: 'Pasted from clipboard' });
+      }
+    } catch {
+      toast({ title: 'Clipboard access denied', description: 'Allow clipboard access in your browser and try again.', variant: 'destructive' });
+    }
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
@@ -188,7 +200,11 @@ const UnixTimestampPage = () => {
           className="space-y-6"
         >
           {/* Current Timestamp Button */}
-          <motion.div variants={itemVariants} className="flex justify-end">
+          <motion.div variants={itemVariants} className="flex justify-end gap-2">
+            <Button onClick={handlePasteFromClipboard} variant="outline" className="gap-2">
+              <Clipboard className="w-4 h-4" />
+              Paste from Clipboard
+            </Button>
             <Button onClick={handleCurrentTimestamp} variant="outline" className="gap-2">
               <Zap className="w-4 h-4" />
               Current Timestamp
