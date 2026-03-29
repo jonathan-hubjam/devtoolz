@@ -17,6 +17,7 @@ const Header = () => {
     { name: 'Base64 Encoder', path: '/base64-encoder' },
     { name: 'JWT Decoder', path: '/jwt-decoder' },
     { name: 'Unix Timestamp', path: '/unix-timestamp' },
+    { name: 'URL Encoder', path: '/url-encoder' },
   ];
 
   return (

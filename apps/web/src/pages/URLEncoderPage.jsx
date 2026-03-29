@@ -2,92 +2,70 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Trash2, FileText, Hash, AlertCircle, CheckCircle2, ArrowRightLeft, ArrowRight, ShieldCheck, FileJson, Clock, Link2 } from 'lucide-react';
+import { Copy, Trash2, Link2, AlertCircle, CheckCircle2, ArrowRightLeft, ArrowRight, ShieldCheck, FileJson, Hash, Clock, Clipboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
 
-const Base64EncoderPage = () => {
-  const [plainText, setPlainText] = useState('');
-  const [base64Text, setBase64Text] = useState('');
+const URLEncoderPage = () => {
+  const [rawText, setRawText] = useState('');
+  const [encodedText, setEncodedText] = useState('');
   const [error, setError] = useState('');
   const { toast } = useToast();
 
-  const handlePlainChange = (e) => {
+  const handleRawChange = (e) => {
     const val = e.target.value;
-    setPlainText(val);
+    setRawText(val);
     setError('');
-    
-    if (!val) {
-      setBase64Text('');
-      return;
-    }
-
-    try {
-      // Handle unicode characters properly
-      const encoded = btoa(unescape(encodeURIComponent(val)));
-      setBase64Text(encoded);
-    } catch (err) {
-      setError('Failed to encode text. Contains unsupported characters.');
-    }
+    if (!val) { setEncodedText(''); return; }
+    setEncodedText(encodeURIComponent(val));
   };
 
-  const handleBase64Change = (e) => {
+  const handleEncodedChange = (e) => {
     const val = e.target.value;
-    setBase64Text(val);
+    setEncodedText(val);
     setError('');
-    
-    if (!val) {
-      setPlainText('');
-      return;
-    }
-
+    if (!val) { setRawText(''); return; }
     try {
-      // Handle unicode characters properly
-      const decoded = decodeURIComponent(escape(atob(val)));
-      setPlainText(decoded);
-    } catch (err) {
-      setError('Invalid Base64 string.');
+      setRawText(decodeURIComponent(val));
+    } catch {
+      setError('Invalid URL-encoded string. Check for malformed percent sequences.');
     }
   };
 
   const handleCopy = (text, type) => {
     if (!text) return;
     navigator.clipboard.writeText(text);
-    toast({
-      title: 'Copied to clipboard',
-      description: `${type} has been copied successfully.`,
-    });
+    toast({ title: 'Copied to clipboard', description: `${type} has been copied successfully.` });
+  };
+
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (text.trim()) {
+        handleRawChange({ target: { value: text.trim() } });
+        toast({ title: 'Pasted from clipboard' });
+      }
+    } catch {
+      toast({ title: 'Clipboard access denied', description: 'Allow clipboard access in your browser and try again.', variant: 'destructive' });
+    }
   };
 
   const handleClear = () => {
-    setPlainText('');
-    setBase64Text('');
+    setRawText('');
+    setEncodedText('');
     setError('');
-    toast({
-      title: 'Cleared',
-      description: 'Input fields have been cleared.',
-    });
+    toast({ title: 'Cleared', description: 'Input fields have been cleared.' });
   };
 
   const containerVariants = {
     hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.1
-      }
-    }
+    visible: { opacity: 1, transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
   };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.4, ease: 'easeOut' }
-    }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: 'easeOut' } },
   };
 
   return (
@@ -96,21 +74,16 @@ const Base64EncoderPage = () => {
       <div className="relative overflow-hidden bg-[#0B1120] border-b border-slate-800/50 pt-12">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-emerald-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-teal-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          
-          {/* Abstract Base64 Background Elements */}
+          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-cyan-600/10 rounded-full blur-[120px] mix-blend-screen" />
+          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-sky-600/10 rounded-full blur-[120px] mix-blend-screen" />
           <div className="absolute top-1/4 left-[10%] text-slate-600/20 font-mono text-xs select-none transform -rotate-12 tracking-widest">
-            SGVsbG8gV29ybGQ=
+            https%3A%2F%2Fexample.com
           </div>
           <div className="absolute bottom-1/3 right-[15%] text-slate-600/20 font-mono text-xs select-none transform rotate-6 tracking-widest">
-            QmFzZTY0IEVuY29kaW5n
-          </div>
-          <div className="absolute top-1/2 right-[30%] text-slate-600/10 font-mono text-lg select-none transform -rotate-6 tracking-widest">
-            01000010 01100001
+            hello%20world%21
           </div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -119,26 +92,26 @@ const Base64EncoderPage = () => {
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-tight">
-              Base64 Encoder & Decoder
+              URL Encoder & Decoder
             </h1>
             <div className="max-w-2xl mx-auto">
               <p className="text-lg text-gray-600">
-                Encode and decode Base64 instantly with this free online tool. Convert plain text to Base64 or decode Base64 strings for use in APIs, data transfer, and debugging.
+                Encode and decode URLs instantly. Convert special characters to percent-encoded format or decode encoded URLs back to readable text.
               </p>
             </div>
-            
+
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-sm text-slate-300 font-medium">
               <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
                 <span>Two-way sync</span>
               </div>
               <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>UTF-8 support</span>
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                <span>RFC 3986 compliant</span>
               </div>
               <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
-                <span>Client-side only</span>
+                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
+                <span>No data stored</span>
               </div>
             </div>
           </motion.div>
@@ -153,55 +126,46 @@ const Base64EncoderPage = () => {
           animate="visible"
           className="space-y-6"
         >
-          <div className="flex justify-end mb-4">
-            <Button
-              onClick={handleClear}
-              variant="outline"
-              className="gap-2"
-              disabled={!plainText && !base64Text}
-            >
+          <div className="flex justify-end gap-2">
+            <Button onClick={handlePaste} variant="outline" className="gap-2">
+              <Clipboard className="w-4 h-4" />
+              Paste from Clipboard
+            </Button>
+            <Button onClick={handleClear} variant="outline" className="gap-2" disabled={!rawText && !encodedText}>
               <Trash2 className="w-4 h-4" />
               Clear Both
             </Button>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 relative">
-            {/* Desktop Swap Icon Indicator */}
+            {/* Swap icon */}
             <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-10 h-10 bg-background border-2 rounded-full items-center justify-center shadow-sm text-muted-foreground">
               <ArrowRightLeft className="w-4 h-4" />
             </div>
 
-            {/* Plain Text Card */}
+            {/* Raw Text Card */}
             <motion.div variants={itemVariants}>
               <Card className="border-2 shadow-lg h-full flex flex-col">
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-2 text-xl">
                       <div className="p-2 rounded-lg icon-primary">
-                        <FileText className="w-5 h-5" />
+                        <Link2 className="w-5 h-5" />
                       </div>
-                      Plain Text
+                      Raw Text
                     </CardTitle>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => handleCopy(plainText, 'Plain text')}
-                      disabled={!plainText}
-                      className="gap-1.5"
-                    >
+                    <Button size="sm" variant="ghost" onClick={() => handleCopy(rawText, 'Raw text')} disabled={!rawText} className="gap-1.5">
                       <Copy className="w-3.5 h-3.5" />
                       Copy
                     </Button>
                   </div>
-                  <CardDescription>
-                    Type or paste plain text here to encode it
-                  </CardDescription>
+                  <CardDescription>Type or paste your URL or text to encode</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col">
                   <textarea
-                    value={plainText}
-                    onChange={handlePlainChange}
-                    placeholder="Enter plain text here..."
+                    value={rawText}
+                    onChange={handleRawChange}
+                    placeholder="e.g. https://example.com/search?q=hello world&lang=en"
                     className="w-full flex-grow min-h-[300px] p-4 rounded-lg border-2 border-input bg-background text-foreground font-mono text-sm resize-y focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent transition-all placeholder:text-muted-foreground"
                     spellCheck="false"
                   />
@@ -209,46 +173,38 @@ const Base64EncoderPage = () => {
               </Card>
             </motion.div>
 
-            {/* Base64 Card */}
+            {/* Encoded Card */}
             <motion.div variants={itemVariants}>
               <Card className={`border-2 shadow-lg h-full flex flex-col transition-colors ${error ? 'border-destructive/50' : ''}`}>
                 <CardHeader className="pb-4">
                   <div className="flex items-center justify-between">
                     <CardTitle className="flex items-center gap-2 text-xl">
                       <div className="p-2 rounded-lg icon-success">
-                        <Hash className="w-5 h-5" />
+                        <Link2 className="w-5 h-5" />
                       </div>
-                      Base64 String
+                      Encoded URL
                     </CardTitle>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      onClick={() => handleCopy(base64Text, 'Base64 string')}
-                      disabled={!base64Text || !!error}
-                      className="gap-1.5"
-                    >
+                    <Button size="sm" variant="ghost" onClick={() => handleCopy(encodedText, 'Encoded URL')} disabled={!encodedText || !!error} className="gap-1.5">
                       <Copy className="w-3.5 h-3.5" />
                       Copy
                     </Button>
                   </div>
-                  <CardDescription>
-                    Type or paste Base64 here to decode it
-                  </CardDescription>
+                  <CardDescription>Type or paste an encoded URL to decode it</CardDescription>
                 </CardHeader>
                 <CardContent className="flex-grow flex flex-col space-y-4">
                   <div className="relative flex-grow flex flex-col">
                     <textarea
-                      value={base64Text}
-                      onChange={handleBase64Change}
-                      placeholder="Enter Base64 string here..."
+                      value={encodedText}
+                      onChange={handleEncodedChange}
+                      placeholder="e.g. https%3A%2F%2Fexample.com%2Fsearch%3Fq%3Dhello%20world"
                       className={`w-full flex-grow min-h-[300px] p-4 rounded-lg border-2 bg-background text-foreground font-mono text-sm resize-y focus:outline-none focus:ring-2 transition-all placeholder:text-muted-foreground ${
-                        error 
-                          ? 'border-destructive focus:ring-destructive focus:border-transparent' 
+                        error
+                          ? 'border-destructive focus:ring-destructive focus:border-transparent'
                           : 'border-input focus:ring-primary focus:border-transparent'
                       }`}
                       spellCheck="false"
                     />
-                    {base64Text && !error && (
+                    {encodedText && !error && (
                       <div className="absolute top-3 right-3">
                         <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                       </div>
@@ -278,10 +234,18 @@ const Base64EncoderPage = () => {
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <Link href="/base64-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Hash className="w-5 h-5 text-green-500" />
+                Base64 Encoder
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
+            </Link>
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-blue-500" />
-                JWT Decoder 
+                JWT Decoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
@@ -292,7 +256,7 @@ const Base64EncoderPage = () => {
                 JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly with syntax highlighting.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -301,14 +265,6 @@ const Base64EncoderPage = () => {
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
-            </Link>
-            <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
-                <Link2 className="w-5 h-5 text-cyan-500" />
-                URL Encoder
-                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-              </h3>
-              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
           </div>
         </div>
@@ -319,10 +275,10 @@ const Base64EncoderPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
             <p className="text-sm text-muted-foreground">
-              <span className="font-semibold text-foreground">What is Base64?</span> Base64 is a group of binary-to-text encoding schemes that represent binary data in an ASCII string format.
+              <span className="font-semibold text-foreground">What is URL encoding?</span> URL encoding (percent-encoding) replaces unsafe ASCII characters with a "%" followed by two hexadecimal digits, ensuring URLs are transmitted correctly over the internet.
             </p>
             <p className="text-xs text-muted-foreground">
-              It is commonly used to encode data that needs to be stored and transferred over media that are designed to deal with text.
+              Uses <code className="font-mono">encodeURIComponent</code> / <code className="font-mono">decodeURIComponent</code> — all conversions happen locally in your browser.
             </p>
           </div>
         </div>
@@ -331,4 +287,4 @@ const Base64EncoderPage = () => {
   );
 };
 
-export default Base64EncoderPage;
+export default URLEncoderPage;
