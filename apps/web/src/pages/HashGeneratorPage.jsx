@@ -75,12 +75,11 @@ const HashGeneratorPage = () => {
   const { toast } = useToast();
 
   const runHashes = useCallback(async (text) => {
-    if (!text) { setHashes(null); return; }
     const result = await computeHashes(text);
     setHashes(result);
   }, []);
 
-  useEffect(() => { runHashes(input); }, [input, runHashes]);
+  useEffect(() => { runHashes(input); }, [input, runHashes]); // runs on mount with '' to show empty-string hashes
 
   const handlePaste = async () => {
     try {
@@ -91,7 +90,7 @@ const HashGeneratorPage = () => {
     }
   };
 
-  const handleClear = () => { setInput(''); setHashes(null); toast({ title: 'Cleared' }); };
+  const handleClear = () => { setInput(''); toast({ title: 'Cleared' }); };
 
   const handleCopy = (text, label) => {
     navigator.clipboard.writeText(text);
@@ -202,7 +201,7 @@ const HashGeneratorPage = () => {
                   </div>
                   Input Text
                 </CardTitle>
-                <CardDescription>Type or paste the text you want to hash</CardDescription>
+                <CardDescription>Type or paste the text you want to hash — empty input produces a valid hash</CardDescription>
               </CardHeader>
               <CardContent>
                 <textarea
