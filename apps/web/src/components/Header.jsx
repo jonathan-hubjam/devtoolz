@@ -16,6 +16,7 @@ const Header = () => {
     { name: 'JSON Formatter', path: '/json-formatter' },
     { name: 'Base64 Encoder', path: '/base64-encoder' },
     { name: 'JWT Decoder', path: '/jwt-decoder' },
+    { name: 'Unix Timestamp', path: '/unix-timestamp' },
   ];
 
   return (
