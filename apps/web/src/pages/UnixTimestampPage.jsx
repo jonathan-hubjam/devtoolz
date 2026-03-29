@@ -10,7 +10,8 @@ import { cn } from '@/lib/utils';
 
 const toMs = (val) => {
   const num = parseInt(val, 10);
-  return val.trim().length >= 13 ? num : num * 1000;
+  const digits = val.trim().replace('-', '').length;
+  return digits >= 13 ? num : num * 1000;
 };
 
 const toDatetimeLocal = (date) =>
@@ -51,7 +52,7 @@ const UnixTimestampPage = () => {
       return;
     }
 
-    if (!/^\d+$/.test(val.trim())) {
+    if (!/^-?\d+$/.test(val.trim())) {
       setError('Please enter a valid numeric Unix timestamp.');
       setResult(null);
       return;
