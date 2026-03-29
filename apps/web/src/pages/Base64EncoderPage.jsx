@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Trash2, FileText, Hash, AlertCircle, CheckCircle2, ArrowRightLeft, ArrowRight, ShieldCheck, FileJson } from 'lucide-react';
+import { Copy, Trash2, FileText, Hash, AlertCircle, CheckCircle2, ArrowRightLeft, ArrowRight, ShieldCheck, FileJson, Clock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -289,10 +289,18 @@ const Base64EncoderPage = () => {
             <Link href="/json-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-purple-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <FileJson className="w-5 h-5 text-purple-500" />
-                JSON Formatter 
+                JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly with syntax highlighting.</p>
+            </Link>
+            <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Clock className="w-5 h-5 text-amber-500" />
+                Unix Timestamp
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
           </div>
         </div>
