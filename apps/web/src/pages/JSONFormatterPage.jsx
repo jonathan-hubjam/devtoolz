@@ -365,6 +365,20 @@ const JSONFormatterPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Info Section */}
+      <div className="border-t bg-muted/30 mt-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <div className="text-center space-y-2">
+            <p className="text-sm text-muted-foreground">
+              <span className="font-semibold text-foreground">JSON formatting:</span> JSON (JavaScript Object Notation) is a lightweight data-interchange format. Formatting adds indentation for readability; minifying removes it to reduce file size.
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Uses the browser's native <code className="font-mono">JSON.parse</code> and <code className="font-mono">JSON.stringify</code> — all processing happens locally, nothing is sent to a server.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
