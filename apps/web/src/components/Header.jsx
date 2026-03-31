@@ -19,6 +19,7 @@ const Header = () => {
     { name: 'Unix Timestamp', path: '/unix-timestamp' },
     { name: 'URL Encoder', path: '/url-encoder' },
     { name: 'Hash Generator', path: '/hash-generator' },
+    { name: 'JSON ↔ YAML', path: '/json-yaml-converter' },
   ];
 
   return (

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Clock, Calendar, ArrowRightLeft, ArrowRight, CheckCircle2, FileJson, Hash, ShieldCheck, Zap, Clipboard, Link2, Fingerprint } from 'lucide-react';
+import { Copy, Clock, Calendar, ArrowRightLeft, ArrowRight, CheckCircle2, FileJson, Hash, ShieldCheck, Zap, Clipboard, Link2, Fingerprint, FileCode } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -405,6 +405,14 @@ const UnixTimestampPage = () => {
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+            </Link>
+            <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <FileCode className="w-5 h-5 text-indigo-500" />
+                JSON ↔ YAML
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
           </div>
         </div>

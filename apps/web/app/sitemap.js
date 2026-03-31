@@ -9,6 +9,7 @@ export default function sitemap() {
     '/unix-timestamp',
     '/url-encoder',
     '/hash-generator',
+    '/json-yaml-converter',
   ];
 
   return routes.map((route) => ({
