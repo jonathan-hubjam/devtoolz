@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash, Clock, Link2, Fingerprint, FileCode } from 'lucide-react';
+import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash, Clock, Link2, Fingerprint, FileCode, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 
@@ -339,6 +339,43 @@ const HomePage = () => {
               <CardFooter className="pt-4 mt-auto border-t border-border/40">
                 <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
                   <Link href="/json-yaml-converter">
+                    Open Tool
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+
+            <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-orange-500/30 group">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-orange-500/10 text-orange-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Search className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-xl">Regex Tester</CardTitle>
+                <CardDescription className="text-sm mt-2">
+                  Test and debug JavaScript regular expressions with live match highlighting. Supports g, i, and m flags.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500/50" />
+                    Live match highlighting
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500/50" />
+                    g, i, m flag toggles
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-orange-500/50" />
+                    Match count summary
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-4 mt-auto border-t border-border/40">
+                <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
+                  <Link href="/regex-tester">
                     Open Tool
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>

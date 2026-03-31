@@ -20,6 +20,7 @@ const Header = () => {
     { name: 'URL Encoder', path: '/url-encoder' },
     { name: 'Hash Generator', path: '/hash-generator' },
     { name: 'JSON ↔ YAML', path: '/json-yaml-converter' },
+    { name: 'Regex Tester', path: '/regex-tester' },
   ];
 
   return (

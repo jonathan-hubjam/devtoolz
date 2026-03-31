@@ -10,6 +10,7 @@ export default function sitemap() {
     '/url-encoder',
     '/hash-generator',
     '/json-yaml-converter',
+    '/regex-tester',
   ];
 
   return routes.map((route) => ({
