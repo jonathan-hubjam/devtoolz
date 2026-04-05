@@ -7,71 +7,110 @@ import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 
+function parseJsonError(err, text) {
+  const msg = err.message;
+
+  // Chrome: "Unexpected token 'x', ..."xyz"..." at position 5"
+  const posMatch = msg.match(/at position (\d+)/);
+  if (posMatch) {
+    const pos = parseInt(posMatch[1]);
+    const before = text.slice(0, pos);
+    const lines = before.split('\n');
+    const line = lines.length;
+    const col = lines[lines.length - 1].length + 1;
+    return `Unexpected token at line ${line}, column ${col}`;
+  }
+
+  // Firefox: "at line X column Y of the JSON data"
+  const lineColMatch = msg.match(/line (\d+) column (\d+)/);
+  if (lineColMatch) {
+    return `Unexpected token at line ${lineColMatch[1]}, column ${lineColMatch[2]}`;
+  }
+
+  // Clean up common patterns
+  if (/unexpected end/i.test(msg)) return 'Unexpected end of input — check for unclosed brackets or braces';
+  if (/unexpected token/i.test(msg)) return 'Unexpected token — check for missing quotes, commas, or colons';
+
+  return msg.replace(/^JSON\.parse:\s*/i, '').replace(/\s+of the JSON data\.?$/i, '');
+}
+
+function formatBytes(bytes) {
+  if (bytes < 1024) return `${bytes} B`;
+  return `${(bytes / 1024).toFixed(1)} KB`;
+}
+
+function sortKeysDeep(value) {
+  if (Array.isArray(value)) return value.map(sortKeysDeep);
+  if (value !== null && typeof value === 'object') {
+    return Object.fromEntries(
+      Object.keys(value).sort().map((k) => [k, sortKeysDeep(value[k])])
+    );
+  }
+  return value;
+}
+
+const INDENT_OPTIONS = [
+  { label: '2', value: 2 },
+  { label: '4', value: 4 },
+  { label: '⇥', value: '\t' },
+];
+
 const JSONFormatterPage = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
   const [error, setError] = useState(null);
-  const [mode, setMode] = useState('format'); // 'format' or 'minify'
+  const [mode, setMode] = useState('format'); // 'format' | 'minify'
+  const [indent, setIndent] = useState(2);
+  const [sortKeys, setSortKeys] = useState(false);
+  const [sizeInfo, setSizeInfo] = useState(null); // { from, to }
   const { toast } = useToast();
 
-  // Real-time validation and auto-formatting
   useEffect(() => {
     if (!input.trim()) {
       setOutput('');
       setError(null);
+      setSizeInfo(null);
       return;
     }
 
     try {
-      const parsed = JSON.parse(input);
+      let parsed = JSON.parse(input);
       setError(null);
-      
-      // Auto-format based on current mode
+
       if (mode === 'format') {
-        setOutput(JSON.stringify(parsed, null, 2));
+        if (sortKeys) parsed = sortKeysDeep(parsed);
+        setOutput(JSON.stringify(parsed, null, indent));
+        setSizeInfo(null);
       } else {
-        setOutput(JSON.stringify(parsed));
+        const minified = JSON.stringify(parsed);
+        setOutput(minified);
+        setSizeInfo({
+          from: new Blob([input]).size,
+          to: new Blob([minified]).size,
+        });
       }
     } catch (err) {
-      setError(err.message);
-      // We intentionally don't clear the output here so the user doesn't 
-      // lose their formatted view while actively typing/fixing a small typo.
+      setError(parseJsonError(err, input));
     }
-  }, [input, mode]);
+  }, [input, mode, indent, sortKeys]);
 
   const handleFormat = () => {
     setMode('format');
     if (!input.trim()) return;
-    
     try {
-      const parsed = JSON.parse(input);
-      setOutput(JSON.stringify(parsed, null, 2));
-      setError(null);
+      JSON.parse(input);
     } catch (err) {
-      setError(err.message);
-      toast({
-        title: "Invalid JSON",
-        description: "Cannot format invalid JSON. Please fix the errors first.",
-        variant: "destructive",
-      });
+      toast({ title: 'Invalid JSON', description: 'Fix the errors before formatting.', variant: 'destructive' });
     }
   };
 
   const handleMinify = () => {
     setMode('minify');
     if (!input.trim()) return;
-    
     try {
-      const parsed = JSON.parse(input);
-      setOutput(JSON.stringify(parsed));
-      setError(null);
+      JSON.parse(input);
     } catch (err) {
-      setError(err.message);
-      toast({
-        title: "Invalid JSON",
-        description: "Cannot minify invalid JSON. Please fix the errors first.",
-        variant: "destructive",
-      });
+      toast({ title: 'Invalid JSON', description: 'Fix the errors before minifying.', variant: 'destructive' });
     }
   };
 
@@ -79,24 +118,13 @@ const JSONFormatterPage = () => {
     try {
       const text = await navigator.clipboard.readText();
       if (!text) {
-        toast({
-          title: "Clipboard empty",
-          description: "There is no text in your clipboard to paste.",
-          variant: "destructive",
-        });
+        toast({ title: 'Clipboard empty', description: 'There is no text in your clipboard to paste.', variant: 'destructive' });
         return;
       }
       setInput(text);
-      toast({
-        title: "Pasted successfully",
-        description: "Content pasted from clipboard and auto-formatted.",
-      });
-    } catch (err) {
-      toast({
-        title: "Paste failed",
-        description: "Clipboard is empty or inaccessible. Please check your browser permissions.",
-        variant: "destructive",
-      });
+      toast({ title: 'Pasted successfully', description: 'Content pasted from clipboard and auto-formatted.' });
+    } catch {
+      toast({ title: 'Paste failed', description: 'Clipboard is empty or inaccessible.', variant: 'destructive' });
     }
   };
 
@@ -104,39 +132,29 @@ const JSONFormatterPage = () => {
     setInput('');
     setOutput('');
     setError(null);
-    toast({
-      title: "Cleared",
-      description: "Input and output have been cleared.",
-    });
+    setSizeInfo(null);
+    toast({ title: 'Cleared', description: 'Input and output have been cleared.' });
   };
 
   const handleCopy = async () => {
     if (!output) return;
     try {
       await navigator.clipboard.writeText(output);
-      toast({
-        title: "Copied to clipboard",
-        description: "The JSON output has been copied to your clipboard.",
-      });
-    } catch (err) {
-      toast({
-        title: "Failed to copy",
-        description: "Could not copy text to clipboard.",
-        variant: "destructive",
-      });
+      toast({ title: 'Copied to clipboard', description: 'The JSON output has been copied to your clipboard.' });
+    } catch {
+      toast({ title: 'Failed to copy', description: 'Could not copy text to clipboard.', variant: 'destructive' });
     }
   };
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Header Section matching JWT Decoder */}
+      {/* Hero */}
       <div className="relative overflow-hidden bg-[#0B1120] border-b border-slate-800/50 pt-12">
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
           <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen" />
           <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-indigo-600/10 rounded-full blur-[120px] mix-blend-screen" />
           <div className="absolute top-[20%] left-[40%] w-[20%] h-[40%] bg-cyan-500/5 rounded-full blur-[80px] mix-blend-screen" />
-          
           <div className="absolute top-1/4 right-[15%] text-slate-600/20 font-mono text-[10px] select-none transform rotate-6 tracking-widest">
             {`{"format": "json", "valid": true}`}
           </div>
@@ -144,7 +162,7 @@ const JSONFormatterPage = () => {
             {`[\n  "beautify",\n  "minify"\n]`}
           </div>
         </div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -160,7 +178,7 @@ const JSONFormatterPage = () => {
                 Format, validate, and beautify JSON instantly with this free online JSON formatter. Paste your JSON to make it readable, fix errors, and structure your data for easier debugging and development.
               </p>
             </div>
-            
+
             <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-sm text-slate-300 font-medium">
               <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
                 <CheckCircle2 className="w-4 h-4 text-blue-400" />
@@ -182,8 +200,8 @@ const JSONFormatterPage = () => {
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-16">
-          
-          {/* Input Section */}
+
+          {/* Input */}
           <div className="flex flex-col h-[600px]">
             <div className="flex items-center justify-between h-8 mb-3">
               <label className="text-sm font-medium flex items-center gap-2">
@@ -194,17 +212,17 @@ const JSONFormatterPage = () => {
               </label>
               <div className="flex items-center gap-2">
                 {error ? (
-                  <span className="flex items-center text-xs text-destructive bg-destructive/10 px-2 py-1 rounded-md transition-all">
+                  <span className="flex items-center text-xs text-destructive bg-destructive/10 px-2 py-1 rounded-md">
                     <AlertCircle className="w-3 h-3 mr-1" /> Invalid
                   </span>
                 ) : input.trim() ? (
-                  <span className="flex items-center text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-md transition-all">
+                  <span className="flex items-center text-xs text-green-600 dark:text-green-400 bg-green-100 dark:bg-green-900/30 px-2 py-1 rounded-md">
                     <CheckCircle2 className="w-3 h-3 mr-1" /> Valid JSON
                   </span>
                 ) : null}
               </div>
             </div>
-            
+
             <textarea
               value={input}
               onChange={(e) => setInput(e.target.value)}
@@ -215,64 +233,83 @@ const JSONFormatterPage = () => {
               )}
               spellCheck="false"
             />
-            
-            <div className="mt-0">
-              <div className="mb-2">
-                {error && (
-                  <div className="text-sm text-destructive flex items-center animate-in fade-in slide-in-from-top-1 py-1">
-                    <AlertCircle className="w-4 h-4 mr-1.5 shrink-0" />
-                    <span className="truncate">{error}</span>
-                  </div>
-                )}
-              </div>
-              
-              <div className="flex flex-wrap lg:flex-nowrap gap-3">
-                <Button 
-                  onClick={handlePaste} 
-                  variant="default" 
-                  className="flex-1 lg:flex-none whitespace-nowrap"
-                >
-                  <Clipboard className="w-4 h-4 mr-2" /> Paste from Clipboard
+
+            <div className="mt-2 space-y-2">
+              {error && (
+                <div className="text-sm text-destructive flex items-center animate-in fade-in slide-in-from-top-1">
+                  <AlertCircle className="w-4 h-4 mr-1.5 shrink-0" />
+                  <span>{error}</span>
+                </div>
+              )}
+
+              {/* Primary actions */}
+              <div className="flex flex-wrap lg:flex-nowrap gap-2">
+                <Button onClick={handlePaste} variant="default" className="flex-1 lg:flex-none whitespace-nowrap">
+                  <Clipboard className="w-4 h-4 mr-2" /> Paste
                 </Button>
-                <Button 
-                  onClick={handleFormat} 
-                  variant={mode === 'format' ? 'secondary' : 'outline'} 
-                  disabled={!input.trim()} 
-                  className="flex-1 lg:flex-none whitespace-nowrap"
-                >
+                <Button onClick={handleFormat} variant={mode === 'format' ? 'secondary' : 'outline'} disabled={!input.trim()} className="flex-1 lg:flex-none whitespace-nowrap">
                   <AlignLeft className="w-4 h-4 mr-2" /> Format
                 </Button>
-                <Button 
-                  onClick={handleMinify} 
-                  variant={mode === 'minify' ? 'secondary' : 'outline'} 
-                  disabled={!input.trim()} 
-                  className="flex-1 lg:flex-none whitespace-nowrap"
-                >
+                <Button onClick={handleMinify} variant={mode === 'minify' ? 'secondary' : 'outline'} disabled={!input.trim()} className="flex-1 lg:flex-none whitespace-nowrap">
                   <Minimize2 className="w-4 h-4 mr-2" /> Minify
                 </Button>
-                <Button 
-                  onClick={handleClear} 
-                  variant="ghost" 
-                  disabled={!input.trim() && !output} 
-                  className="flex-1 lg:flex-none whitespace-nowrap text-muted-foreground hover:text-destructive hover:bg-destructive/10"
-                >
+                <Button onClick={handleClear} variant="ghost" disabled={!input.trim() && !output} className="flex-1 lg:flex-none whitespace-nowrap text-muted-foreground hover:text-destructive hover:bg-destructive/10">
                   <Trash2 className="w-4 h-4 mr-2" /> Clear
                 </Button>
+              </div>
+
+              {/* Secondary options — indent + sort keys */}
+              <div className="flex items-center gap-4 pt-1">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xs text-muted-foreground">Indent:</span>
+                  {INDENT_OPTIONS.map((opt) => (
+                    <button
+                      key={opt.label}
+                      onClick={() => { setIndent(opt.value); if (mode !== 'format') setMode('format'); }}
+                      className={cn(
+                        "px-2 py-0.5 text-xs rounded border font-mono transition-colors",
+                        indent === opt.value
+                          ? "bg-primary text-primary-foreground border-primary"
+                          : "border-border text-muted-foreground hover:border-primary/50 hover:text-foreground"
+                      )}
+                    >
+                      {opt.label}
+                    </button>
+                  ))}
+                </div>
+
+                <label className="flex items-center gap-1.5 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={sortKeys}
+                    onChange={(e) => setSortKeys(e.target.checked)}
+                    className="rounded border-border accent-primary w-3.5 h-3.5"
+                  />
+                  <span className="text-xs text-muted-foreground">Sort keys</span>
+                </label>
               </div>
             </div>
           </div>
 
-          {/* Output Section */}
+          {/* Output */}
           <div className="flex flex-col h-[600px]">
             <div className="flex items-center justify-between h-8 mb-3">
               <label className="text-sm font-medium flex items-center gap-2">
                 <div className="p-1.5 rounded-md icon-success">
                   <FileCode className="w-4 h-4" />
                 </div>
-                Output <span className="text-muted-foreground font-normal ml-1">({mode === 'format' ? 'Formatted' : 'Minified'})</span>
+                Output
+                <span className="text-muted-foreground font-normal">
+                  ({mode === 'format' ? 'Formatted' : 'Minified'})
+                </span>
               </label>
+              {sizeInfo && (
+                <span className="text-xs text-muted-foreground font-mono">
+                  {formatBytes(sizeInfo.from)} → {formatBytes(sizeInfo.to)}
+                </span>
+              )}
             </div>
-            
+
             <textarea
               value={output}
               readOnly
@@ -283,23 +320,16 @@ const JSONFormatterPage = () => {
               )}
               spellCheck="false"
             />
-            
-            <div className="mt-0">
-              <div className="mb-2"></div>
-              
-              <div className="flex justify-center gap-3">
-                <Button 
-                  onClick={handleCopy} 
-                  variant="default" 
-                  disabled={!output}
-                  className="px-8 whitespace-nowrap"
-                >
+
+            <div className="mt-2">
+              <div className="flex justify-center">
+                <Button onClick={handleCopy} variant="default" disabled={!output} className="px-8 whitespace-nowrap">
                   <Copy className="w-4 h-4 mr-2" /> Copy
                 </Button>
               </div>
             </div>
           </div>
-          
+
         </div>
 
         {/* Related Tools */}
