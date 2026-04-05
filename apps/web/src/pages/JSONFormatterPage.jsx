@@ -318,6 +318,7 @@ const JSONFormatterPage = () => {
                 "flex-1 w-full p-4 font-mono text-sm bg-muted/50 border rounded-lg resize-none focus:outline-none transition-colors",
                 error ? "border-destructive/30 text-muted-foreground" : "border-border text-foreground"
               )}
+              style={{ tabSize: indent === '\t' ? 8 : undefined }}
               spellCheck="false"
             />
 
