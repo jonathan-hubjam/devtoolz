@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Trash2, AlignLeft, Minimize2, AlertCircle, CheckCircle2, ArrowRight, Clipboard, FileJson, FileCode, ShieldCheck, Hash, Clock, Link2, Fingerprint, Search } from 'lucide-react';
+import { Copy, Trash2, AlignLeft, Minimize2, AlertCircle, CheckCircle2, ArrowRight, Clipboard, FileJson, FileCode, ShieldCheck, Hash, Clock, Link2, Fingerprint, Search, KeyRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
@@ -392,6 +392,14 @@ const JSONFormatterPage = () => {
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
+            </Link>
+            <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <KeyRound className="w-5 h-5 text-violet-500" />
+                UUID Generator
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
           </div>
         </div>
