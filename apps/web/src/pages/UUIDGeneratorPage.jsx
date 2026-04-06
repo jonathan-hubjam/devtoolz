@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, RefreshCw, Trash2, CheckCircle2, XCircle, ArrowRight, FileJson, Hash, ShieldCheck, Link2, Fingerprint, Search } from 'lucide-react';
+import { Copy, RefreshCw, Trash2, CheckCircle2, XCircle, ArrowRight, FileJson, Hash, ShieldCheck, Link2, Fingerprint, Search, Clipboard, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
@@ -278,9 +278,32 @@ const UUIDGeneratorPage = () => {
           {/* Validate — 1/3 width */}
           <div className="lg:col-span-1">
             <div className="bg-card border rounded-xl p-5 space-y-3 sticky top-24">
-              <div>
-                <h2 className="text-sm font-semibold text-foreground mb-0.5">Validate a UUID</h2>
-                <p className="text-xs text-muted-foreground">Paste any UUID to check if it's valid.</p>
+              <div className="flex items-start justify-between gap-2">
+                <div>
+                  <h2 className="text-sm font-semibold text-foreground mb-0.5">Validate a UUID</h2>
+                  <p className="text-xs text-muted-foreground">Paste any UUID to check if it's valid.</p>
+                </div>
+                <div className="flex gap-1 shrink-0">
+                  <button
+                    onClick={async () => {
+                      try {
+                        const text = await navigator.clipboard.readText();
+                        if (text) setValidateInput(text.trim());
+                      } catch {}
+                    }}
+                    className="p-1.5 rounded text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+                    title="Paste from clipboard"
+                  >
+                    <Clipboard className="w-3.5 h-3.5" />
+                  </button>
+                  <button
+                    onClick={() => setValidateInput('')}
+                    className="p-1.5 rounded text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
+                    title="Clear"
+                  >
+                    <X className="w-3.5 h-3.5" />
+                  </button>
+                </div>
               </div>
               <textarea
                 value={validateInput}
