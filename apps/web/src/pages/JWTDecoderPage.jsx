@@ -150,10 +150,10 @@ const JWTDecoderPage = () => {
     <div className="min-h-screen bg-background">
       {/* Page Header */}
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">JWT Decoder</h1>
           <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens instantly. View headers, payload, and expiration without sending data anywhere.</p>
-          <div className="flex flex-wrap gap-4 mt-2">
+          <div className="flex flex-wrap justify-center gap-4 mt-2">
             <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Real-time decoding</span>
             <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Instant validation</span>
             <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
