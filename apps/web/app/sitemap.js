@@ -11,6 +11,7 @@ export default function sitemap() {
     '/hash-generator',
     '/json-yaml-converter',
     '/regex-tester',
+    '/uuid-generator',
   ];
 
   return routes.map((route) => ({

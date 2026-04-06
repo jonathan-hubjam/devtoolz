@@ -21,6 +21,7 @@ const Header = () => {
     { name: 'Hash Generator', path: '/hash-generator' },
     { name: 'JSON ↔ YAML', path: '/json-yaml-converter' },
     { name: 'Regex Tester', path: '/regex-tester' },
+    { name: 'UUID Generator', path: '/uuid-generator' },
   ];
 
   return (
