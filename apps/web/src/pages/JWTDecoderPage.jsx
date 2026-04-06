@@ -148,70 +148,16 @@ const JWTDecoderPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="relative overflow-hidden bg-[#0B1120] border-b border-slate-800/50 pt-12">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-blue-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-indigo-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute top-[20%] left-[40%] w-[20%] h-[40%] bg-cyan-500/5 rounded-full blur-[80px] mix-blend-screen" />
-          
-          <svg className="absolute top-4 left-10 w-96 h-96 text-slate-700 opacity-[0.15]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="0.5">
-            <path d="M 20 100 L 60 100 L 80 80 L 120 80 L 140 100 L 180 100" strokeDasharray="4 4" />
-            <circle cx="60" cy="100" r="2" fill="currentColor" />
-            <circle cx="140" cy="100" r="2" fill="currentColor" />
-            <path d="M 100 40 L 100 60 L 120 80" />
-            <circle cx="100" cy="40" r="1.5" fill="currentColor" />
-            <rect x="75" y="75" width="10" height="10" transform="rotate(45 80 80)" />
-          </svg>
-
-          <svg className="absolute bottom-4 right-10 w-80 h-80 text-slate-700 opacity-[0.15]" viewBox="0 0 200 200" fill="none" stroke="currentColor" strokeWidth="0.5">
-            <path d="M 180 120 L 140 120 L 120 140 L 80 140 L 60 120 L 20 120" />
-            <circle cx="140" cy="120" r="2" fill="currentColor" />
-            <circle cx="60" cy="120" r="2" fill="currentColor" />
-            <path d="M 100 160 L 100 140 L 80 120" strokeDasharray="2 2" />
-            <circle cx="100" cy="160" r="1.5" fill="currentColor" />
-            <polygon points="120,135 125,140 120,145 115,140" fill="currentColor" />
-          </svg>
-
-          <div className="absolute top-1/4 right-[15%] text-slate-600/20 font-mono text-[10px] select-none transform rotate-6 tracking-widest">
-            {`eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9`}
+      {/* Page Header */}
+      <div className="border-b py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">JWT Decoder</h1>
+          <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens instantly. View headers, payload, and expiration without sending data anywhere.</p>
+          <div className="flex flex-wrap gap-4 mt-2">
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />Real-time decoding</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />Instant validation</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />No data stored</span>
           </div>
-          <div className="absolute bottom-1/3 left-[15%] text-slate-600/20 font-mono text-[10px] select-none transform -rotate-3 tracking-widest">
-            {`HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)`}
-          </div>
-        </div>
-        
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-center"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-tight">
-              JWT Decoder
-            </h1>
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg text-gray-600">
-                Decode and inspect JSON Web Tokens (JWT) instantly. View payload data, expiration times, and token structure to debug authentication and API requests.
-              </p>
-            </div>
-            
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-sm text-slate-300 font-medium">
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                <span>Real-time decoding</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                <span>Instant validation</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-blue-400" />
-                <span>No data stored</span>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
 

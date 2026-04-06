@@ -110,54 +110,18 @@ const HashGeneratorPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero */}
-      <div className="relative overflow-hidden bg-[#0B1120] border-b border-slate-800/50 pt-12">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-rose-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-pink-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute top-1/4 left-[10%] text-slate-600/20 font-mono text-[10px] select-none transform -rotate-12 tracking-widest">
-            5f4dcc3b5aa765d61d8327deb882cf99
+      {/* Page Header */}
+      <div className="border-b py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">Hash Generator</h1>
+          <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly. All hashing happens locally in your browser.</p>
+          <div className="flex flex-wrap gap-4 mt-2">
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />4 algorithms at once</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />Real-time generation</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />No data stored</span>
           </div>
-          <div className="absolute bottom-1/3 right-[12%] text-slate-600/20 font-mono text-[10px] select-none transform rotate-6 tracking-widest">
-            a665a45920422f9d417e4867efdc4fb8
-          </div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-center"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-tight">
-              Hash Generator
-            </h1>
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg text-gray-600">
-                Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly. All hashing happens locally in your browser — nothing is sent anywhere.
-              </p>
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-sm text-slate-300 font-medium">
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-rose-400" />
-                <span>5 algorithms at once</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-rose-400" />
-                <span>Real-time generation</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-rose-400" />
-                <span>No data stored</span>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
-
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <motion.div variants={containerVariants} initial="hidden" animate="visible" className="space-y-6">

@@ -70,54 +70,18 @@ const URLEncoderPage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden bg-[#0B1120] border-b border-slate-800/50 pt-12">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-40 [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)]" />
-          <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[70%] bg-cyan-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute bottom-[-20%] right-[-10%] w-[50%] h-[70%] bg-sky-600/10 rounded-full blur-[120px] mix-blend-screen" />
-          <div className="absolute top-1/4 left-[10%] text-slate-600/20 font-mono text-xs select-none transform -rotate-12 tracking-widest">
-            https%3A%2F%2Fexample.com
+      {/* Page Header */}
+      <div className="border-b py-5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">URL Encoder & Decoder</h1>
+          <p className="text-sm text-muted-foreground">Encode and decode URLs instantly. Convert special characters to percent-encoded format or decode them back.</p>
+          <div className="flex flex-wrap gap-4 mt-2">
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />Two-way sync</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />RFC 3986 compliant</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />No data stored</span>
           </div>
-          <div className="absolute bottom-1/3 right-[15%] text-slate-600/20 font-mono text-xs select-none transform rotate-6 tracking-widest">
-            hello%20world%21
-          </div>
-        </div>
-
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: 'easeOut' }}
-            className="text-center"
-          >
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2 tracking-tight">
-              URL Encoder & Decoder
-            </h1>
-            <div className="max-w-2xl mx-auto">
-              <p className="text-lg text-gray-600">
-                Encode and decode URLs instantly. Convert special characters to percent-encoded format or decode encoded URLs back to readable text.
-              </p>
-            </div>
-
-            <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-3xl mx-auto text-sm text-slate-300 font-medium">
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
-                <span>Two-way sync</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
-                <span>RFC 3986 compliant</span>
-              </div>
-              <div className="flex items-center justify-center gap-2 bg-slate-900/60 px-4 py-2.5 rounded-lg border border-slate-800/60 backdrop-blur-sm shadow-sm">
-                <CheckCircle2 className="w-4 h-4 text-cyan-400" />
-                <span>No data stored</span>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </div>
-
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
         <motion.div
