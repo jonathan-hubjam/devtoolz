@@ -23,6 +23,7 @@ const tools = [
 const Header = () => {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [sheetOpen, setSheetOpen] = useState(false);
   const dropdownRef = useRef(null);
 
   const activeTool = tools.find((t) => t.path === pathname);
@@ -91,7 +92,7 @@ const Header = () => {
 
           {/* Mobile hamburger */}
           <div className="md:hidden flex items-center gap-2">
-            <Sheet>
+            <Sheet open={sheetOpen} onOpenChange={setSheetOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon" aria-label="Open Menu" className="hover:text-primary hover:bg-primary/10">
                   <Menu className="h-5 w-5" />
@@ -109,6 +110,7 @@ const Header = () => {
                       <Link
                         key={tool.path}
                         href={tool.path}
+                        onClick={() => setSheetOpen(false)}
                         className={cn(
                           "px-4 py-3 rounded-md text-sm font-medium transition-colors",
                           pathname === tool.path
