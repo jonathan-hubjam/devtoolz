@@ -71,14 +71,14 @@ const URLEncoderPage = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Page Header */}
-      <div className="border-b py-5">
+      <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1">URL Encoder & Decoder</h1>
-          <p className="text-sm text-muted-foreground">Encode and decode URLs instantly. Convert special characters to percent-encoded format or decode them back.</p>
+          <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">URL Encoder & Decoder</h1>
+          <p className="text-sm text-slate-400">Encode and decode URLs instantly. Convert special characters to percent-encoded format or decode them back.</p>
           <div className="flex flex-wrap gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />Two-way sync</span>
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />RFC 3986 compliant</span>
-            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-primary/60 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Two-way sync</span>
+            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />RFC 3986 compliant</span>
+            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -204,7 +204,7 @@ const URLEncoderPage = () => {
                 Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
+              <p className="text-sm text-slate-400">Encode and decode strings using Base64 encoding.</p>
             </Link>
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -212,7 +212,7 @@ const URLEncoderPage = () => {
                 JWT Decoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
+              <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/json-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-purple-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -220,7 +220,7 @@ const URLEncoderPage = () => {
                 JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
+              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -228,7 +228,7 @@ const URLEncoderPage = () => {
                 Unix Timestamp
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
+              <p className="text-sm text-slate-400">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
             <Link href="/hash-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-rose-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -236,7 +236,7 @@ const URLEncoderPage = () => {
                 Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -244,7 +244,7 @@ const URLEncoderPage = () => {
                 JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -252,7 +252,7 @@ const URLEncoderPage = () => {
                 Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -260,7 +260,7 @@ const URLEncoderPage = () => {
                 UUID Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+              <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
           </div>
         </div>
@@ -270,7 +270,7 @@ const URLEncoderPage = () => {
       <div className="border-t bg-muted/30 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-slate-400">
               <span className="font-semibold text-foreground">What is URL encoding?</span> URL encoding (percent-encoding) replaces unsafe ASCII characters with a "%" followed by two hexadecimal digits, ensuring URLs are transmitted correctly over the internet.
             </p>
             <p className="text-xs text-muted-foreground">
