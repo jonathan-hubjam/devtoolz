@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, RefreshCw, Trash2, CheckCircle2, XCircle, ArrowRight, FileJson, Hash, ShieldCheck, Link2, Fingerprint, Search, Clipboard, X } from 'lucide-react';
+import { Copy, RefreshCw, Trash2, CheckCircle2, XCircle, ArrowRight, FileJson, Hash, ShieldCheck, Link2, Fingerprint, Search, Clipboard } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
@@ -301,7 +301,7 @@ const UUIDGeneratorPage = () => {
                     className="p-1.5 rounded text-muted-foreground hover:text-destructive hover:bg-destructive/10 transition-colors"
                     title="Clear"
                   >
-                    <X className="w-3.5 h-3.5" />
+                    <Trash2 className="w-3.5 h-3.5" />
                   </button>
                 </div>
               </div>
