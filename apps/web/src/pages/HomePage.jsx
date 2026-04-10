@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash, Clock, Link2, Fingerprint, FileCode, Search, KeyRound, GitCompare } from 'lucide-react';
+import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash, Clock, Link2, Fingerprint, FileCode, Search, KeyRound, GitCompare, CaseSensitive } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 
@@ -456,6 +456,42 @@ const HomePage = () => {
               </CardFooter>
             </Card>
 
+
+            <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-sky-500/30 group">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-sky-500/10 text-sky-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <CaseSensitive className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-xl">Case Converter</CardTitle>
+                <CardDescription className="text-sm mt-2">
+                  Convert text to lowercase, UPPERCASE, camelCase, snake_case, kebab-case, and more — all at once.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-sky-500/50" />
+                    10 case formats at once
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-sky-500/50" />
+                    Smart word splitting
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-sky-500/50" />
+                    One-click copy per format
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-4 mt-auto border-t border-border/40">
+                <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
+                  <Link href="/case-converter">
+                    Open Tool
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
 
             <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-green-500/30 group">
               <CardHeader>

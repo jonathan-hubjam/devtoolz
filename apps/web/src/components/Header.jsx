@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 
 const tools = [
   { name: 'Base64 Encoder', path: '/base64-encoder' },
+  { name: 'Case Converter', path: '/case-converter' },
   { name: 'Hash Generator', path: '/hash-generator' },
   { name: 'JSON Formatter', path: '/json-formatter' },
   { name: 'JSON ↔ YAML', path: '/json-yaml-converter' },

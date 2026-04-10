@@ -14,6 +14,7 @@ export default function sitemap() {
     '/regex-tester',
     '/uuid-generator',
     '/text-diff',
+    '/case-converter',
   ];
 
   return routes.map((route) => ({
