@@ -30,6 +30,82 @@ function normalizeForCompare(line, ignoreWS) {
   return ignoreWS ? line.trim().replace(/\s+/g, ' ') : line;
 }
 
+// ─── Character-level inline diff ──────────────────────────────────────────
+// Returns { left: [{text, highlight}], right: [{text, highlight}] }
+// or null if lines are too long / too dissimilar to be worth showing.
+function charDiff(a, b) {
+  if (a.length > 400 || b.length > 400) return null;
+  const m = a.length, n = b.length;
+
+  const dp = Array.from({ length: m + 1 }, () => new Int32Array(n + 1));
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      dp[i][j] = a[i - 1] === b[j - 1]
+        ? dp[i - 1][j - 1] + 1
+        : Math.max(dp[i - 1][j], dp[i][j - 1]);
+    }
+  }
+
+  // Skip inline diff if lines share less than 20% similarity — the whole-line
+  // colour is cleaner when lines are completely different.
+  const lcsLen = dp[m][n];
+  if (m + n > 0 && (2 * lcsLen) / (m + n) < 0.2) return null;
+
+  const leftChars = [], rightChars = [];
+  let i = m, j = n;
+  while (i > 0 || j > 0) {
+    if (i > 0 && j > 0 && a[i - 1] === b[j - 1]) {
+      leftChars.push({ ch: a[i - 1], hl: false });
+      rightChars.push({ ch: b[j - 1], hl: false });
+      i--; j--;
+    } else if (j > 0 && (i === 0 || dp[i][j - 1] >= dp[i - 1][j])) {
+      rightChars.push({ ch: b[j - 1], hl: true });
+      j--;
+    } else {
+      leftChars.push({ ch: a[i - 1], hl: true });
+      i--;
+    }
+  }
+  leftChars.reverse();
+  rightChars.reverse();
+
+  function toSpans(chars) {
+    const spans = [];
+    let cur = null;
+    for (const { ch, hl } of chars) {
+      if (!cur || cur.highlight !== hl) { cur = { text: ch, highlight: hl }; spans.push(cur); }
+      else cur.text += ch;
+    }
+    return spans;
+  }
+  return { left: toSpans(leftChars), right: toSpans(rightChars) };
+}
+
+// Walk hunks, pair removed↔added within each change block, attach inlineSpans.
+function annotateInlineDiff(hunks) {
+  const result = hunks.map(h => ({ ...h }));
+  let i = 0;
+  while (i < result.length) {
+    if (result[i].type === 'equal') { i++; continue; }
+    const removed = [], added = [];
+    while (i < result.length && result[i].type !== 'equal') {
+      if (result[i].type === 'removed') removed.push(i);
+      else added.push(i);
+      i++;
+    }
+    const pairs = Math.min(removed.length, added.length);
+    for (let k = 0; k < pairs; k++) {
+      const ri = removed[k], ai = added[k];
+      const diff = charDiff(result[ri].line ?? '', result[ai].line ?? '');
+      if (diff) {
+        result[ri].inlineSpans = diff.left;
+        result[ai].inlineSpans = diff.right;
+      }
+    }
+  }
+  return result;
+}
+
 function computeDiff(originalText, modifiedText, ignoreWS) {
   const aLines = splitLines(originalText);
   const bLines = splitLines(modifiedText);
@@ -114,6 +190,14 @@ function toDiffText(hunks) {
 }
 
 // ─── Row components ────────────────────────────────────────────────────────
+function InlineSpans({ spans, isRemoved }) {
+  return spans.map((s, i) =>
+    s.highlight
+      ? <mark key={i} className={cn('rounded-sm', isRemoved ? 'bg-red-500/50' : 'bg-green-500/50')}>{s.text}</mark>
+      : <span key={i}>{s.text}</span>
+  );
+}
+
 function UnifiedRow({ hunk }) {
   const isAdded = hunk.type === 'added';
   const isRemoved = hunk.type === 'removed';
@@ -128,7 +212,11 @@ function UnifiedRow({ hunk }) {
       <span className={cn('w-4 shrink-0 text-center select-none font-bold',
         isAdded ? 'text-green-500' : isRemoved ? 'text-red-400' : 'text-muted-foreground'
       )}>{isAdded ? '+' : isRemoved ? '-' : ' '}</span>
-      <span className="flex-1 whitespace-pre-wrap break-all pr-2">{hunk.line ?? hunk.lineA}</span>
+      <span className="flex-1 whitespace-pre-wrap break-all pr-2">
+        {hunk.inlineSpans
+          ? <InlineSpans spans={hunk.inlineSpans} isRemoved={isRemoved} />
+          : (hunk.line ?? hunk.lineA)}
+      </span>
     </div>
   );
 }
@@ -145,7 +233,11 @@ function SplitCell({ hunk, side }) {
   return (
     <div className={cn('flex flex-1 font-mono text-xs leading-6 min-w-0', bg, border)}>
       <span className="w-9 shrink-0 text-right pr-2 text-muted-foreground select-none tabular-nums">{num}</span>
-      <span className="flex-1 whitespace-pre-wrap break-all pr-2">{text ?? ''}</span>
+      <span className="flex-1 whitespace-pre-wrap break-all pr-2">
+        {hunk.inlineSpans
+          ? <InlineSpans spans={hunk.inlineSpans} isRemoved={isRemoved} />
+          : (text ?? '')}
+      </span>
     </div>
   );
 }
@@ -166,7 +258,8 @@ export default function TextDiffPage() {
     [debouncedOriginal, debouncedModified, ignoreWS]
   );
 
-  const splitRows = useMemo(() => viewMode === 'split' ? groupForSplit(hunks) : [], [hunks, viewMode]);
+  const annotatedHunks = useMemo(() => annotateInlineDiff(hunks), [hunks]);
+  const splitRows = useMemo(() => viewMode === 'split' ? groupForSplit(annotatedHunks) : [], [annotatedHunks, viewMode]);
   const hasContent = original || modified;
 
   const handlePaste = async (target) => {
@@ -296,7 +389,7 @@ export default function TextDiffPage() {
               </div>
             ) : viewMode === 'unified' ? (
               <div className="rounded-lg border overflow-auto max-h-[600px] bg-card">
-                {hunks.map((hunk, i) => <UnifiedRow key={i} hunk={hunk} />)}
+                {annotatedHunks.map((hunk, i) => <UnifiedRow key={i} hunk={hunk} />)}
               </div>
             ) : (
               <div className="rounded-lg border overflow-auto max-h-[600px] bg-card">
