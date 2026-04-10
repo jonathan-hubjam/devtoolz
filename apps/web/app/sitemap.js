@@ -13,6 +13,7 @@ export default function sitemap() {
     '/json-yaml-converter',
     '/regex-tester',
     '/uuid-generator',
+    '/text-diff',
   ];
 
   return routes.map((route) => ({
