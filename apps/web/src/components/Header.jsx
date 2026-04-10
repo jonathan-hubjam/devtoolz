@@ -12,6 +12,7 @@ const tools = [
   { name: 'JSON Formatter', path: '/json-formatter' },
   { name: 'Base64 Encoder', path: '/base64-encoder' },
   { name: 'JWT Decoder', path: '/jwt-decoder' },
+  { name: 'JWT Generator', path: '/jwt-generator' },
   { name: 'Unix Timestamp', path: '/unix-timestamp' },
   { name: 'URL Encoder', path: '/url-encoder' },
   { name: 'Hash Generator', path: '/hash-generator' },

@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash, Clock, Link2, Fingerprint, FileCode, Search } from 'lucide-react';
+import { ArrowRight, Code2, ShieldCheck, Zap, Lock, CheckCircle2, FileJson, Hash, Clock, Link2, Fingerprint, FileCode, Search, KeyRound } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
 
@@ -376,6 +376,79 @@ const HomePage = () => {
               <CardFooter className="pt-4 mt-auto border-t border-border/40">
                 <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
                   <Link href="/regex-tester">
+                    Open Tool
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+
+            <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-teal-500/30 group">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-teal-500/10 text-teal-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <Zap className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-xl">JWT Generator</CardTitle>
+                <CardDescription className="text-sm mt-2">
+                  Build and sign JSON Web Tokens with a custom header, payload, and HMAC secret. Supports HS256, HS384, and HS512.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500/50" />
+                    HS256 / HS384 / HS512
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500/50" />
+                    Custom header & payload
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-teal-500/50" />
+                    Live generation in browser
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-4 mt-auto border-t border-border/40">
+                <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
+                  <Link href="/jwt-generator">
+                    Open Tool
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Link>
+                </Button>
+              </CardFooter>
+            </Card>
+
+            <Card className="flex flex-col h-full shadow-md hover:shadow-lg transition-all duration-300 border-border/60 hover:border-violet-500/30 group">
+              <CardHeader>
+                <div className="w-12 h-12 rounded-xl bg-violet-500/10 text-violet-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <KeyRound className="w-6 h-6" />
+                </div>
+                <CardTitle className="text-xl">UUID Generator</CardTitle>
+                <CardDescription className="text-sm mt-2">
+                  Generate UUID v4 values instantly. Copy individually or in bulk, customize formatting, and validate existing UUIDs.
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="flex-grow">
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-violet-500/50" />
+                    UUID v4 format
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-violet-500/50" />
+                    Bulk generation
+                  </li>
+                  <li className="flex items-center gap-2">
+                    <div className="w-1.5 h-1.5 rounded-full bg-violet-500/50" />
+                    Validate existing UUIDs
+                  </li>
+                </ul>
+              </CardContent>
+              <CardFooter className="pt-4 mt-auto border-t border-border/40">
+                <Button asChild className="w-full group-hover:bg-blue-600 transition-colors">
+                  <Link href="/uuid-generator">
                     Open Tool
                     <ArrowRight className="w-4 h-4 ml-2" />
                   </Link>

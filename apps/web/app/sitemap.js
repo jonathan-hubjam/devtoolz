@@ -6,6 +6,7 @@ export default function sitemap() {
     '/json-formatter',
     '/base64-encoder',
     '/jwt-decoder',
+    '/jwt-generator',
     '/unix-timestamp',
     '/url-encoder',
     '/hash-generator',

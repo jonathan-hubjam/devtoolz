@@ -162,6 +162,16 @@ const JWTDecoderPage = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+
+        {/* Contextual link to Generator */}
+        <div className="mb-6 flex items-center gap-2 text-sm text-muted-foreground bg-muted/40 border rounded-lg px-4 py-2.5 w-fit">
+          <Zap className="w-4 h-4 text-teal-500 shrink-0" />
+          <span>Need to create a token instead?</span>
+          <Link href="/jwt-generator" className="text-teal-500 hover:text-teal-400 font-medium flex items-center gap-1">
+            Generate a JWT <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -644,6 +654,14 @@ const JWTDecoderPage = () => {
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+            </Link>
+            <Link href="/jwt-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-teal-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Zap className="w-5 h-5 text-teal-500" />
+                JWT Generator
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Build and sign JSON Web Tokens with a custom payload and secret.</p>
             </Link>
           </div>
         </div>
