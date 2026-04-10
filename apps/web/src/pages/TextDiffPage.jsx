@@ -356,7 +356,7 @@ export default function TextDiffPage() {
                 <label className="text-sm font-medium text-muted-foreground">{label}</label>
                 <button
                   onClick={() => handlePaste(key)}
-                  className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 transition-colors"
                 >
                   <Clipboard className="w-3.5 h-3.5" /> Paste
                 </button>
