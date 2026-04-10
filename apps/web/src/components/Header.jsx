@@ -9,17 +9,17 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/s
 import { cn } from '@/lib/utils';
 
 const tools = [
-  { name: 'JSON Formatter', path: '/json-formatter' },
   { name: 'Base64 Encoder', path: '/base64-encoder' },
+  { name: 'Hash Generator', path: '/hash-generator' },
+  { name: 'JSON Formatter', path: '/json-formatter' },
+  { name: 'JSON ↔ YAML', path: '/json-yaml-converter' },
   { name: 'JWT Decoder', path: '/jwt-decoder' },
   { name: 'JWT Generator', path: '/jwt-generator' },
+  { name: 'Regex Tester', path: '/regex-tester' },
+  { name: 'Text Diff', path: '/text-diff' },
   { name: 'Unix Timestamp', path: '/unix-timestamp' },
   { name: 'URL Encoder', path: '/url-encoder' },
-  { name: 'Hash Generator', path: '/hash-generator' },
-  { name: 'JSON ↔ YAML', path: '/json-yaml-converter' },
-  { name: 'Regex Tester', path: '/regex-tester' },
   { name: 'UUID Generator', path: '/uuid-generator' },
-  { name: 'Text Diff', path: '/text-diff' },
 ];
 
 const Header = () => {
