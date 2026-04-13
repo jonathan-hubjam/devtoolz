@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { CalendarClock, Copy, CheckCircle2, ArrowRight, AlertCircle, FileJson, Hash, ShieldCheck, Clock, Link2, Fingerprint, FileCode, Search, KeyRound, Zap, GitCompare, CaseSensitive } from 'lucide-react';
+import { CalendarClock, Copy, Clipboard, Trash2, CheckCircle2, ArrowRight, AlertCircle, FileJson, Hash, ShieldCheck, Clock, Link2, Fingerprint, FileCode, Search, KeyRound, Zap, GitCompare, CaseSensitive } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
@@ -239,6 +239,22 @@ export default function CronParserPage() {
     toast({ title: 'Copied', description: 'Expression copied to clipboard.' });
   };
 
+  const handlePaste = async () => {
+    try {
+      const text = await navigator.clipboard.readText();
+      if (!text) { toast({ title: 'Clipboard empty', variant: 'destructive' }); return; }
+      setExpr(text.trim());
+      toast({ title: 'Pasted' });
+    } catch {
+      toast({ title: 'Paste failed', description: 'Clipboard inaccessible.', variant: 'destructive' });
+    }
+  };
+
+  const handleClear = () => {
+    setExpr('');
+    toast({ title: 'Cleared' });
+  };
+
   const fmt = (d) =>
     d.toLocaleString(undefined, {
       weekday: 'short', year: 'numeric', month: 'short',
@@ -283,30 +299,50 @@ export default function CronParserPage() {
         </div>
 
         {/* Expression input */}
-        <div className="flex gap-2">
-          <div className="relative flex-1">
-            <input
-              value={expr}
-              onChange={(e) => setExpr(e.target.value)}
-              placeholder="e.g. 0 9 * * 1-5  or  @daily"
-              spellCheck="false"
-              className={cn(
-                'w-full h-12 px-4 font-mono text-base bg-muted/30 border rounded-lg focus:outline-none focus:ring-2 transition-shadow',
-                result?.error
-                  ? 'border-destructive/50 focus:ring-destructive/30'
-                  : 'border-border focus:ring-yellow-500/30'
-              )}
-            />
-            {result?.error && (
-              <div className="absolute left-0 top-full mt-1 flex items-center gap-1.5 text-xs text-destructive">
-                <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                {result.error}
-              </div>
-            )}
+        <div className="space-y-1">
+          <div className="flex items-center justify-between">
+            <label className="text-sm font-medium text-muted-foreground">Expression</label>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handlePaste}
+                className="flex items-center gap-1.5 text-xs text-blue-500 hover:text-blue-400 transition-colors"
+              >
+                <Clipboard className="w-3.5 h-3.5" /> Paste
+              </button>
+              <button
+                onClick={handleClear}
+                disabled={!expr}
+                className="flex items-center gap-1.5 text-xs text-muted-foreground hover:text-destructive transition-colors disabled:opacity-40 disabled:pointer-events-none"
+              >
+                <Trash2 className="w-3.5 h-3.5" /> Clear
+              </button>
+            </div>
           </div>
-          <Button onClick={handleCopy} variant="outline" size="icon" className="h-12 w-12 shrink-0">
-            <Copy className="w-4 h-4" />
-          </Button>
+          <div className="flex gap-2">
+            <div className="relative flex-1">
+              <input
+                value={expr}
+                onChange={(e) => setExpr(e.target.value)}
+                placeholder="e.g. 0 9 * * 1-5  or  @daily"
+                spellCheck="false"
+                className={cn(
+                  'w-full h-12 px-4 font-mono text-base bg-muted/30 border rounded-lg focus:outline-none focus:ring-2 transition-shadow',
+                  result?.error
+                    ? 'border-destructive/50 focus:ring-destructive/30'
+                    : 'border-border focus:ring-yellow-500/30'
+                )}
+              />
+              {result?.error && (
+                <div className="absolute left-0 top-full mt-1 flex items-center gap-1.5 text-xs text-destructive">
+                  <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+                  {result.error}
+                </div>
+              )}
+            </div>
+            <Button onClick={handleCopy} variant="outline" size="icon" className="h-12 w-12 shrink-0" disabled={!expr}>
+              <Copy className="w-4 h-4" />
+            </Button>
+          </div>
         </div>
 
         {/* Field breakdown */}
