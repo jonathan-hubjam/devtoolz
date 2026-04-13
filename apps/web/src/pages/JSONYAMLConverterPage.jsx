@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Trash2, FileJson, FileCode, AlertCircle, CheckCircle2, ArrowRightLeft, ArrowRight, ShieldCheck, Hash, Clock, Link2, Fingerprint, Clipboard, Search, KeyRound, Zap, GitCompare, CaseSensitive } from 'lucide-react';
+import { Copy, Trash2, FileJson, FileCode, AlertCircle, CheckCircle2, ArrowRightLeft, ArrowRight, ShieldCheck, Hash, Clock, Link2, Fingerprint, Clipboard, Search, KeyRound, Zap, GitCompare, CaseSensitive, CalendarClock } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
@@ -310,6 +310,14 @@ const JSONYAMLConverterPage = () => {
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+            </Link>
+            <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <CalendarClock className="w-5 h-5 text-yellow-500" />
+                Cron Parser
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
           </div>
         </div>
