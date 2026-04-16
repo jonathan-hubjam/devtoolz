@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Clipboard, Trash2, FileCode, CheckCircle2, AlertCircle, Lock, Key, FileSignature, Clock, CalendarDays, ShieldCheck, Globe, Loader2, XCircle, Zap, ArrowRight, FileJson, Hash, Link2, Fingerprint, Search, KeyRound, GitCompare, CaseSensitive, CalendarClock } from 'lucide-react';
+import { Copy, Clipboard, Trash2, FileCode, CheckCircle2, AlertCircle, Lock, Key, FileSignature, Clock, CalendarDays, ShieldCheck, Globe, Loader2, XCircle, Zap, ArrowRight, FileJson, Hash, Link2, Fingerprint, Search, KeyRound, GitCompare, CaseSensitive, CalendarClock, Database } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -686,6 +686,14 @@ const JWTDecoderPage = () => {
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
               <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+            </Link>
+            <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Database className="w-5 h-5 text-fuchsia-500" />
+                SQL Formatter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
           </div>
         </div>

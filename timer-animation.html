@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>15 Minute Timer Animation</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #1a1a2e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .timer-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .timer-container {
+      position: relative;
+      width: 260px;
+      height: 260px;
+    }
+
+    svg.timer-svg {
+      width: 260px;
+      height: 260px;
+      transform: rotate(-90deg);
+    }
+
+    /* Track ring */
+    .track {
+      fill: none;
+      stroke: #2d2d4e;
+      stroke-width: 14;
+    }
+
+    /* Animated progress arc */
+    .progress {
+      fill: none;
+      stroke: url(#arcGradient);
+      stroke-width: 14;
+      stroke-linecap: round;
+      stroke-dasharray: 691.15; /* 2π × 110 */
+      stroke-dashoffset: 691.15;
+      animation: sweep 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      filter: drop-shadow(0 0 8px rgba(255, 150, 30, 0.7));
+    }
+
+    /* Tick marks */
+    .tick {
+      stroke: #3d3d5e;
+      stroke-width: 2;
+    }
+    .tick-major {
+      stroke: #5a5a7e;
+      stroke-width: 3;
+    }
+
+    /* Center info (rotated back upright) */
+    .center-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      pointer-events: none;
+    }
+
+    .time-display {
+      font-size: 52px;
+      font-weight: 800;
+      color: #ffffff;
+      line-height: 1;
+      letter-spacing: -2px;
+      text-shadow: 0 0 20px rgba(255,150,30,0.4);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .time-unit {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8888aa;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Top indicator dot */
+    .indicator-dot {
+      fill: #ff961e;
+      filter: drop-shadow(0 0 6px rgba(255,150,30,0.9));
+      transform-origin: 130px 130px;
+      animation: rotateDot 4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    /* Outer ring glow pulse at end */
+    .outer-glow {
+      fill: none;
+      stroke: rgba(255,150,30,0.15);
+      stroke-width: 20;
+      opacity: 0;
+      animation: glowPulse 0.6s ease-out 3.8s forwards;
+    }
+
+    @keyframes sweep {
+      0%   { stroke-dashoffset: 691.15; }
+      100% { stroke-dashoffset: 0; }
+    }
+
+    @keyframes rotateDot {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes glowPulse {
+      0%   { opacity: 0; stroke-width: 20; }
+      50%  { opacity: 1; stroke-width: 28; }
+      100% { opacity: 0; stroke-width: 14; }
+    }
+
+    /* Number counting animation via JS */
+    .replay-btn {
+      background: rgba(255,150,30,0.15);
+      border: 1.5px solid rgba(255,150,30,0.5);
+      color: #ff961e;
+      padding: 10px 28px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .replay-btn:hover {
+      background: rgba(255,150,30,0.3);
+      transform: scale(1.04);
+    }
+    .replay-btn:active { transform: scale(0.97); }
+  </style>
+</head>
+<body>
+
+<div class="timer-wrapper">
+  <div class="timer-container" id="timerContainer">
+    <svg class="timer-svg" viewBox="0 0 260 260" id="timerSvg">
+      <defs>
+        <linearGradient id="arcGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%"   stop-color="#ff6a00"/>
+          <stop offset="100%" stop-color="#ffcc44"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Outer glow ring (fires at end) -->
+      <circle class="outer-glow" cx="130" cy="130" r="110"/>
+
+      <!-- Background track -->
+      <circle class="track" cx="130" cy="130" r="110"/>
+
+      <!-- Tick marks (60 ticks, 15 major) -->
+      <g id="ticks"></g>
+
+      <!-- Progress arc -->
+      <circle class="progress" id="progressArc" cx="130" cy="130" r="110"/>
+
+      <!-- Indicator dot on arc tip -->
+      <circle class="indicator-dot" id="dot" cx="130" cy="20" r="7"/>
+    </svg>
+
+    <!-- Center label -->
+    <div class="center-info">
+      <div class="time-display" id="timeDisplay">0</div>
+      <div class="time-unit">min</div>
+    </div>
+  </div>
+
+  <button class="replay-btn" id="replayBtn">Replay</button>
+</div>
+
+<script>
+  // Draw tick marks
+  const ticksGroup = document.getElementById('ticks');
+  const cx = 130, cy = 130, r = 110;
+  const totalTicks = 60;
+
+  for (let i = 0; i < totalTicks; i++) {
+    const angle = (i / totalTicks) * 2 * Math.PI - Math.PI / 2;
+    const isMajor = i % 5 === 0;
+    const innerR = isMajor ? r - 14 : r - 9;
+    const outerR = r + 2;
+
+    const x1 = cx + innerR * Math.cos(angle);
+    const y1 = cy + innerR * Math.sin(angle);
+    const x2 = cx + outerR * Math.cos(angle);
+    const y2 = cy + outerR * Math.sin(angle);
+
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', x1.toFixed(2));
+    line.setAttribute('y1', y1.toFixed(2));
+    line.setAttribute('x2', x2.toFixed(2));
+    line.setAttribute('y2', y2.toFixed(2));
+    line.setAttribute('class', isMajor ? 'tick-major' : 'tick');
+    ticksGroup.appendChild(line);
+  }
+
+  // Animate the number counter
+  const display = document.getElementById('timeDisplay');
+  const duration = 4000; // ms — matches CSS animation
+  let startTime = null;
+  let rafId = null;
+
+  function animate(ts) {
+    if (!startTime) startTime = ts;
+    const elapsed = ts - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease matching CSS cubic-bezier(0.4,0,0.2,1) — approximate with ease-in-out
+    const eased = progress < 0.5
+      ? 2 * progress * progress
+      : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+    const minutes = Math.round(eased * 15);
+    display.textContent = minutes;
+
+    if (progress < 1) {
+      rafId = requestAnimationFrame(animate);
+    } else {
+      display.textContent = '15';
+    }
+  }
+
+  rafId = requestAnimationFrame(animate);
+
+  // Replay button
+  document.getElementById('replayBtn').addEventListener('click', () => {
+    cancelAnimationFrame(rafId);
+    startTime = null;
+    display.textContent = '0';
+
+    // Re-trigger CSS animations by cloning SVG contents
+    const svg = document.getElementById('timerSvg');
+    const arc = document.getElementById('progressArc');
+    const dot = document.getElementById('dot');
+
+    arc.style.animation = 'none';
+    dot.style.animation = 'none';
+
+    // Force reflow
+    void arc.offsetWidth;
+    void dot.offsetWidth;
+
+    arc.style.animation = '';
+    dot.style.animation = '';
+
+    rafId = requestAnimationFrame(animate);
+  });
+</script>
+
+</body>
+</html>

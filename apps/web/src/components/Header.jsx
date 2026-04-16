@@ -18,6 +18,7 @@ const tools = [
   { name: 'JWT Decoder', path: '/jwt-decoder' },
   { name: 'JWT Generator', path: '/jwt-generator' },
   { name: 'Regex Tester', path: '/regex-tester' },
+  { name: 'SQL Formatter', path: '/sql-formatter' },
   { name: 'Text Diff', path: '/text-diff' },
   { name: 'Unix Timestamp', path: '/unix-timestamp' },
   { name: 'URL Encoder', path: '/url-encoder' },

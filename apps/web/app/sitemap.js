@@ -15,6 +15,7 @@ export default function sitemap() {
     '/uuid-generator',
     '/text-diff',
     '/case-converter',
+    '/sql-formatter',
     '/cron-parser',
   ];
 
