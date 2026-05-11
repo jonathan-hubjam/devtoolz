@@ -16,6 +16,7 @@ export default function sitemap() {
     '/text-diff',
     '/case-converter',
     '/sql-formatter',
+    '/csv-json',
     '/cron-parser',
   ];
 

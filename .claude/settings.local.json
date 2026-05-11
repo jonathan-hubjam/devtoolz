@@ -5,7 +5,10 @@
       "Bash(\"C:/Remotion Videos/Shorts/node_modules/.bin/tsc\" --noEmit --project \"C:/Remotion Videos/Shorts/tsconfig.json\")",
       "Bash(npm show *)",
       "Bash(npm install *)",
-      "Bash(node -e \"const {format, supportedDialects} = require\\('C:/Web Apps/devtoolz/apps/web/node_modules/sql-formatter'\\); console.log\\('dialects:', supportedDialects.join\\(', '\\)\\); console.log\\('test:', format\\('select id,name from users where id=1', {language:'postgresql',tabWidth:2,keywordCase:'upper'}\\)\\)\")"
+      "Bash(node -e \"const {format, supportedDialects} = require\\('C:/Web Apps/devtoolz/apps/web/node_modules/sql-formatter'\\); console.log\\('dialects:', supportedDialects.join\\(', '\\)\\); console.log\\('test:', format\\('select id,name from users where id=1', {language:'postgresql',tabWidth:2,keywordCase:'upper'}\\)\\)\")",
+      "WebFetch(domain:github.com)",
+      "Bash(ssh -o StrictHostKeyChecking=no root@46.224.6.19 \"node --version 2>/dev/null || echo 'node not found'\")",
+      "Bash(sshpass -p 'Mb7/*G-2sT4+XrRAAA' ssh -o StrictHostKeyChecking=no root@46.224.6.19 \"node --version 2>/dev/null || echo 'node not found'\")"
     ]
   }
 }
