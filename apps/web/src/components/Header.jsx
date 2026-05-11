@@ -18,6 +18,7 @@ const tools = [
   { name: 'JSON ↔ YAML', path: '/json-yaml-converter' },
   { name: 'JWT Decoder', path: '/jwt-decoder' },
   { name: 'JWT Generator', path: '/jwt-generator' },
+  { name: 'Number Base Converter', path: '/number-base-converter' },
   { name: 'Regex Tester', path: '/regex-tester' },
   { name: 'SQL Formatter', path: '/sql-formatter' },
   { name: 'Text Diff', path: '/text-diff' },

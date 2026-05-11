@@ -536,6 +536,18 @@ export default function TextDiffPage() {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
+              <Link
+                href="/number-base-converter"
+                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
+              >
+                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
+                  <Binary className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
+                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
+                </div>
+              </Link>
           </div>
         </div>
       </div>
