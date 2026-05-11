@@ -2,7 +2,7 @@
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Clipboard, Trash2, FileCode, CheckCircle2, AlertCircle, Lock, Key, FileSignature, Clock, CalendarDays, ShieldCheck, Globe, Loader2, XCircle, Zap, ArrowRight, FileJson, Hash, Link2, Fingerprint, Search, KeyRound, GitCompare, CaseSensitive, CalendarClock, Database, Table2 } from 'lucide-react';
+import { Copy, Clipboard, Trash2, FileCode, CheckCircle2, AlertCircle, Lock, Key, FileSignature, Clock, CalendarDays, ShieldCheck, Globe, Loader2, XCircle, Zap, ArrowRight, FileJson, Hash, Link2, Fingerprint, Search, KeyRound, GitCompare, CaseSensitive, CalendarClock, Database, Table2, Binary, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';

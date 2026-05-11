@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Copy, Trash2, Fingerprint, ArrowRight, ShieldCheck, FileJson, Hash, Clock, Link2, CheckCircle2, Clipboard, FileCode, Search, KeyRound, Zap, GitCompare, CaseSensitive, CalendarClock, Database, Table2 } from 'lucide-react';
+import { Copy, Trash2, Fingerprint, ArrowRight, ShieldCheck, FileJson, Hash, Clock, Link2, CheckCircle2, Clipboard, FileCode, Search, KeyRound, Zap, GitCompare, CaseSensitive, CalendarClock, Database, Table2, Binary, Palette } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';

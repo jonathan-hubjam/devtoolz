@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { Binary, Copy, CheckCircle2, ArrowRight, FileJson, Hash, ShieldCheck, Clock, Link2, Fingerprint, FileCode, Search, KeyRound, Zap, GitCompare, CaseSensitive, CalendarClock, Database, Table2 } from 'lucide-react';
+import { Binary, Copy, CheckCircle2, ArrowRight, FileJson, Hash, ShieldCheck, Clock, Link2, Fingerprint, FileCode, Search, KeyRound, Zap, GitCompare, CaseSensitive, CalendarClock, Database, Table2, Palette } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 import { cn } from '@/lib/utils';
 
