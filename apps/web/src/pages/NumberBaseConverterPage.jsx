@@ -278,6 +278,18 @@ export default function NumberBaseConverterPage() {
               </h3>
               <p className="text-sm text-slate-400">Format and minify SQL with dialect support for MySQL, PostgreSQL, and more.</p>
             </Link>
+              <Link
+                href="/color-converter"
+                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
+              >
+                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
+                  <Palette className="w-4 h-4" />
+                </div>
+                <div>
+                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
+                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
+                </div>
+              </Link>
           </div>
         </div>
       </div>

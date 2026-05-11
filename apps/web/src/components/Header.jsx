@@ -11,6 +11,7 @@ import { cn } from '@/lib/utils';
 const tools = [
   { name: 'Base64 Encoder', path: '/base64-encoder' },
   { name: 'Case Converter', path: '/case-converter' },
+  { name: 'Color Converter', path: '/color-converter' },
   { name: 'CSV ↔ JSON', path: '/csv-json' },
   { name: 'Cron Parser', path: '/cron-parser' },
   { name: 'Hash Generator', path: '/hash-generator' },

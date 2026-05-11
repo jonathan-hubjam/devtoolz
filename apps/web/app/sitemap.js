@@ -19,6 +19,7 @@ export default function sitemap() {
     '/csv-json',
     '/cron-parser',
     '/number-base-converter',
+    '/color-converter',
   ];
 
   return routes.map((route) => ({
