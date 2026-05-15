@@ -211,7 +211,61 @@ export default function NumberBaseConverterPage() {
           </div>
         )}
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a Number Base Converter?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A number base converter translates integers between different positional numeral systems — most
+                commonly binary (base 2), octal (base 8), decimal (base 10), and hexadecimal (base 16). Each base
+                uses a different set of digits: binary uses 0 and 1; octal uses 0–7; decimal uses 0–9; hexadecimal
+                uses 0–9 and A–F. Understanding base conversion is fundamental to computer science, low-level
+                programming, networking, and digital electronics.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Convert hex colour codes to decimal RGB values (or vice versa) for CSS and design work</li>
+                <li>Decode binary or hexadecimal values from network packet captures and protocol documentation</li>
+                <li>Calculate IP subnet masks and CIDR ranges in binary</li>
+                <li>Read and write binary flags and bitmasks in embedded systems or OS code</li>
+                <li>Understand assembly language operands that are expressed in hex or binary</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Conversion is a two-step process: first parse the input string in the source base to get an integer
+                value, then format that integer in the target base. This tool uses JavaScript's <code className="text-slate-300">BigInt</code>
+                for arbitrary-precision arithmetic, so it handles numbers larger than 2⁵³ − 1 (the limit of
+                JavaScript's regular <code className="text-slate-300">Number</code> type) without losing precision —
+                essential for 64-bit values common in networking and cryptography.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Why is hexadecimal used so often in programming?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Hexadecimal is a compact representation of binary — one hex digit maps exactly to four bits (a nibble). This makes hex ideal for representing memory addresses, byte values, colour codes, and bitmasks. Reading <code className="text-slate-300">0xFF</code> is much easier than reading <code className="text-slate-300">11111111</code>.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">How do I convert a negative number to binary?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Negative integers in computers are most commonly represented in two's complement. To convert: invert all bits of the positive value and add 1. The result's most significant bit is 1 for negative numbers. The bit width (8, 16, 32, 64) matters for the result.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Can I convert between any two bases, or only the common ones?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Mathematically, conversion works between any bases 2–36 (using digits 0–9 and letters A–Z). This tool supports bases 2 through 36. Less common bases like base 3 (ternary) and base 60 (sexagesimal, used for time) are valid inputs.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-4">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

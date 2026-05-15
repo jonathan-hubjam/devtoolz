@@ -222,7 +222,62 @@ const HashGeneratorPage = () => {
           )}
         </motion.div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a Hash Generator?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A hash generator applies a cryptographic hash function to input data and produces a fixed-length
+                hexadecimal digest. Hash functions are one-way — the same input always produces the same output,
+                but you cannot reverse the hash to recover the original data. Commonly supported algorithms include
+                MD5, SHA-1, SHA-256, and SHA-512. SHA-256 and SHA-512 are recommended for security-sensitive
+                applications; MD5 and SHA-1 are considered cryptographically broken for collision resistance but
+                remain widely used for checksums and non-security purposes.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Verify file integrity by comparing checksums before and after download or transfer</li>
+                <li>Store password hashes in a database instead of plaintext credentials</li>
+                <li>Generate cache keys or ETags from content for HTTP caching</li>
+                <li>Create deterministic IDs from content (content-addressable storage)</li>
+                <li>Sign API requests using HMAC (Hash-based Message Authentication Code)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                This tool uses the browser's native <code className="text-slate-300">SubtleCrypto</code> API
+                (<code className="text-slate-300">crypto.subtle.digest()</code>) for SHA-family algorithms, providing
+                hardware-accelerated hashing without any server round-trips. MD5 is computed with a pure-JavaScript
+                implementation since it is not part of the Web Crypto standard. Input is UTF-8 encoded before hashing;
+                the raw bytes are then converted to a lowercase hex string.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Should I use MD5 or SHA-256 for checksums?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">SHA-256 is preferred for anything security-related because MD5 is vulnerable to collision attacks. For non-security checksums (detecting accidental data corruption), MD5 is fast and still reliable.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Can two different inputs produce the same hash?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Yes — this is called a "collision." Modern algorithms like SHA-256 make finding collisions computationally infeasible. MD5 and SHA-1 have known collision vulnerabilities, which is why they are not recommended for digital signatures or certificates.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Is hashing the same as encryption?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">No. Hashing is one-way and cannot be reversed. Encryption is two-way — data can be decrypted with the correct key. Use hashing for integrity checks and storing passwords (with a salt); use encryption when you need to recover the original data.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

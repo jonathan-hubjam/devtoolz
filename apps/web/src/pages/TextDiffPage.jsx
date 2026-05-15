@@ -420,7 +420,61 @@ export default function TextDiffPage() {
           </div>
         )}
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a Text Diff Tool?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A text diff tool compares two pieces of text and highlights the differences — additions, deletions,
+                and unchanged lines — using colour-coded output similar to the <code className="text-slate-300">git diff</code>
+                or Unix <code className="text-slate-300">diff</code> commands. It is an essential tool for reviewing
+                changes in configuration files, code snippets, API responses, or any text where you need to quickly
+                understand what changed between two versions without reading both in full.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Compare two versions of a config file to find what changed after a deployment</li>
+                <li>Spot differences between two API responses for the same endpoint</li>
+                <li>Review a colleague's code changes before a formal code review</li>
+                <li>Compare translated or edited documents to see what was added or removed</li>
+                <li>Verify that a find-and-replace operation produced the expected changes</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                The diff algorithm (an implementation of the Myers diff algorithm or similar LCS-based approach)
+                computes the longest common subsequence of lines between the two inputs and classifies each line as
+                unchanged, added (green), or removed (red). Line-level diffing is the default; word-level or
+                character-level diffing can highlight more granular changes within a line. All comparison happens
+                in your browser — text is never sent to a server.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between unified and side-by-side diff?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Unified diff shows both versions interleaved in a single column with + and - markers — compact and good for terminals. Side-by-side diff shows the two versions in parallel columns — easier to read for longer files or prose comparisons.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Does whitespace matter in the comparison?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">By default, trailing whitespace and line-ending differences (CRLF vs LF) are included in the diff. Most tools offer an "ignore whitespace" option that skips purely cosmetic whitespace changes so you can focus on meaningful content differences.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">How large a file can I diff in the browser?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Browser-based diff tools handle files up to a few hundred kilobytes comfortably. For very large files (megabytes), the diff algorithm can become slow due to the quadratic nature of LCS computation. Use command-line tools like <code className="text-slate-300">diff</code> or <code className="text-slate-300">git diff</code> for large files.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-4">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

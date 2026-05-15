@@ -326,7 +326,61 @@ const UnixTimestampPage = () => {
           )}
         </motion.div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a Unix Timestamp Converter?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A Unix timestamp (also called Epoch time or POSIX time) is the number of seconds that have elapsed
+                since 00:00:00 UTC on 1 January 1970, not counting leap seconds. It provides a language- and
+                timezone-independent way to represent a specific moment in time as a single integer. Unix timestamps
+                are used ubiquitously in databases, APIs, log files, JWT tokens, and operating systems. A converter
+                translates between this numeric representation and human-readable date-time strings in any timezone.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Convert a timestamp from a server log or database record to a readable date</li>
+                <li>Debug JWT token expiry by converting the <code className="text-slate-300">exp</code> or <code className="text-slate-300">iat</code> claims</li>
+                <li>Calculate the Unix timestamp for a future date to use as a deadline or TTL</li>
+                <li>Cross-reference events across systems that use different timestamp formats</li>
+                <li>Verify that a scheduled job ran at the expected time</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                JavaScript's <code className="text-slate-300">Date</code> object stores time internally as milliseconds
+                since the Unix epoch. Converting a timestamp to a date uses <code className="text-slate-300">new Date(timestamp * 1000)</code>
+                (multiplying by 1000 to convert seconds to milliseconds). The <code className="text-slate-300">Intl.DateTimeFormat</code>
+                API formats the result in the selected timezone. Converting a date string back to a timestamp uses
+                <code className="text-slate-300">Date.parse()</code> divided by 1000.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What happens after the year 2038?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The "Year 2038 problem" affects systems that store Unix timestamps as a 32-bit signed integer — it overflows on 19 January 2038. Modern systems use 64-bit integers, which won't overflow for about 292 billion years.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Does the Unix timestamp account for timezones?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">No. A Unix timestamp always represents a moment in UTC. Timezone conversion happens only at the display layer — the underlying number is the same everywhere in the world at the same instant.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Is the timestamp in seconds or milliseconds?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The original Unix standard uses seconds. JavaScript's <code className="text-slate-300">Date.now()</code> returns milliseconds. Many modern APIs (including some databases) use milliseconds. A 13-digit timestamp is almost certainly in milliseconds; a 10-digit one is in seconds.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -296,7 +296,61 @@ const JSONFormatterPage = () => {
 
         </div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a JSON Formatter?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A JSON formatter (also called a JSON beautifier or pretty-printer) takes minified or poorly indented
+                JSON and reformats it with consistent indentation and line breaks, making it easy to read and navigate.
+                JSON (JavaScript Object Notation) is the de facto standard for data interchange in web APIs, config
+                files, and NoSQL databases. When JSON is returned by an API or stored in logs it is often compacted
+                into a single line to save bandwidth — a formatter restores it to a human-readable form.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Pretty-print API responses while debugging a REST or GraphQL endpoint</li>
+                <li>Validate that a config file or data payload is syntactically correct JSON</li>
+                <li>Minify JSON to reduce payload size before sending it over the network</li>
+                <li>Spot structural errors like missing commas or mismatched brackets quickly</li>
+                <li>Copy clean, indented JSON into documentation or bug reports</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                The formatter parses your input using the browser's built-in <code className="text-slate-300">JSON.parse()</code>,
+                which throws a descriptive error if the JSON is invalid. Valid input is then serialized back to a string
+                with <code className="text-slate-300">JSON.stringify(value, null, 2)</code>, producing 2-space indentation.
+                The minify option uses <code className="text-slate-300">JSON.stringify</code> without indentation arguments,
+                stripping all unnecessary whitespace. Everything runs locally — no data leaves your browser.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between JSON and JavaScript objects?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">JSON requires keys to be double-quoted strings and does not support functions, <code className="text-slate-300">undefined</code>, or comments. JavaScript objects are more permissive. Always use a JSON formatter/validator to check that your data strictly conforms to the JSON spec.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Why does the formatter reorder my keys?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The JSON specification does not guarantee key order. Some parsers sort keys alphabetically for predictability. If you need a specific order, you will need to construct the object manually or use a serialization library that supports ordered output.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Can I format very large JSON files?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Browser-based formatters can handle files up to a few megabytes comfortably. For very large files (10 MB+) consider using a CLI tool like <code className="text-slate-300">jq</code> or a native desktop application to avoid browser memory limits.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

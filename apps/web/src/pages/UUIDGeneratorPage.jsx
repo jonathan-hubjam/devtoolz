@@ -295,7 +295,62 @@ const UUIDGeneratorPage = () => {
 
         </div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a UUID Generator?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A UUID (Universally Unique Identifier) generator creates 128-bit identifiers formatted as
+                eight-four-four-four-twelve hexadecimal groups separated by hyphens, for example:
+                <code className="text-slate-300"> 550e8400-e29b-41d4-a716-446655440000</code>. UUIDs are standardised
+                in RFC 4122 and designed to be unique across space and time without a central registry.
+                Version 4 (random) UUIDs use 122 bits of randomness, making collisions statistically negligible
+                even at massive scale. Version 7 UUIDs are time-ordered, making them more efficient as database primary keys.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Generate primary keys for database records without a centralised sequence generator</li>
+                <li>Create idempotency keys for API requests to prevent duplicate processing</li>
+                <li>Assign unique IDs to distributed system components, sessions, or events</li>
+                <li>Track objects across microservices where auto-increment integers would conflict</li>
+                <li>Generate unique filenames for uploaded assets in cloud storage</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Version 4 UUIDs are generated using <code className="text-slate-300">crypto.randomUUID()</code> (where
+                available) or by filling a typed array with <code className="text-slate-300">crypto.getRandomValues()</code>
+                and formatting it according to RFC 4122 — setting the version bits to <code className="text-slate-300">0100</code>
+                and the variant bits to <code className="text-slate-300">10xx</code>. All generation happens in your browser;
+                no UUIDs are logged or stored server-side.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">How likely is a UUID collision?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Extremely unlikely. With version 4 UUIDs you would need to generate about 2.7 × 10¹⁸ UUIDs before having a 50% chance of a single collision — more than the number of seconds since the Big Bang.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between UUID v4 and v7?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">UUID v4 is fully random with no time component. UUID v7 embeds a Unix millisecond timestamp in the most significant bits, making UUIDs sort chronologically — which improves database index performance for insert-heavy workloads.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Should I use uppercase or lowercase UUIDs?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The RFC 4122 standard recommends lowercase. Most databases and languages accept both, but lowercase is more common in modern APIs and systems. Be consistent within your application.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-4">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

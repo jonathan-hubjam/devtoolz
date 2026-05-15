@@ -330,7 +330,62 @@ export default function JWTGeneratorPage() {
           </div>
         </div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a JWT Generator?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A JWT generator creates signed JSON Web Tokens from a payload you define and a secret or key you
+                provide. JWTs are used to securely transmit information between parties as a compact, self-contained
+                token. The generator lets you specify standard claims like expiry (<code className="text-slate-300">exp</code>),
+                issuer (<code className="text-slate-300">iss</code>), and subject (<code className="text-slate-300">sub</code>),
+                add custom claims, choose a signing algorithm (HS256, RS256, etc.), and immediately get a token you
+                can use for testing or development without spinning up an auth server.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Generate test tokens with specific roles or claims for local API development</li>
+                <li>Create tokens with custom expiry times to test token refresh logic</li>
+                <li>Prototype authentication flows before integrating a real identity provider</li>
+                <li>Reproduce authentication bugs by generating tokens with exact claim values</li>
+                <li>Learn the JWT structure hands-on by editing payloads and observing the encoded output</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                The tool Base64URL-encodes the header JSON and payload JSON, concatenates them with a dot, then signs
+                the result using the selected algorithm. For HMAC algorithms (HS256/HS384/HS512) the
+                <code className="text-slate-300"> SubtleCrypto.sign()</code> API signs with your provided secret. The
+                resulting signature is Base64URL-encoded and appended as the third segment. All signing happens in your
+                browser — the secret never leaves your machine.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Is it safe to use this tool with real secrets?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Signing runs in your browser and nothing is transmitted, but treat production secrets with care. For sensitive environments, prefer generating tokens locally with a library like <code className="text-slate-300">jsonwebtoken</code> (Node.js) rather than any online tool.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between HS256 and RS256?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">HS256 uses a shared secret (HMAC-SHA256) — both the issuer and verifier need the same key, so it is only suitable when you control both sides. RS256 uses an RSA private key to sign and a public key to verify — the public key can be shared freely, making it suitable for public-facing APIs.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What should I put in the payload?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Include only the claims your application needs: user ID, roles, expiry, and issuer. Avoid storing sensitive data (passwords, PII) in the payload — JWT payloads are Base64-encoded, not encrypted, so anyone with the token can read them.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -219,7 +219,62 @@ const JSONYAMLConverterPage = () => {
           </motion.div>
         </motion.div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a JSON ↔ YAML Converter?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A JSON ↔ YAML converter transforms data between two popular serialisation formats. JSON (JavaScript
+                Object Notation) uses braces, brackets, colons, and quotes — it is compact and universally supported
+                by programming languages and APIs. YAML (YAML Ain't Markup Language) uses indentation and minimal
+                punctuation — it is more human-readable and is the standard format for configuration files in tools
+                like Kubernetes, Docker Compose, GitHub Actions, and Ansible. The two formats represent the same
+                data model, making lossless conversion straightforward.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Convert API responses (JSON) into YAML config files for Kubernetes or Helm charts</li>
+                <li>Transform YAML CI/CD pipeline definitions into JSON for programmatic processing</li>
+                <li>Migrate configuration between tools that prefer different formats</li>
+                <li>Read a JSON API schema and convert it to YAML for OpenAPI spec files</li>
+                <li>Debug data structures by switching between compact JSON and readable YAML</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                JSON to YAML: the input is parsed with <code className="text-slate-300">JSON.parse()</code> into a
+                JavaScript object, then serialised to YAML using the <code className="text-slate-300">js-yaml</code> library
+                with the <code className="text-slate-300">dump()</code> function. YAML to JSON: <code className="text-slate-300">js-yaml.load()</code>
+                parses the YAML (safely, without executing arbitrary code) and the resulting object is serialised with
+                <code className="text-slate-300">JSON.stringify()</code>. Both operations run in your browser.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Are JSON and YAML fully interchangeable?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Nearly. Every valid JSON document is also valid YAML, but YAML supports features JSON does not — such as comments, anchors, and aliases. Comments are lost when converting YAML to JSON. Multi-document YAML files (separated by <code className="text-slate-300">---</code>) also cannot be represented as a single JSON document.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Why does YAML use indentation instead of braces?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">YAML was designed for human readability. Indentation removes the visual noise of braces and quotes, making configuration files easier to write and review. The trade-off is that indentation errors are a common source of bugs.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Which format should I use for config files?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">YAML is the standard for Kubernetes, Docker Compose, GitHub Actions, and most DevOps tooling. JSON is better for API payloads, web storage, and situations where comments are not needed and strict parsing is important.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

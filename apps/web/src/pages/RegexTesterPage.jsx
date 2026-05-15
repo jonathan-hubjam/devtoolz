@@ -286,7 +286,61 @@ const RegexTesterPage = () => {
           </motion.div>
         </motion.div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a Regex Tester?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A regex tester is an interactive tool for building, testing, and debugging regular expressions against
+                sample text. Regular expressions (regex or regexp) are patterns that describe sets of strings — they
+                power search, validation, and text transformation in virtually every programming language. A good
+                tester provides real-time match highlighting, named capture group extraction, and flag controls
+                (case-insensitive, multiline, global) so you can iterate on a pattern without touching your codebase.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Validate email addresses, phone numbers, URLs, or postal codes in form inputs</li>
+                <li>Extract structured data (dates, IDs, prices) from unstructured text or log files</li>
+                <li>Find and replace patterns in code editors or CI scripts</li>
+                <li>Parse log entries to detect error patterns or security events</li>
+                <li>Write input sanitisation rules for user-supplied strings</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                This tester uses the JavaScript <code className="text-slate-300">RegExp</code> engine, so results are
+                accurate for JavaScript applications. Enter your pattern, select flags (<code className="text-slate-300">g</code> for global,
+                <code className="text-slate-300"> i</code> for case-insensitive, <code className="text-slate-300">m</code> for multiline),
+                and paste your test string. Matches are highlighted inline and capture groups are listed below.
+                Patterns are evaluated as you type with a short debounce to avoid performance issues on large inputs.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Why does my regex work here but not in Python?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Different languages implement slightly different regex flavours. JavaScript lacks lookbehind assertions in older engines, uses different escape sequences, and does not support POSIX classes. Test your pattern in the language you will actually deploy it in if exact matching matters.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is catastrophic backtracking?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Certain regex patterns (especially nested quantifiers like <code className="text-slate-300">(a+)+</code>) can cause the engine to explore an exponential number of paths before determining there is no match — this can freeze your application. Test with long, non-matching inputs to check for backtracking issues.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between a greedy and a lazy quantifier?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Greedy quantifiers (<code className="text-slate-300">*</code>, <code className="text-slate-300">+</code>, <code className="text-slate-300">?</code>) match as much as possible. Lazy quantifiers (<code className="text-slate-300">*?</code>, <code className="text-slate-300">+?</code>, <code className="text-slate-300">??</code>) match as little as possible. Use lazy quantifiers when you want to stop at the first match rather than the last.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -233,7 +233,60 @@ const Base64EncoderPage = () => {
           </div>
         </motion.div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is Base64 Encoding?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Base64 is a binary-to-text encoding scheme that represents binary data using 64 printable ASCII
+                characters (A–Z, a–z, 0–9, +, /). It was designed to safely transmit binary data over channels
+                that only support text — such as email (MIME), HTTP headers, and JSON payloads. Encoding increases
+                data size by roughly 33% but guarantees the output is safe for any text-based protocol. The URL-safe
+                variant replaces <code className="text-slate-300">+</code> and <code className="text-slate-300">/</code> with <code className="text-slate-300">-</code> and <code className="text-slate-300">_</code> for use in URLs and filenames.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Embed images, fonts, or binary assets directly in HTML, CSS, or JSON as data URIs</li>
+                <li>Encode credentials for HTTP Basic Authentication headers</li>
+                <li>Transmit binary data through APIs that only accept text payloads</li>
+                <li>Store binary blobs (images, certificates) in databases or config files</li>
+                <li>Decode Base64-encoded email attachments or MIME parts</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                Base64 works by grouping the input bytes into 6-bit chunks (since 2⁶ = 64) and mapping each chunk
+                to one of 64 characters. Every 3 bytes of input produce exactly 4 Base64 characters. If the input
+                length is not a multiple of 3, padding characters (<code className="text-slate-300">=</code>) are
+                appended. This tool uses the browser's built-in <code className="text-slate-300">btoa()</code> and <code className="text-slate-300">atob()</code> functions for plain text and handles UTF-8 strings correctly.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Is Base64 a form of encryption?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">No. Base64 is encoding, not encryption. It is trivially reversible by anyone with the encoded string. Never use Base64 to protect sensitive data — use proper encryption algorithms like AES-256 instead.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between standard and URL-safe Base64?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Standard Base64 uses <code className="text-slate-300">+</code> and <code className="text-slate-300">/</code>, which have special meanings in URLs. URL-safe Base64 replaces them with <code className="text-slate-300">-</code> and <code className="text-slate-300">_</code>, making the output safe to embed in URLs and filenames without percent-encoding.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Why does my Base64 string end with == ?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Padding characters (<code className="text-slate-300">=</code>) are added to make the encoded length a multiple of 4. One or two padding characters appear when the input byte count is not divisible by 3.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

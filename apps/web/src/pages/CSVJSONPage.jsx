@@ -353,7 +353,61 @@ export default function CSVJSONPage() {
           </div>
         </div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a CSV ↔ JSON Converter?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A CSV ↔ JSON converter transforms data between two ubiquitous formats. CSV (Comma-Separated Values)
+                is a plain-text tabular format widely used for spreadsheets, database exports, and data pipelines.
+                JSON (JavaScript Object Notation) is the standard format for web APIs and application data. Being
+                able to convert between them is essential for moving data between spreadsheet tools, databases,
+                REST APIs, and data processing scripts without writing custom parsing code.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Convert a database export (CSV) into JSON to load into a REST API or NoSQL database</li>
+                <li>Transform an API response (JSON array) into CSV for import into Excel or Google Sheets</li>
+                <li>Prepare test fixtures from spreadsheet data for a backend application</li>
+                <li>Convert analytics data exports between reporting tools</li>
+                <li>Feed data from CSV files into a JavaScript application without a server-side parser</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                CSV to JSON: the first row is treated as the header and used as JSON object keys. Each subsequent row
+                is zipped with the headers to produce an object; all rows become an array. Quoted fields, commas
+                within quotes, and escaped quotes are handled per RFC 4180. JSON to CSV: the keys of the first
+                object define the header row; each array element is serialised as a CSV row in the same key order.
+                All processing runs locally in your browser.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What happens with nested JSON objects?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">CSV is a flat format — it cannot represent nested structures directly. Nested objects are typically serialised as a JSON string in a single CSV cell, or flattened into dot-notation column names (e.g. <code className="text-slate-300">address.city</code>). This tool serialises nested values as strings.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">My CSV uses semicolons, not commas — will it work?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Semicolon-separated files are common in European locales where commas are used as decimal separators. Select the correct delimiter in the options to handle semicolon, tab (TSV), or pipe-separated files.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Are all values treated as strings?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">By default, yes — CSV has no type information. The converter can optionally infer types (treating <code className="text-slate-300">123</code> as a number and <code className="text-slate-300">true</code>/<code className="text-slate-300">false</code> as booleans) when converting to JSON.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-4">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

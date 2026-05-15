@@ -262,7 +262,62 @@ export default function CaseConverterPage() {
           ))}
         </div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a Case Converter?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A case converter transforms text between common capitalisation and naming conventions used in
+                programming, writing, and data formatting. Common cases include camelCase (JavaScript variables),
+                PascalCase (class names), snake_case (Python variables and database columns), kebab-case (CSS classes
+                and URLs), SCREAMING_SNAKE_CASE (constants), and Title Case or Sentence case for headings and prose.
+                Converting between them manually is tedious and error-prone — a converter handles word boundary
+                detection and transformation instantly.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Convert database column names (snake_case) to API field names (camelCase)</li>
+                <li>Transform CSS class names (kebab-case) to JavaScript variable names (camelCase)</li>
+                <li>Normalise user-input strings before storing them as identifiers</li>
+                <li>Rename variables or files to match a new codebase's naming convention</li>
+                <li>Convert prose titles to slug-friendly URL paths (kebab-case)</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                The converter first splits the input into words by detecting boundaries: spaces, underscores, hyphens,
+                and transitions from lowercase to uppercase (for camelCase input). Each word is then lowercased, and
+                the target format is applied — joining with the appropriate separator, capitalising the first letter
+                of each word where needed, or uppercasing the entire string. The transformation is reversible: any
+                supported case can be converted to any other.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between camelCase and PascalCase?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">camelCase starts with a lowercase letter (<code className="text-slate-300">myVariable</code>). PascalCase (also called UpperCamelCase) starts with an uppercase letter (<code className="text-slate-300">MyVariable</code>). PascalCase is typically used for class names and React components; camelCase for variables and function names.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Why do different languages use different naming conventions?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Naming conventions are driven by community style guides and historical precedent. Python's PEP 8 mandates snake_case; JavaScript conventions favour camelCase; CSS uses kebab-case. These are not enforced by the languages themselves but by linters and peer review.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Can I convert multiple lines at once?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Yes — paste multiple identifiers or words, one per line, and the converter will process each line independently, preserving the line structure in the output.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-4">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

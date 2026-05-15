@@ -296,7 +296,61 @@ export default function SQLFormatterPage() {
           </div>
         </div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a SQL Formatter?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A SQL formatter (or SQL beautifier) takes raw or minified SQL queries and reformats them with consistent
+                indentation, keyword capitalisation, and line breaks, making complex queries dramatically easier to read
+                and review. Unformatted SQL — especially auto-generated ORM queries or legacy stored procedures —
+                can be nearly unreadable as a single line. A good formatter also validates basic syntax, helping catch
+                structural errors before executing the query against a database.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Beautify ORM-generated queries for debugging and performance analysis</li>
+                <li>Standardise SQL style across a team's codebase and migrations</li>
+                <li>Review stored procedures or views that were written without formatting</li>
+                <li>Prepare SQL snippets for documentation, bug reports, or code reviews</li>
+                <li>Detect syntax errors in complex multi-join queries before running them</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                This formatter uses the <code className="text-slate-300">sql-formatter</code> library to parse your SQL
+                into an abstract syntax tree and then serialise it back to text with configurable indentation and
+                keyword case. You can choose the SQL dialect (MySQL, PostgreSQL, SQLite, etc.) to get
+                dialect-specific keyword handling. All formatting runs in your browser — your queries are never sent
+                to a server.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Does formatting change how a query executes?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">No. SQL is case-insensitive for keywords and whitespace-insensitive. Formatting only affects how the query looks — the database query planner sees the exact same logical structure regardless of indentation.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Why do I need to select a SQL dialect?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Different databases have different reserved words and syntax extensions. Selecting the correct dialect ensures that database-specific keywords (like PostgreSQL's <code className="text-slate-300">RETURNING</code> or MySQL's <code className="text-slate-300">LIMIT</code> placement) are handled correctly.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Should SQL keywords be uppercase or lowercase?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Convention favours uppercase keywords (<code className="text-slate-300">SELECT</code>, <code className="text-slate-300">FROM</code>, <code className="text-slate-300">WHERE</code>) to visually distinguish them from table and column names. Most style guides and linters enforce this, though it is purely aesthetic.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-4">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

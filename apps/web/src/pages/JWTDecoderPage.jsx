@@ -587,7 +587,60 @@ const JWTDecoderPage = () => {
           )}
         </motion.div>
 
-        {/* Related Tools */}
+        
+        {/* SEO Content */}
+        <div className="mt-12 space-y-6">
+          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div>
+              <h2 className="text-base font-semibold text-white mb-2">What is a JWT Decoder?</h2>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                A JWT (JSON Web Token) decoder is a tool that parses and displays the contents of a JWT without
+                needing the secret key. JWTs are compact, URL-safe tokens used to represent claims between two
+                parties — typically for authentication and authorization in web applications and APIs. Each token
+                consists of three Base64URL-encoded parts separated by dots: the header (algorithm and type), the
+                payload (claims/data), and the signature (verification hash).
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+                <li>Inspect the claims inside a JWT received from an OAuth or OpenID Connect provider</li>
+                <li>Debug authentication issues by checking token expiry (<code className="text-slate-300">exp</code>) and issued-at (<code className="text-slate-300">iat</code>) fields</li>
+                <li>Verify the algorithm (<code className="text-slate-300">alg</code>) used to sign a token during a security review</li>
+                <li>Quickly check which roles or scopes are embedded in an access token</li>
+                <li>Validate token structure when integrating with a third-party identity provider</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <p className="text-sm text-slate-400 leading-relaxed">
+                The decoder splits your token on the <code className="text-slate-300">.</code> separator and Base64URL-decodes each segment.
+                The header and payload are then parsed as JSON and pretty-printed. The signature is displayed as-is
+                because verifying it requires the secret key or public certificate — which never leaves your machine
+                when using this tool. All decoding happens entirely in your browser; the token is never sent to any server.
+              </p>
+            </div>
+            <div>
+              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Is it safe to paste a JWT into this tool?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Yes. Decoding runs entirely in your browser using JavaScript — nothing is transmitted to a server. That said, avoid pasting production tokens containing sensitive data into any online tool as a best practice.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">Can this tool verify the JWT signature?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">No. Signature verification requires the secret key (HMAC) or public key (RSA/ECDSA), which you should never share with a third-party tool. This decoder only reads the payload claims.</p>
+                </div>
+                <div>
+                  <p className="text-sm font-medium text-slate-200 mb-1">What does "token expired" mean?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The <code className="text-slate-300">exp</code> claim is a Unix timestamp indicating when the token stops being valid. If the current time is past that timestamp, the token is expired and will be rejected by most servers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+{/* Related Tools */}
         <div className="border-t pt-12 mt-12">
           <h2 className="text-2xl font-bold mb-6">Related Tools</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
