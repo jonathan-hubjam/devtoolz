@@ -197,19 +197,19 @@ const URLEncoderPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is URL Encoding?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is URL Encoding?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 URL encoding (also called percent-encoding) converts characters that are not allowed in a URL into
                 a safe representation using a percent sign followed by two hexadecimal digits — for example, a space
-                becomes <code className="text-slate-300">%20</code> and an ampersand becomes <code className="text-slate-300">%26</code>.
+                becomes <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">%20</code> and an ampersand becomes <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">%26</code>.
                 The URL specification (RFC 3986) defines a set of "unreserved" characters that can appear as-is
-                (letters, digits, <code className="text-slate-300">-</code> <code className="text-slate-300">.</code> <code className="text-slate-300">_</code> <code className="text-slate-300">~</code>); everything else must be encoded before being included in a URL.
+                (letters, digits, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">-</code> <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">.</code> <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">_</code> <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">~</code>); everything else must be encoded before being included in a URL.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Encode query parameter values that contain spaces, special characters, or non-ASCII text</li>
                 <li>Build URLs programmatically from user-supplied input without breaking link structure</li>
@@ -219,29 +219,29 @@ const URLEncoderPage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                This tool uses JavaScript's <code className="text-slate-300">encodeURIComponent()</code> for component
-                encoding (encodes everything except unreserved characters) and <code className="text-slate-300">encodeURI()</code>
-                for full URL encoding (preserves structural characters like <code className="text-slate-300">://?=&</code>).
-                Decoding uses <code className="text-slate-300">decodeURIComponent()</code>. All processing happens in your
+                This tool uses JavaScript's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURIComponent()</code> for component
+                encoding (encodes everything except unreserved characters) and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURI()</code>
+                for full URL encoding (preserves structural characters like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">://?=&</code>).
+                Decoding uses <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">decodeURIComponent()</code>. All processing happens in your
                 browser — nothing is sent to a server.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between encodeURI and encodeURIComponent?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed"><code className="text-slate-300">encodeURI</code> is designed for full URLs — it preserves characters like <code className="text-slate-300">:</code>, <code className="text-slate-300">/</code>, <code className="text-slate-300">?</code>, and <code className="text-slate-300">#</code> that have structural meaning. <code className="text-slate-300">encodeURIComponent</code> encodes those characters too, making it suitable for individual query parameter values.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between encodeURI and encodeURIComponent?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed"><code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURI</code> is designed for full URLs — it preserves characters like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">:</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">#</code> that have structural meaning. <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURIComponent</code> encodes those characters too, making it suitable for individual query parameter values.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Why is a space sometimes encoded as + instead of %20?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">The <code className="text-slate-300">+</code> encoding for spaces is part of the <code className="text-slate-300">application/x-www-form-urlencoded</code> format used by HTML forms — it is not standard percent-encoding. Modern APIs typically prefer <code className="text-slate-300">%20</code>; always check what the target system expects.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Why is a space sometimes encoded as + instead of %20?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">+</code> encoding for spaces is part of the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">application/x-www-form-urlencoded</code> format used by HTML forms — it is not standard percent-encoding. Modern APIs typically prefer <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">%20</code>; always check what the target system expects.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Do I need to encode the entire URL or just parts of it?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Only encode the dynamic parts — query parameter names and values, path segments that contain special characters. Encoding the whole URL would break the structural characters (<code className="text-slate-300">://</code>, <code className="text-slate-300">/</code>, <code className="text-slate-300">?</code>, <code className="text-slate-300">&</code>) that define URL structure.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Do I need to encode the entire URL or just parts of it?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Only encode the dynamic parts — query parameter names and values, path segments that contain special characters. Encoding the whole URL would break the structural characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">://</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">&</code>) that define URL structure.</p>
                 </div>
               </div>
             </div>
@@ -364,30 +364,22 @@ const URLEncoderPage = () => {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

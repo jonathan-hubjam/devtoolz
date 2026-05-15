@@ -298,20 +298,20 @@ const UUIDGeneratorPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a UUID Generator?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a UUID Generator?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A UUID (Universally Unique Identifier) generator creates 128-bit identifiers formatted as
                 eight-four-four-four-twelve hexadecimal groups separated by hyphens, for example:
-                <code className="text-slate-300"> 550e8400-e29b-41d4-a716-446655440000</code>. UUIDs are standardised
+                <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs"> 550e8400-e29b-41d4-a716-446655440000</code>. UUIDs are standardised
                 in RFC 4122 and designed to be unique across space and time without a central registry.
                 Version 4 (random) UUIDs use 122 bits of randomness, making collisions statistically negligible
                 even at massive scale. Version 7 UUIDs are time-ordered, making them more efficient as database primary keys.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Generate primary keys for database records without a centralised sequence generator</li>
                 <li>Create idempotency keys for API requests to prevent duplicate processing</li>
@@ -321,28 +321,28 @@ const UUIDGeneratorPage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                Version 4 UUIDs are generated using <code className="text-slate-300">crypto.randomUUID()</code> (where
-                available) or by filling a typed array with <code className="text-slate-300">crypto.getRandomValues()</code>
-                and formatting it according to RFC 4122 — setting the version bits to <code className="text-slate-300">0100</code>
-                and the variant bits to <code className="text-slate-300">10xx</code>. All generation happens in your browser;
+                Version 4 UUIDs are generated using <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">crypto.randomUUID()</code> (where
+                available) or by filling a typed array with <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">crypto.getRandomValues()</code>
+                and formatting it according to RFC 4122 — setting the version bits to <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0100</code>
+                and the variant bits to <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">10xx</code>. All generation happens in your browser;
                 no UUIDs are logged or stored server-side.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">How likely is a UUID collision?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">How likely is a UUID collision?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Extremely unlikely. With version 4 UUIDs you would need to generate about 2.7 × 10¹⁸ UUIDs before having a 50% chance of a single collision — more than the number of seconds since the Big Bang.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between UUID v4 and v7?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between UUID v4 and v7?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">UUID v4 is fully random with no time component. UUID v7 embeds a Unix millisecond timestamp in the most significant bits, making UUIDs sort chronologically — which improves database index performance for insert-heavy workloads.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Should I use uppercase or lowercase UUIDs?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Should I use uppercase or lowercase UUIDs?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">The RFC 4122 standard recommends lowercase. Most databases and languages accept both, but lowercase is more common in modern APIs and systems. Be consistent within your application.</p>
                 </div>
               </div>
@@ -466,30 +466,22 @@ const UUIDGeneratorPage = () => {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

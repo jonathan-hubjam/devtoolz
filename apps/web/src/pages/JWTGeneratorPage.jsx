@@ -333,20 +333,20 @@ export default function JWTGeneratorPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a JWT Generator?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a JWT Generator?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A JWT generator creates signed JSON Web Tokens from a payload you define and a secret or key you
                 provide. JWTs are used to securely transmit information between parties as a compact, self-contained
-                token. The generator lets you specify standard claims like expiry (<code className="text-slate-300">exp</code>),
-                issuer (<code className="text-slate-300">iss</code>), and subject (<code className="text-slate-300">sub</code>),
+                token. The generator lets you specify standard claims like expiry (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code>),
+                issuer (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">iss</code>), and subject (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">sub</code>),
                 add custom claims, choose a signing algorithm (HS256, RS256, etc.), and immediately get a token you
                 can use for testing or development without spinning up an auth server.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Generate test tokens with specific roles or claims for local API development</li>
                 <li>Create tokens with custom expiry times to test token refresh logic</li>
@@ -356,28 +356,28 @@ export default function JWTGeneratorPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
                 The tool Base64URL-encodes the header JSON and payload JSON, concatenates them with a dot, then signs
                 the result using the selected algorithm. For HMAC algorithms (HS256/HS384/HS512) the
-                <code className="text-slate-300"> SubtleCrypto.sign()</code> API signs with your provided secret. The
+                <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs"> SubtleCrypto.sign()</code> API signs with your provided secret. The
                 resulting signature is Base64URL-encoded and appended as the third segment. All signing happens in your
                 browser — the secret never leaves your machine.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Is it safe to use this tool with real secrets?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Signing runs in your browser and nothing is transmitted, but treat production secrets with care. For sensitive environments, prefer generating tokens locally with a library like <code className="text-slate-300">jsonwebtoken</code> (Node.js) rather than any online tool.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Is it safe to use this tool with real secrets?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Signing runs in your browser and nothing is transmitted, but treat production secrets with care. For sensitive environments, prefer generating tokens locally with a library like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">jsonwebtoken</code> (Node.js) rather than any online tool.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between HS256 and RS256?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between HS256 and RS256?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">HS256 uses a shared secret (HMAC-SHA256) — both the issuer and verifier need the same key, so it is only suitable when you control both sides. RS256 uses an RSA private key to sign and a public key to verify — the public key can be shared freely, making it suitable for public-facing APIs.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What should I put in the payload?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What should I put in the payload?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Include only the claims your application needs: user ID, roles, expiry, and issuer. Avoid storing sensitive data (passwords, PII) in the payload — JWT payloads are Base64-encoded, not encrypted, so anyone with the token can read them.</p>
                 </div>
               </div>
@@ -501,30 +501,22 @@ export default function JWTGeneratorPage() {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

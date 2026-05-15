@@ -423,19 +423,19 @@ export default function TextDiffPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a Text Diff Tool?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a Text Diff Tool?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A text diff tool compares two pieces of text and highlights the differences — additions, deletions,
-                and unchanged lines — using colour-coded output similar to the <code className="text-slate-300">git diff</code>
-                or Unix <code className="text-slate-300">diff</code> commands. It is an essential tool for reviewing
+                and unchanged lines — using colour-coded output similar to the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">git diff</code>
+                or Unix <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">diff</code> commands. It is an essential tool for reviewing
                 changes in configuration files, code snippets, API responses, or any text where you need to quickly
                 understand what changed between two versions without reading both in full.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Compare two versions of a config file to find what changed after a deployment</li>
                 <li>Spot differences between two API responses for the same endpoint</li>
@@ -445,7 +445,7 @@ export default function TextDiffPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
                 The diff algorithm (an implementation of the Myers diff algorithm or similar LCS-based approach)
                 computes the longest common subsequence of lines between the two inputs and classifies each line as
@@ -455,19 +455,19 @@ export default function TextDiffPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between unified and side-by-side diff?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between unified and side-by-side diff?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Unified diff shows both versions interleaved in a single column with + and - markers — compact and good for terminals. Side-by-side diff shows the two versions in parallel columns — easier to read for longer files or prose comparisons.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Does whitespace matter in the comparison?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Does whitespace matter in the comparison?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">By default, trailing whitespace and line-ending differences (CRLF vs LF) are included in the diff. Most tools offer an "ignore whitespace" option that skips purely cosmetic whitespace changes so you can focus on meaningful content differences.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">How large a file can I diff in the browser?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Browser-based diff tools handle files up to a few hundred kilobytes comfortably. For very large files (megabytes), the diff algorithm can become slow due to the quadratic nature of LCS computation. Use command-line tools like <code className="text-slate-300">diff</code> or <code className="text-slate-300">git diff</code> for large files.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">How large a file can I diff in the browser?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Browser-based diff tools handle files up to a few hundred kilobytes comfortably. For very large files (megabytes), the diff algorithm can become slow due to the quadratic nature of LCS computation. Use command-line tools like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">diff</code> or <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">git diff</code> for large files.</p>
                 </div>
               </div>
             </div>
@@ -590,30 +590,22 @@ export default function TextDiffPage() {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

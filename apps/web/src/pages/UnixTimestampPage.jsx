@@ -329,9 +329,9 @@ const UnixTimestampPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a Unix Timestamp Converter?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a Unix Timestamp Converter?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A Unix timestamp (also called Epoch time or POSIX time) is the number of seconds that have elapsed
                 since 00:00:00 UTC on 1 January 1970, not counting leap seconds. It provides a language- and
@@ -341,39 +341,39 @@ const UnixTimestampPage = () => {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Convert a timestamp from a server log or database record to a readable date</li>
-                <li>Debug JWT token expiry by converting the <code className="text-slate-300">exp</code> or <code className="text-slate-300">iat</code> claims</li>
+                <li>Debug JWT token expiry by converting the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code> or <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">iat</code> claims</li>
                 <li>Calculate the Unix timestamp for a future date to use as a deadline or TTL</li>
                 <li>Cross-reference events across systems that use different timestamp formats</li>
                 <li>Verify that a scheduled job ran at the expected time</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                JavaScript's <code className="text-slate-300">Date</code> object stores time internally as milliseconds
-                since the Unix epoch. Converting a timestamp to a date uses <code className="text-slate-300">new Date(timestamp * 1000)</code>
-                (multiplying by 1000 to convert seconds to milliseconds). The <code className="text-slate-300">Intl.DateTimeFormat</code>
+                JavaScript's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">Date</code> object stores time internally as milliseconds
+                since the Unix epoch. Converting a timestamp to a date uses <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">new Date(timestamp * 1000)</code>
+                (multiplying by 1000 to convert seconds to milliseconds). The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">Intl.DateTimeFormat</code>
                 API formats the result in the selected timezone. Converting a date string back to a timestamp uses
-                <code className="text-slate-300">Date.parse()</code> divided by 1000.
+                <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">Date.parse()</code> divided by 1000.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What happens after the year 2038?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What happens after the year 2038?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">The "Year 2038 problem" affects systems that store Unix timestamps as a 32-bit signed integer — it overflows on 19 January 2038. Modern systems use 64-bit integers, which won't overflow for about 292 billion years.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Does the Unix timestamp account for timezones?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Does the Unix timestamp account for timezones?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">No. A Unix timestamp always represents a moment in UTC. Timezone conversion happens only at the display layer — the underlying number is the same everywhere in the world at the same instant.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Is the timestamp in seconds or milliseconds?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">The original Unix standard uses seconds. JavaScript's <code className="text-slate-300">Date.now()</code> returns milliseconds. Many modern APIs (including some databases) use milliseconds. A 13-digit timestamp is almost certainly in milliseconds; a 10-digit one is in seconds.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Is the timestamp in seconds or milliseconds?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The original Unix standard uses seconds. JavaScript's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">Date.now()</code> returns milliseconds. Many modern APIs (including some databases) use milliseconds. A 13-digit timestamp is almost certainly in milliseconds; a 10-digit one is in seconds.</p>
                 </div>
               </div>
             </div>
@@ -496,30 +496,22 @@ const UnixTimestampPage = () => {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

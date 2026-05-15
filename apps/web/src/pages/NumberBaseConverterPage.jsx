@@ -214,9 +214,9 @@ export default function NumberBaseConverterPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a Number Base Converter?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a Number Base Converter?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A number base converter translates integers between different positional numeral systems — most
                 commonly binary (base 2), octal (base 8), decimal (base 10), and hexadecimal (base 16). Each base
@@ -226,7 +226,7 @@ export default function NumberBaseConverterPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Convert hex colour codes to decimal RGB values (or vice versa) for CSS and design work</li>
                 <li>Decode binary or hexadecimal values from network packet captures and protocol documentation</li>
@@ -236,28 +236,28 @@ export default function NumberBaseConverterPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
                 Conversion is a two-step process: first parse the input string in the source base to get an integer
-                value, then format that integer in the target base. This tool uses JavaScript's <code className="text-slate-300">BigInt</code>
+                value, then format that integer in the target base. This tool uses JavaScript's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">BigInt</code>
                 for arbitrary-precision arithmetic, so it handles numbers larger than 2⁵³ − 1 (the limit of
-                JavaScript's regular <code className="text-slate-300">Number</code> type) without losing precision —
+                JavaScript's regular <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">Number</code> type) without losing precision —
                 essential for 64-bit values common in networking and cryptography.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Why is hexadecimal used so often in programming?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Hexadecimal is a compact representation of binary — one hex digit maps exactly to four bits (a nibble). This makes hex ideal for representing memory addresses, byte values, colour codes, and bitmasks. Reading <code className="text-slate-300">0xFF</code> is much easier than reading <code className="text-slate-300">11111111</code>.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Why is hexadecimal used so often in programming?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Hexadecimal is a compact representation of binary — one hex digit maps exactly to four bits (a nibble). This makes hex ideal for representing memory addresses, byte values, colour codes, and bitmasks. Reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0xFF</code> is much easier than reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">11111111</code>.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">How do I convert a negative number to binary?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">How do I convert a negative number to binary?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Negative integers in computers are most commonly represented in two's complement. To convert: invert all bits of the positive value and add 1. The result's most significant bit is 1 for negative numbers. The bit width (8, 16, 32, 64) matters for the result.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Can I convert between any two bases, or only the common ones?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Can I convert between any two bases, or only the common ones?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Mathematically, conversion works between any bases 2–36 (using digits 0–9 and letters A–Z). This tool supports bases 2 through 36. Less common bases like base 3 (ternary) and base 60 (sexagesimal, used for time) are valid inputs.</p>
                 </div>
               </div>
@@ -332,18 +332,14 @@ export default function NumberBaseConverterPage() {
               </h3>
               <p className="text-sm text-slate-400">Format and minify SQL with dialect support for MySQL, PostgreSQL, and more.</p>
             </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

@@ -363,9 +363,9 @@ export default function ColorConverterPage() {
 
         {/* SEO Content */}
           <div className="mt-8 space-y-6">
-            <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+            <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
               <div>
-                <h2 className="text-base font-semibold text-white mb-2">What is a Color Converter?</h2>
+                <h2 className="text-base font-semibold text-foreground mb-2">What is a Color Converter?</h2>
                 <p className="text-sm text-slate-400 leading-relaxed">
                   A color converter translates colour values between the formats used in design, web development, and
                   print: HEX (the six-digit code used in CSS and HTML), RGB (red, green, blue channels on a 0–255
@@ -376,9 +376,9 @@ export default function ColorConverterPage() {
                 </p>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+                <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
                 <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
-                  <li>Convert a brand's HEX colour code to RGB for use in CSS <code className="text-slate-300">rgba()</code> with opacity</li>
+                  <li>Convert a brand's HEX colour code to RGB for use in CSS <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">rgba()</code> with opacity</li>
                   <li>Translate a Figma or Photoshop colour picker value (HSV) to a CSS-compatible HSL or HEX</li>
                   <li>Convert web colours (HEX/RGB) to CMYK for a print design handoff</li>
                   <li>Adjust a colour's lightness in HSL without losing the hue information</li>
@@ -386,29 +386,29 @@ export default function ColorConverterPage() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+                <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
                 <p className="text-sm text-slate-400 leading-relaxed">
                   All conversions use RGB as the intermediate representation. HEX is parsed as three hexadecimal byte
                   values. HSL is converted to RGB using the standard IEC 61966-2-1 algorithm. HSV is converted via
                   the sector-based formula that maps the hue wheel to RGB channels. CMYK is converted using the
-                  formula <code className="text-slate-300">R = 255 × (1 − C) × (1 − K)</code> and equivalents. The
+                  formula <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">R = 255 × (1 − C) × (1 − K)</code> and equivalents. The
                   live colour swatch updates as you type so you can immediately see the colour you're working with.
                 </p>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+                <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
                 <div className="space-y-3">
                   <div>
-                    <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between HSL and HSV?</p>
+                    <p className="text-sm font-medium text-foreground mb-1">What is the difference between HSL and HSV?</p>
                     <p className="text-sm text-slate-400 leading-relaxed">Both use hue and saturation, but differ in the third component. HSL's "lightness" ranges from black (0%) to white (100%) with the pure colour at 50%. HSV's "value" ranges from black (0%) to the pure colour (100%) — white is represented by low saturation, not high value. HSV matches most design-tool colour pickers; HSL is native to CSS.</p>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-200 mb-1">Why doesn't CMYK convert perfectly to RGB?</p>
+                    <p className="text-sm font-medium text-foreground mb-1">Why doesn't CMYK convert perfectly to RGB?</p>
                     <p className="text-sm text-slate-400 leading-relaxed">RGB is an additive colour model (mixing light); CMYK is subtractive (mixing ink). The gamuts (ranges of representable colours) differ — some colours on a screen cannot be reproduced in print, and some printed colours cannot be displayed on a monitor. Conversion is an approximation.</p>
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-slate-200 mb-1">What does the alpha channel control?</p>
-                    <p className="text-sm text-slate-400 leading-relaxed">Alpha controls opacity from 0 (fully transparent) to 1 (fully opaque). It appears in formats like <code className="text-slate-300">rgba()</code> and <code className="text-slate-300">hsla()</code> in CSS. An 8-digit HEX code (<code className="text-slate-300">#RRGGBBAA</code>) encodes alpha as the last two hex digits.</p>
+                    <p className="text-sm font-medium text-foreground mb-1">What does the alpha channel control?</p>
+                    <p className="text-sm text-slate-400 leading-relaxed">Alpha controls opacity from 0 (fully transparent) to 1 (fully opaque). It appears in formats like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">rgba()</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">hsla()</code> in CSS. An 8-digit HEX code (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">#RRGGBBAA</code>) encodes alpha as the last two hex digits.</p>
                   </div>
                 </div>
               </div>

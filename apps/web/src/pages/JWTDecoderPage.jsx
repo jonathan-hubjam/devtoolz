@@ -590,9 +590,9 @@ const JWTDecoderPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a JWT Decoder?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a JWT Decoder?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A JWT (JSON Web Token) decoder is a tool that parses and displays the contents of a JWT without
                 needing the secret key. JWTs are compact, URL-safe tokens used to represent claims between two
@@ -602,38 +602,38 @@ const JWTDecoderPage = () => {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Inspect the claims inside a JWT received from an OAuth or OpenID Connect provider</li>
-                <li>Debug authentication issues by checking token expiry (<code className="text-slate-300">exp</code>) and issued-at (<code className="text-slate-300">iat</code>) fields</li>
-                <li>Verify the algorithm (<code className="text-slate-300">alg</code>) used to sign a token during a security review</li>
+                <li>Debug authentication issues by checking token expiry (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code>) and issued-at (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">iat</code>) fields</li>
+                <li>Verify the algorithm (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">alg</code>) used to sign a token during a security review</li>
                 <li>Quickly check which roles or scopes are embedded in an access token</li>
                 <li>Validate token structure when integrating with a third-party identity provider</li>
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                The decoder splits your token on the <code className="text-slate-300">.</code> separator and Base64URL-decodes each segment.
+                The decoder splits your token on the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">.</code> separator and Base64URL-decodes each segment.
                 The header and payload are then parsed as JSON and pretty-printed. The signature is displayed as-is
                 because verifying it requires the secret key or public certificate — which never leaves your machine
                 when using this tool. All decoding happens entirely in your browser; the token is never sent to any server.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Is it safe to paste a JWT into this tool?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Is it safe to paste a JWT into this tool?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Yes. Decoding runs entirely in your browser using JavaScript — nothing is transmitted to a server. That said, avoid pasting production tokens containing sensitive data into any online tool as a best practice.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Can this tool verify the JWT signature?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Can this tool verify the JWT signature?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">No. Signature verification requires the secret key (HMAC) or public key (RSA/ECDSA), which you should never share with a third-party tool. This decoder only reads the payload claims.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What does "token expired" mean?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">The <code className="text-slate-300">exp</code> claim is a Unix timestamp indicating when the token stops being valid. If the current time is past that timestamp, the token is expired and will be rejected by most servers.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What does "token expired" mean?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code> claim is a Unix timestamp indicating when the token stops being valid. If the current time is past that timestamp, the token is expired and will be rejected by most servers.</p>
                 </div>
               </div>
             </div>
@@ -756,30 +756,22 @@ const JWTDecoderPage = () => {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

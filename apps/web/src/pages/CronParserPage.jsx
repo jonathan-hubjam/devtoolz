@@ -401,9 +401,9 @@ export default function CronParserPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a Cron Parser?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a Cron Parser?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A cron parser reads a cron expression — the five-field (or six-field) schedule notation used by Unix
                 cron schedulers — and translates it into a human-readable description, upcoming execution times, and
@@ -413,7 +413,7 @@ export default function CronParserPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Verify that a cron schedule fires at the intended times before deploying it to production</li>
                 <li>Debug a job that isn't running by checking the next scheduled execution</li>
@@ -423,28 +423,28 @@ export default function CronParserPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                A standard cron expression has five fields: <code className="text-slate-300">minute hour day-of-month month day-of-week</code>.
-                Each field accepts a number, a wildcard (<code className="text-slate-300">*</code>), a range (<code className="text-slate-300">1-5</code>),
-                a list (<code className="text-slate-300">1,3,5</code>), or a step (<code className="text-slate-300">*/15</code>).
+                A standard cron expression has five fields: <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">minute hour day-of-month month day-of-week</code>.
+                Each field accepts a number, a wildcard (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">*</code>), a range (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">1-5</code>),
+                a list (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">1,3,5</code>), or a step (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">*/15</code>).
                 The parser evaluates all combinations to compute the next N execution timestamps. Some schedulers
                 add a sixth seconds field at the start; toggle this option if your platform uses it.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What does */5 mean in a cron expression?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed"><code className="text-slate-300">*/5</code> means "every 5 units." In the minutes field, <code className="text-slate-300">*/5</code> means every 5 minutes (at 0, 5, 10, 15 … 55). The step operator divides the allowed range by the step value.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What does */5 mean in a cron expression?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed"><code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">*/5</code> means "every 5 units." In the minutes field, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">*/5</code> means every 5 minutes (at 0, 5, 10, 15 … 55). The step operator divides the allowed range by the step value.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between 0 and * in the seconds field?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed"><code className="text-slate-300">0</code> fires at the exact start of the minute; <code className="text-slate-300">*</code> fires every second. Most jobs should use <code className="text-slate-300">0</code> in the seconds field to run once per minute trigger.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between 0 and * in the seconds field?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed"><code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0</code> fires at the exact start of the minute; <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">*</code> fires every second. Most jobs should use <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0</code> in the seconds field to run once per minute trigger.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Why does my cron job run twice in some hours?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Why does my cron job run twice in some hours?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Daylight saving time transitions can cause an hour to repeat, firing a job scheduled for that hour twice, or skip an hour, causing a job to be missed. Schedule critical jobs at times that do not fall within DST transition windows, or use UTC.</p>
                 </div>
               </div>
@@ -560,30 +560,22 @@ export default function CronParserPage() {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

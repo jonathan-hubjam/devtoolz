@@ -236,19 +236,19 @@ const Base64EncoderPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is Base64 Encoding?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is Base64 Encoding?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 Base64 is a binary-to-text encoding scheme that represents binary data using 64 printable ASCII
                 characters (A–Z, a–z, 0–9, +, /). It was designed to safely transmit binary data over channels
                 that only support text — such as email (MIME), HTTP headers, and JSON payloads. Encoding increases
                 data size by roughly 33% but guarantees the output is safe for any text-based protocol. The URL-safe
-                variant replaces <code className="text-slate-300">+</code> and <code className="text-slate-300">/</code> with <code className="text-slate-300">-</code> and <code className="text-slate-300">_</code> for use in URLs and filenames.
+                variant replaces <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">+</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code> with <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">-</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">_</code> for use in URLs and filenames.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Embed images, fonts, or binary assets directly in HTML, CSS, or JSON as data URIs</li>
                 <li>Encode credentials for HTTP Basic Authentication headers</li>
@@ -258,28 +258,28 @@ const Base64EncoderPage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
                 Base64 works by grouping the input bytes into 6-bit chunks (since 2⁶ = 64) and mapping each chunk
                 to one of 64 characters. Every 3 bytes of input produce exactly 4 Base64 characters. If the input
-                length is not a multiple of 3, padding characters (<code className="text-slate-300">=</code>) are
-                appended. This tool uses the browser's built-in <code className="text-slate-300">btoa()</code> and <code className="text-slate-300">atob()</code> functions for plain text and handles UTF-8 strings correctly.
+                length is not a multiple of 3, padding characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">=</code>) are
+                appended. This tool uses the browser's built-in <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">btoa()</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">atob()</code> functions for plain text and handles UTF-8 strings correctly.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Is Base64 a form of encryption?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Is Base64 a form of encryption?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">No. Base64 is encoding, not encryption. It is trivially reversible by anyone with the encoded string. Never use Base64 to protect sensitive data — use proper encryption algorithms like AES-256 instead.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">What is the difference between standard and URL-safe Base64?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Standard Base64 uses <code className="text-slate-300">+</code> and <code className="text-slate-300">/</code>, which have special meanings in URLs. URL-safe Base64 replaces them with <code className="text-slate-300">-</code> and <code className="text-slate-300">_</code>, making the output safe to embed in URLs and filenames without percent-encoding.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between standard and URL-safe Base64?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Standard Base64 uses <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">+</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, which have special meanings in URLs. URL-safe Base64 replaces them with <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">-</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">_</code>, making the output safe to embed in URLs and filenames without percent-encoding.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Why does my Base64 string end with == ?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Padding characters (<code className="text-slate-300">=</code>) are added to make the encoded length a multiple of 4. One or two padding characters appear when the input byte count is not divisible by 3.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Why does my Base64 string end with == ?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Padding characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">=</code>) are added to make the encoded length a multiple of 4. One or two padding characters appear when the input byte count is not divisible by 3.</p>
                 </div>
               </div>
             </div>
@@ -402,30 +402,22 @@ const Base64EncoderPage = () => {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

@@ -225,9 +225,9 @@ const HashGeneratorPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a Hash Generator?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a Hash Generator?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A hash generator applies a cryptographic hash function to input data and produces a fixed-length
                 hexadecimal digest. Hash functions are one-way — the same input always produces the same output,
@@ -238,7 +238,7 @@ const HashGeneratorPage = () => {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Verify file integrity by comparing checksums before and after download or transfer</li>
                 <li>Store password hashes in a database instead of plaintext credentials</li>
@@ -248,28 +248,28 @@ const HashGeneratorPage = () => {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                This tool uses the browser's native <code className="text-slate-300">SubtleCrypto</code> API
-                (<code className="text-slate-300">crypto.subtle.digest()</code>) for SHA-family algorithms, providing
+                This tool uses the browser's native <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">SubtleCrypto</code> API
+                (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">crypto.subtle.digest()</code>) for SHA-family algorithms, providing
                 hardware-accelerated hashing without any server round-trips. MD5 is computed with a pure-JavaScript
                 implementation since it is not part of the Web Crypto standard. Input is UTF-8 encoded before hashing;
                 the raw bytes are then converted to a lowercase hex string.
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Should I use MD5 or SHA-256 for checksums?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Should I use MD5 or SHA-256 for checksums?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">SHA-256 is preferred for anything security-related because MD5 is vulnerable to collision attacks. For non-security checksums (detecting accidental data corruption), MD5 is fast and still reliable.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Can two different inputs produce the same hash?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Can two different inputs produce the same hash?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Yes — this is called a "collision." Modern algorithms like SHA-256 make finding collisions computationally infeasible. MD5 and SHA-1 have known collision vulnerabilities, which is why they are not recommended for digital signatures or certificates.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Is hashing the same as encryption?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Is hashing the same as encryption?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">No. Hashing is one-way and cannot be reversed. Encryption is two-way — data can be decrypted with the correct key. Use hashing for integrity checks and storing passwords (with a salt); use encryption when you need to recover the original data.</p>
                 </div>
               </div>
@@ -393,30 +393,22 @@ const HashGeneratorPage = () => {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>

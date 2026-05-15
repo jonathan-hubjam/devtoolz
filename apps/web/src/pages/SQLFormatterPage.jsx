@@ -299,9 +299,9 @@ export default function SQLFormatterPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-slate-800/30 border border-slate-700/50 rounded-xl p-6 space-y-4">
+          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
             <div>
-              <h2 className="text-base font-semibold text-white mb-2">What is a SQL Formatter?</h2>
+              <h2 className="text-base font-semibold text-foreground mb-2">What is a SQL Formatter?</h2>
               <p className="text-sm text-slate-400 leading-relaxed">
                 A SQL formatter (or SQL beautifier) takes raw or minified SQL queries and reformats them with consistent
                 indentation, keyword capitalisation, and line breaks, making complex queries dramatically easier to read
@@ -311,7 +311,7 @@ export default function SQLFormatterPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Common Use Cases</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
               <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
                 <li>Beautify ORM-generated queries for debugging and performance analysis</li>
                 <li>Standardise SQL style across a team's codebase and migrations</li>
@@ -321,9 +321,9 @@ export default function SQLFormatterPage() {
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">How It Works</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
               <p className="text-sm text-slate-400 leading-relaxed">
-                This formatter uses the <code className="text-slate-300">sql-formatter</code> library to parse your SQL
+                This formatter uses the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">sql-formatter</code> library to parse your SQL
                 into an abstract syntax tree and then serialise it back to text with configurable indentation and
                 keyword case. You can choose the SQL dialect (MySQL, PostgreSQL, SQLite, etc.) to get
                 dialect-specific keyword handling. All formatting runs in your browser — your queries are never sent
@@ -331,19 +331,19 @@ export default function SQLFormatterPage() {
               </p>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-slate-300 mb-2">Frequently Asked Questions</h3>
+              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
               <div className="space-y-3">
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Does formatting change how a query executes?</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Does formatting change how a query executes?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">No. SQL is case-insensitive for keywords and whitespace-insensitive. Formatting only affects how the query looks — the database query planner sees the exact same logical structure regardless of indentation.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Why do I need to select a SQL dialect?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Different databases have different reserved words and syntax extensions. Selecting the correct dialect ensures that database-specific keywords (like PostgreSQL's <code className="text-slate-300">RETURNING</code> or MySQL's <code className="text-slate-300">LIMIT</code> placement) are handled correctly.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Why do I need to select a SQL dialect?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Different databases have different reserved words and syntax extensions. Selecting the correct dialect ensures that database-specific keywords (like PostgreSQL's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">RETURNING</code> or MySQL's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">LIMIT</code> placement) are handled correctly.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-slate-200 mb-1">Should SQL keywords be uppercase or lowercase?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Convention favours uppercase keywords (<code className="text-slate-300">SELECT</code>, <code className="text-slate-300">FROM</code>, <code className="text-slate-300">WHERE</code>) to visually distinguish them from table and column names. Most style guides and linters enforce this, though it is purely aesthetic.</p>
+                  <p className="text-sm font-medium text-foreground mb-1">Should SQL keywords be uppercase or lowercase?</p>
+                  <p className="text-sm text-slate-400 leading-relaxed">Convention favours uppercase keywords (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">SELECT</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">FROM</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">WHERE</code>) to visually distinguish them from table and column names. Most style guides and linters enforce this, though it is purely aesthetic.</p>
                 </div>
               </div>
             </div>
@@ -450,30 +450,22 @@ export default function SQLFormatterPage() {
               </h3>
               <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
-              <Link
-                href="/number-base-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-pink-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-pink-500/10 text-pink-500 flex items-center justify-center flex-shrink-0">
-                  <Binary className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-pink-400 transition-colors">Number Base Converter</div>
-                  <div className="text-xs text-slate-500">Decimal, hex, octal, binary</div>
-                </div>
-              </Link>
-              <Link
-                href="/color-converter"
-                className="flex items-center gap-3 p-3 rounded-lg bg-slate-800/50 hover:bg-slate-800 border border-slate-700/50 hover:border-violet-500/30 transition-all group/card"
-              >
-                <div className="w-8 h-8 rounded-md bg-violet-500/10 text-violet-500 flex items-center justify-center flex-shrink-0">
-                  <Palette className="w-4 h-4" />
-                </div>
-                <div>
-                  <div className="text-sm font-medium text-slate-200 group-hover/card:text-violet-400 transition-colors">Color Converter</div>
-                  <div className="text-xs text-slate-500">HEX, RGB, HSL, CMYK</div>
-                </div>
-              </Link>
+            <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Binary className="w-5 h-5 text-pink-500" />
+                Number Base Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert between decimal, hexadecimal, octal, and binary number bases.</p>
+            </Link>
+            <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
+                <Palette className="w-5 h-5 text-violet-500" />
+                Color Converter
+                <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </h3>
+              <p className="text-sm text-muted-foreground">Convert colours between HEX, RGB, HSL, HSV, and CMYK formats.</p>
+            </Link>
           </div>
         </div>
       </div>
