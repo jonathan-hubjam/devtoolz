@@ -1,5 +1,6 @@
 import './globals.css';
 import Script from 'next/script';
+import Sidebar from '@/components/Sidebar';
 import Header from '@/components/Header';
 import FaviconLoader from '@/components/FaviconLoader';
 import { Toaster } from '@/components/ui/toaster';
@@ -20,14 +21,17 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <div className="min-h-screen flex flex-col bg-background text-foreground">
+        <div className="min-h-screen flex bg-background text-foreground">
           <FaviconLoader />
-          <Header />
-          <main className="flex-1 flex flex-col">
-            {children}
-          </main>
-          <Toaster />
+          <Sidebar />
+          <div className="flex-1 flex flex-col min-w-0 md:ml-[220px]">
+            <Header />
+            <main className="flex-1 flex flex-col">
+              {children}
+            </main>
+          </div>
         </div>
+        <Toaster />
         <Script defer src="https://cloud.umami.is/script.js" data-website-id="02567dea-c872-453c-9ff4-3247b288e15e" />
       </body>
     </html>
