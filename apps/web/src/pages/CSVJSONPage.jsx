@@ -387,9 +387,10 @@ export default function CSVJSONPage() {
                 All processing runs locally in your browser.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">What happens with nested JSON objects?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">CSV is a flat format — it cannot represent nested structures directly. Nested objects are typically serialised as a JSON string in a single CSV cell, or flattened into dot-notation column names (e.g. <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">address.city</code>). This tool serialises nested values as strings.</p>
@@ -403,7 +404,6 @@ export default function CSVJSONPage() {
                   <p className="text-sm text-slate-400 leading-relaxed">By default, yes — CSV has no type information. The converter can optionally infer types (treating <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">123</code> as a number and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">true</code>/<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">false</code> as booleans) when converting to JSON.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

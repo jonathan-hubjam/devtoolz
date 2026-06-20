@@ -432,9 +432,10 @@ export default function CronParserPage() {
                 add a sixth seconds field at the start; toggle this option if your platform uses it.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">What does */5 mean in a cron expression?</p>
                   <p className="text-sm text-slate-400 leading-relaxed"><code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">*/5</code> means "every 5 units." In the minutes field, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">*/5</code> means every 5 minutes (at 0, 5, 10, 15 … 55). The step operator divides the allowed range by the step value.</p>
@@ -448,7 +449,6 @@ export default function CronParserPage() {
                   <p className="text-sm text-slate-400 leading-relaxed">Daylight saving time transitions can cause an hour to repeat, firing a job scheduled for that hour twice, or skip an hour, causing a job to be missed. Schedule critical jobs at times that do not fall within DST transition windows, or use UTC.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

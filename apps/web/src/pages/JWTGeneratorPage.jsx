@@ -365,9 +365,10 @@ export default function JWTGeneratorPage() {
                 browser — the secret never leaves your machine.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Is it safe to use this tool with real secrets?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Signing runs in your browser and nothing is transmitted, but treat production secrets with care. For sensitive environments, prefer generating tokens locally with a library like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">jsonwebtoken</code> (Node.js) rather than any online tool.</p>
@@ -381,7 +382,6 @@ export default function JWTGeneratorPage() {
                   <p className="text-sm text-slate-400 leading-relaxed">Include only the claims your application needs: user ID, roles, expiry, and issuer. Avoid storing sensitive data (passwords, PII) in the payload — JWT payloads are Base64-encoded, not encrypted, so anyone with the token can read them.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

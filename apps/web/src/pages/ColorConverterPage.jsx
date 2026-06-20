@@ -395,9 +395,10 @@ export default function ColorConverterPage() {
                   live colour swatch updates as you type so you can immediately see the colour you're working with.
                 </p>
               </div>
-              <div>
-                <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-                <div className="space-y-3">
+            </div>
+            <div className="bg-muted/50 border border-border rounded-xl p-6">
+              <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+              <div className="space-y-4">
                   <div>
                     <p className="text-sm font-medium text-foreground mb-1">What is the difference between HSL and HSV?</p>
                     <p className="text-sm text-slate-400 leading-relaxed">Both use hue and saturation, but differ in the third component. HSL's "lightness" ranges from black (0%) to white (100%) with the pure colour at 50%. HSV's "value" ranges from black (0%) to the pure colour (100%) — white is represented by low saturation, not high value. HSV matches most design-tool colour pickers; HSL is native to CSS.</p>
@@ -411,7 +412,6 @@ export default function ColorConverterPage() {
                     <p className="text-sm text-slate-400 leading-relaxed">Alpha controls opacity from 0 (fully transparent) to 1 (fully opaque). It appears in formats like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">rgba()</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">hsla()</code> in CSS. An 8-digit HEX code (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">#RRGGBBAA</code>) encodes alpha as the last two hex digits.</p>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
 

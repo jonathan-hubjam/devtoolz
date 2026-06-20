@@ -330,9 +330,10 @@ const JSONFormatterPage = () => {
                 stripping all unnecessary whitespace. Everything runs locally — no data leaves your browser.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">What is the difference between JSON and JavaScript objects?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">JSON requires keys to be double-quoted strings and does not support functions, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">undefined</code>, or comments. JavaScript objects are more permissive. Always use a JSON formatter/validator to check that your data strictly conforms to the JSON spec.</p>
@@ -346,7 +347,6 @@ const JSONFormatterPage = () => {
                   <p className="text-sm text-slate-400 leading-relaxed">Browser-based formatters can handle files up to a few megabytes comfortably. For very large files (10 MB+) consider using a CLI tool like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">jq</code> or a native desktop application to avoid browser memory limits.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

@@ -245,9 +245,10 @@ export default function NumberBaseConverterPage() {
                 essential for 64-bit values common in networking and cryptography.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Why is hexadecimal used so often in programming?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Hexadecimal is a compact representation of binary — one hex digit maps exactly to four bits (a nibble). This makes hex ideal for representing memory addresses, byte values, colour codes, and bitmasks. Reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0xFF</code> is much easier than reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">11111111</code>.</p>
@@ -261,7 +262,6 @@ export default function NumberBaseConverterPage() {
                   <p className="text-sm text-slate-400 leading-relaxed">Mathematically, conversion works between any bases 2–36 (using digits 0–9 and letters A–Z). This tool supports bases 2 through 36. Less common bases like base 3 (ternary) and base 60 (sexagesimal, used for time) are valid inputs.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

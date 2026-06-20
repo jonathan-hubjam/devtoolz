@@ -330,9 +330,10 @@ export default function SQLFormatterPage() {
                 to a server.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Does formatting change how a query executes?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">No. SQL is case-insensitive for keywords and whitespace-insensitive. Formatting only affects how the query looks — the database query planner sees the exact same logical structure regardless of indentation.</p>
@@ -346,7 +347,6 @@ export default function SQLFormatterPage() {
                   <p className="text-sm text-slate-400 leading-relaxed">Convention favours uppercase keywords (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">SELECT</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">FROM</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">WHERE</code>) to visually distinguish them from table and column names. Most style guides and linters enforce this, though it is purely aesthetic.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

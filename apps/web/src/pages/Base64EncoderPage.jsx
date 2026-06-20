@@ -266,9 +266,10 @@ const Base64EncoderPage = () => {
                 appended. This tool uses the browser's built-in <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">btoa()</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">atob()</code> functions for plain text and handles UTF-8 strings correctly.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Is Base64 a form of encryption?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">No. Base64 is encoding, not encryption. It is trivially reversible by anyone with the encoded string. Never use Base64 to protect sensitive data — use proper encryption algorithms like AES-256 instead.</p>
@@ -282,7 +283,6 @@ const Base64EncoderPage = () => {
                   <p className="text-sm text-slate-400 leading-relaxed">Padding characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">=</code>) are added to make the encoded length a multiple of 4. One or two padding characters appear when the input byte count is not divisible by 3.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

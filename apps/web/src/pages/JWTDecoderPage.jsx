@@ -620,9 +620,10 @@ const JWTDecoderPage = () => {
                 when using this tool. All decoding happens entirely in your browser; the token is never sent to any server.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Is it safe to paste a JWT into this tool?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Yes. Decoding runs entirely in your browser using JavaScript — nothing is transmitted to a server. That said, avoid pasting production tokens containing sensitive data into any online tool as a best practice.</p>
@@ -636,7 +637,6 @@ const JWTDecoderPage = () => {
                   <p className="text-sm text-slate-400 leading-relaxed">The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code> claim is a Unix timestamp indicating when the token stops being valid. If the current time is past that timestamp, the token is expired and will be rejected by most servers.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

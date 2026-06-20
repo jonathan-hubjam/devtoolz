@@ -330,9 +330,10 @@ const UUIDGeneratorPage = () => {
                 no UUIDs are logged or stored server-side.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">How likely is a UUID collision?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">Extremely unlikely. With version 4 UUIDs you would need to generate about 2.7 × 10¹⁸ UUIDs before having a 50% chance of a single collision — more than the number of seconds since the Big Bang.</p>
@@ -346,7 +347,6 @@ const UUIDGeneratorPage = () => {
                   <p className="text-sm text-slate-400 leading-relaxed">The RFC 4122 standard recommends lowercase. Most databases and languages accept both, but lowercase is more common in modern APIs and systems. Be consistent within your application.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

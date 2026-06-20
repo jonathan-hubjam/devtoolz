@@ -257,9 +257,10 @@ const HashGeneratorPage = () => {
                 the raw bytes are then converted to a lowercase hex string.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">Should I use MD5 or SHA-256 for checksums?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">SHA-256 is preferred for anything security-related because MD5 is vulnerable to collision attacks. For non-security checksums (detecting accidental data corruption), MD5 is fast and still reliable.</p>
@@ -273,7 +274,6 @@ const HashGeneratorPage = () => {
                   <p className="text-sm text-slate-400 leading-relaxed">No. Hashing is one-way and cannot be reversed. Encryption is two-way — data can be decrypted with the correct key. Use hashing for integrity checks and storing passwords (with a salt); use encryption when you need to recover the original data.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

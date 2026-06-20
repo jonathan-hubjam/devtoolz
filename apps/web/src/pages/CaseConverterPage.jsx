@@ -297,9 +297,10 @@ export default function CaseConverterPage() {
                 supported case can be converted to any other.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">What is the difference between camelCase and PascalCase?</p>
                   <p className="text-sm text-slate-400 leading-relaxed">camelCase starts with a lowercase letter (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">myVariable</code>). PascalCase (also called UpperCamelCase) starts with an uppercase letter (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">MyVariable</code>). PascalCase is typically used for class names and React components; camelCase for variables and function names.</p>
@@ -313,7 +314,6 @@ export default function CaseConverterPage() {
                   <p className="text-sm text-slate-400 leading-relaxed">Yes — paste multiple identifiers or words, one per line, and the converter will process each line independently, preserving the line structure in the output.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 

@@ -228,9 +228,10 @@ const URLEncoderPage = () => {
                 browser — nothing is sent to a server.
               </p>
             </div>
-            <div>
-              <h3 className="text-sm font-semibold text-foreground/80 mb-2">Frequently Asked Questions</h3>
-              <div className="space-y-3">
+          </div>
+          <div className="bg-muted/50 border border-border rounded-xl p-6">
+            <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
+            <div className="space-y-4">
                 <div>
                   <p className="text-sm font-medium text-foreground mb-1">What is the difference between encodeURI and encodeURIComponent?</p>
                   <p className="text-sm text-slate-400 leading-relaxed"><code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURI</code> is designed for full URLs — it preserves characters like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">:</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">#</code> that have structural meaning. <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURIComponent</code> encodes those characters too, making it suitable for individual query parameter values.</p>
@@ -244,7 +245,6 @@ const URLEncoderPage = () => {
                   <p className="text-sm text-slate-400 leading-relaxed">Only encode the dynamic parts — query parameter names and values, path segments that contain special characters. Encoding the whole URL would break the structural characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">://</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">&</code>) that define URL structure.</p>
                 </div>
               </div>
-            </div>
           </div>
         </div>
 
