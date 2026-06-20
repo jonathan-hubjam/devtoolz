@@ -20,6 +20,8 @@ export default function sitemap() {
     '/cron-parser',
     '/number-base-converter',
     '/color-converter',
+    '/privacy',
+    '/terms',
   ];
 
   return routes.map((route) => ({

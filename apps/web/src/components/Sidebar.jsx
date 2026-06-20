@@ -59,8 +59,12 @@ export default function Sidebar() {
         ))}
       </nav>
 
-      <div className="px-4 py-3 border-t border-slate-800/60 shrink-0">
-        <p className="text-[11px] text-slate-600">© 2025 DevToolz</p>
+      <div className="px-4 py-3 border-t border-slate-800/60 shrink-0 space-y-1.5">
+        <div className="flex gap-3">
+          <Link href="/privacy" className="text-[11px] text-slate-600 hover:text-slate-400 transition-colors">Privacy</Link>
+          <Link href="/terms" className="text-[11px] text-slate-600 hover:text-slate-400 transition-colors">Terms</Link>
+        </div>
+        <p className="text-[11px] text-slate-600">© 2026 DevToolz</p>
       </div>
     </aside>
   );
