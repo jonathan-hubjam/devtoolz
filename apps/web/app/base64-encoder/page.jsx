@@ -1,4 +1,5 @@
 import Base64EncoderPage from '@/pages/Base64EncoderPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Base64 Encoder & Decoder – Free Online Tool | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function Base64Encoder() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <Base64EncoderPage />
     </>
   );

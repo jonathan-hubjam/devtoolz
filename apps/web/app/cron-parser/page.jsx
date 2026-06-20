@@ -1,4 +1,5 @@
 import CronParserPage from '@/pages/CronParserPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Cron Expression Parser – Explain & Test Cron Jobs Online | DevToolz',
@@ -40,7 +41,7 @@ const faqSchema = {
 export default function CronParser() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <CronParserPage />
     </>
   );

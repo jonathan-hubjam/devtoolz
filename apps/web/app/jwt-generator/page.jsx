@@ -1,4 +1,5 @@
 import JWTGeneratorPage from '@/pages/JWTGeneratorPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'JWT Generator — Build & Sign JSON Web Tokens Online | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function JWTGenerator() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <JWTGeneratorPage />
     </>
   );

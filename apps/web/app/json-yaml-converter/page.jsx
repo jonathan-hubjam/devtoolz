@@ -1,4 +1,5 @@
 import JSONYAMLConverterPage from '@/pages/JSONYAMLConverterPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'JSON to YAML Converter – Free Online Tool | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function JSONYAMLConverter() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <JSONYAMLConverterPage />
     </>
   );

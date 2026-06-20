@@ -1,4 +1,5 @@
 import URLEncoderPage from '@/pages/URLEncoderPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'URL Encoder & Decoder – Percent-Encode URLs Online | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function URLEncoder() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <URLEncoderPage />
     </>
   );

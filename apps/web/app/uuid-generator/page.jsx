@@ -1,4 +1,5 @@
 import UUIDGeneratorPage from '@/pages/UUIDGeneratorPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'UUID Generator — Generate UUID v4 Online | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function UUIDGenerator() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <UUIDGeneratorPage />
     </>
   );

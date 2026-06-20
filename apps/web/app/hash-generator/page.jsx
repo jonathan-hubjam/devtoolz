@@ -1,4 +1,5 @@
 import HashGeneratorPage from '@/pages/HashGeneratorPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Hash Generator – MD5, SHA-1, SHA-256, SHA-512 Online | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function HashGenerator() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <HashGeneratorPage />
     </>
   );

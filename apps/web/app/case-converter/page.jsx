@@ -1,4 +1,5 @@
 import CaseConverterPage from '@/pages/CaseConverterPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Case Converter – Convert Text Case Online | DevToolz',
@@ -40,7 +41,7 @@ const faqSchema = {
 export default function CaseConverter() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <CaseConverterPage />
     </>
   );

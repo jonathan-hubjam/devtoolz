@@ -1,4 +1,5 @@
 import JSONFormatterPage from '@/pages/JSONFormatterPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'JSON Formatter & Validator – Free Online Tool | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function JSONFormatter() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <JSONFormatterPage />
     </>
   );

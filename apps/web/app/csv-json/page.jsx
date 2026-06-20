@@ -1,4 +1,5 @@
 import CSVJSONPage from '@/pages/CSVJSONPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'CSV to JSON Converter – Convert CSV ↔ JSON Online | DevToolz',
@@ -40,7 +41,7 @@ const faqSchema = {
 export default function CSVJSON() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <CSVJSONPage />
     </>
   );

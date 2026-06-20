@@ -1,4 +1,5 @@
 import ColorConverterPage from '@/pages/ColorConverterPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Color Converter – HEX, RGB, HSL, HSV, CMYK | DevToolz',
@@ -40,7 +41,7 @@ const faqSchema = {
 export default function ColorConverter() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <ColorConverterPage />
     </>
   );

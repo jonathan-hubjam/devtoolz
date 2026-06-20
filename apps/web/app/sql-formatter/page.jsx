@@ -1,4 +1,5 @@
 import SQLFormatterPage from '@/pages/SQLFormatterPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'SQL Formatter – Format & Beautify SQL Online | DevToolz',
@@ -40,7 +41,7 @@ const faqSchema = {
 export default function SQLFormatter() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <SQLFormatterPage />
     </>
   );

@@ -1,4 +1,5 @@
 import TextDiffPage from '@/pages/TextDiffPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Text Diff Tool – Compare Text Online | DevToolz',
@@ -40,7 +41,7 @@ const faqSchema = {
 export default function TextDiff() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <TextDiffPage />
     </>
   );

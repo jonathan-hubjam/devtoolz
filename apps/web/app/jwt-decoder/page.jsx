@@ -1,4 +1,5 @@
 import JWTDecoderPage from '@/pages/JWTDecoderPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'JWT Decoder & Debugger – Inspect Tokens, JWKS & Expiration | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function JWTDecoder() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <JWTDecoderPage />
     </>
   );

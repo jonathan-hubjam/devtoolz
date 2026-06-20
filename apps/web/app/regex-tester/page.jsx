@@ -1,4 +1,5 @@
 import RegexTesterPage from '@/pages/RegexTesterPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Regex Tester – Free Online Regular Expression Tool | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function RegexTester() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <RegexTesterPage />
     </>
   );

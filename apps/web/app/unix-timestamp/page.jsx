@@ -1,4 +1,5 @@
 import UnixTimestampPage from '@/pages/UnixTimestampPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Unix Timestamp Converter – Seconds to Date & Back | DevToolz',
@@ -43,7 +44,7 @@ const faqSchema = {
 export default function UnixTimestamp() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <UnixTimestampPage />
     </>
   );

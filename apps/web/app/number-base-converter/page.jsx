@@ -1,4 +1,5 @@
 import NumberBaseConverterPage from '@/pages/NumberBaseConverterPage';
+import JsonLd from '@/components/JsonLd';
 
 export const metadata = {
   title: 'Number Base Converter – Decimal, Hex, Binary, Octal | DevToolz',
@@ -40,7 +41,7 @@ const faqSchema = {
 export default function NumberBaseConverter() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <JsonLd data={faqSchema} />
       <NumberBaseConverterPage />
     </>
   );
