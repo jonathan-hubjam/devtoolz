@@ -92,11 +92,11 @@ const UUIDGeneratorPage = () => {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">UUID Generator</h1>
-          <p className="text-sm text-slate-400">Generate UUID v4 values instantly. Copy individually or in bulk, customize formatting, and validate existing UUIDs.</p>
+          <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly. Copy individually or in bulk, customize formatting, and validate existing UUIDs.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />UUID v4 format</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Bulk generation</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />UUID v4 format</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Bulk generation</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -298,10 +298,10 @@ const UUIDGeneratorPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a UUID Generator?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A UUID (Universally Unique Identifier) generator creates 128-bit identifiers formatted as
                 eight-four-four-four-twelve hexadecimal groups separated by hyphens, for example:
                 <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs"> 550e8400-e29b-41d4-a716-446655440000</code>. UUIDs are standardised
@@ -312,7 +312,7 @@ const UUIDGeneratorPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Generate primary keys for database records without a centralised sequence generator</li>
                 <li>Create idempotency keys for API requests to prevent duplicate processing</li>
                 <li>Assign unique IDs to distributed system components, sessions, or events</li>
@@ -322,7 +322,7 @@ const UUIDGeneratorPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Version 4 UUIDs are generated using <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">crypto.randomUUID()</code> (where
                 available) or by filling a typed array with <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">crypto.getRandomValues()</code>
                 and formatting it according to RFC 4122 — setting the version bits to <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0100</code>
@@ -331,20 +331,20 @@ const UUIDGeneratorPage = () => {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">How likely is a UUID collision?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Extremely unlikely. With version 4 UUIDs you would need to generate about 2.7 × 10¹⁸ UUIDs before having a 50% chance of a single collision — more than the number of seconds since the Big Bang.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">How likely is a UUID collision?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Extremely unlikely. With version 4 UUIDs you would need to generate about 2.7 × 10¹⁸ UUIDs before having a 50% chance of a single collision — more than the number of seconds since the Big Bang.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between UUID v4 and v7?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">UUID v4 is fully random with no time component. UUID v7 embeds a Unix millisecond timestamp in the most significant bits, making UUIDs sort chronologically — which improves database index performance for insert-heavy workloads.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What is the difference between UUID v4 and v7?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">UUID v4 is fully random with no time component. UUID v7 embeds a Unix millisecond timestamp in the most significant bits, making UUIDs sort chronologically — which improves database index performance for insert-heavy workloads.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Should I use uppercase or lowercase UUIDs?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">The RFC 4122 standard recommends lowercase. Most databases and languages accept both, but lowercase is more common in modern APIs and systems. Be consistent within your application.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Should I use uppercase or lowercase UUIDs?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">The RFC 4122 standard recommends lowercase. Most databases and languages accept both, but lowercase is more common in modern APIs and systems. Be consistent within your application.</p>
                 </div>
               </div>
           </div>
@@ -360,7 +360,7 @@ const UUIDGeneratorPage = () => {
                 Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -368,7 +368,7 @@ const UUIDGeneratorPage = () => {
                 JWT Decoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens securely in your browser.</p>
+              <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/base64-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -376,7 +376,7 @@ const UUIDGeneratorPage = () => {
                 Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode strings using Base64 encoding.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
             </Link>
             <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -384,7 +384,7 @@ const UUIDGeneratorPage = () => {
                 URL Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode URLs with percent-encoding instantly.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
             <Link href="/json-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-purple-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -392,7 +392,7 @@ const UUIDGeneratorPage = () => {
                 JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -400,7 +400,7 @@ const UUIDGeneratorPage = () => {
                 Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -408,7 +408,7 @@ const UUIDGeneratorPage = () => {
                 Unix Timestamp
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert Unix timestamps to human-readable dates and back instantly.</p>
+              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -416,7 +416,7 @@ const UUIDGeneratorPage = () => {
                 JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/jwt-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-teal-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -432,7 +432,7 @@ const UUIDGeneratorPage = () => {
                 Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -440,7 +440,7 @@ const UUIDGeneratorPage = () => {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -448,7 +448,7 @@ const UUIDGeneratorPage = () => {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -456,7 +456,7 @@ const UUIDGeneratorPage = () => {
                 SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -464,7 +464,7 @@ const UUIDGeneratorPage = () => {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -490,7 +490,7 @@ const UUIDGeneratorPage = () => {
       <div className="border-t bg-muted/30 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">UUID v4:</span> Universally Unique Identifiers are 128-bit values used to uniquely identify resources. Version 4 uses random data, making collisions astronomically unlikely — roughly 1 in 5.3×10³⁶.
             </p>
             <p className="text-xs text-muted-foreground">

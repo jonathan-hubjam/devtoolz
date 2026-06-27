@@ -74,11 +74,11 @@ const URLEncoderPage = () => {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">URL Encoder & Decoder</h1>
-          <p className="text-sm text-slate-400">Encode and decode URLs instantly. Convert special characters to percent-encoded format or decode them back.</p>
+          <p className="text-sm text-muted-foreground">Encode and decode URLs instantly. Convert special characters to percent-encoded format or decode them back.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Two-way sync</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />RFC 3986 compliant</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Two-way sync</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />RFC 3986 compliant</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -197,10 +197,10 @@ const URLEncoderPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is URL Encoding?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 URL encoding (also called percent-encoding) converts characters that are not allowed in a URL into
                 a safe representation using a percent sign followed by two hexadecimal digits — for example, a space
                 becomes <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">%20</code> and an ampersand becomes <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">%26</code>.
@@ -210,7 +210,7 @@ const URLEncoderPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Encode query parameter values that contain spaces, special characters, or non-ASCII text</li>
                 <li>Build URLs programmatically from user-supplied input without breaking link structure</li>
                 <li>Decode percent-encoded URLs from browser address bars or server logs</li>
@@ -220,7 +220,7 @@ const URLEncoderPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 This tool uses JavaScript's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURIComponent()</code> for component
                 encoding (encodes everything except unreserved characters) and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURI()</code>
                 for full URL encoding (preserves structural characters like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">://?=&</code>).
@@ -229,20 +229,20 @@ const URLEncoderPage = () => {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between encodeURI and encodeURIComponent?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed"><code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURI</code> is designed for full URLs — it preserves characters like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">:</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">#</code> that have structural meaning. <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURIComponent</code> encodes those characters too, making it suitable for individual query parameter values.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What is the difference between encodeURI and encodeURIComponent?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed"><code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURI</code> is designed for full URLs — it preserves characters like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">:</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">#</code> that have structural meaning. <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">encodeURIComponent</code> encodes those characters too, making it suitable for individual query parameter values.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Why is a space sometimes encoded as + instead of %20?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">+</code> encoding for spaces is part of the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">application/x-www-form-urlencoded</code> format used by HTML forms — it is not standard percent-encoding. Modern APIs typically prefer <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">%20</code>; always check what the target system expects.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Why is a space sometimes encoded as + instead of %20?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">+</code> encoding for spaces is part of the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">application/x-www-form-urlencoded</code> format used by HTML forms — it is not standard percent-encoding. Modern APIs typically prefer <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">%20</code>; always check what the target system expects.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Do I need to encode the entire URL or just parts of it?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Only encode the dynamic parts — query parameter names and values, path segments that contain special characters. Encoding the whole URL would break the structural characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">://</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">&</code>) that define URL structure.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Do I need to encode the entire URL or just parts of it?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Only encode the dynamic parts — query parameter names and values, path segments that contain special characters. Encoding the whole URL would break the structural characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">://</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">?</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">&</code>) that define URL structure.</p>
                 </div>
               </div>
           </div>
@@ -258,7 +258,7 @@ const URLEncoderPage = () => {
                 Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode strings using Base64 encoding.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
             </Link>
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -266,7 +266,7 @@ const URLEncoderPage = () => {
                 JWT Decoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens securely in your browser.</p>
+              <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/json-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-purple-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -274,7 +274,7 @@ const URLEncoderPage = () => {
                 JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -282,7 +282,7 @@ const URLEncoderPage = () => {
                 Unix Timestamp
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert Unix timestamps to human-readable dates and back instantly.</p>
+              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
             <Link href="/hash-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-rose-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -290,7 +290,7 @@ const URLEncoderPage = () => {
                 Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -298,7 +298,7 @@ const URLEncoderPage = () => {
                 JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -306,7 +306,7 @@ const URLEncoderPage = () => {
                 Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -314,7 +314,7 @@ const URLEncoderPage = () => {
                 UUID Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
             <Link href="/jwt-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-teal-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -330,7 +330,7 @@ const URLEncoderPage = () => {
                 Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -338,7 +338,7 @@ const URLEncoderPage = () => {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -346,7 +346,7 @@ const URLEncoderPage = () => {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -354,7 +354,7 @@ const URLEncoderPage = () => {
                 SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -362,7 +362,7 @@ const URLEncoderPage = () => {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -388,7 +388,7 @@ const URLEncoderPage = () => {
       <div className="border-t bg-muted/30 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">What is URL encoding?</span> URL encoding (percent-encoding) replaces unsafe ASCII characters with a "%" followed by two hexadecimal digits, ensuring URLs are transmitted correctly over the internet.
             </p>
             <p className="text-xs text-muted-foreground">

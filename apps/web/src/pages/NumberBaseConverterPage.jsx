@@ -93,13 +93,13 @@ export default function NumberBaseConverterPage() {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">Number Base Converter</h1>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-muted-foreground">
             Convert numbers between decimal, hexadecimal, octal, and binary instantly. Type in any base to update all others.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Decimal, hex, octal, binary</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />BigInt precision</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Decimal, hex, octal, binary</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />BigInt precision</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -214,10 +214,10 @@ export default function NumberBaseConverterPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a Number Base Converter?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A number base converter translates integers between different positional numeral systems — most
                 commonly binary (base 2), octal (base 8), decimal (base 10), and hexadecimal (base 16). Each base
                 uses a different set of digits: binary uses 0 and 1; octal uses 0–7; decimal uses 0–9; hexadecimal
@@ -227,7 +227,7 @@ export default function NumberBaseConverterPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Convert hex colour codes to decimal RGB values (or vice versa) for CSS and design work</li>
                 <li>Decode binary or hexadecimal values from network packet captures and protocol documentation</li>
                 <li>Calculate IP subnet masks and CIDR ranges in binary</li>
@@ -237,7 +237,7 @@ export default function NumberBaseConverterPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Conversion is a two-step process: first parse the input string in the source base to get an integer
                 value, then format that integer in the target base. This tool uses JavaScript's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">BigInt</code>
                 for arbitrary-precision arithmetic, so it handles numbers larger than 2⁵³ − 1 (the limit of
@@ -246,20 +246,20 @@ export default function NumberBaseConverterPage() {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Why is hexadecimal used so often in programming?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Hexadecimal is a compact representation of binary — one hex digit maps exactly to four bits (a nibble). This makes hex ideal for representing memory addresses, byte values, colour codes, and bitmasks. Reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0xFF</code> is much easier than reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">11111111</code>.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Why is hexadecimal used so often in programming?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Hexadecimal is a compact representation of binary — one hex digit maps exactly to four bits (a nibble). This makes hex ideal for representing memory addresses, byte values, colour codes, and bitmasks. Reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">0xFF</code> is much easier than reading <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">11111111</code>.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">How do I convert a negative number to binary?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Negative integers in computers are most commonly represented in two's complement. To convert: invert all bits of the positive value and add 1. The result's most significant bit is 1 for negative numbers. The bit width (8, 16, 32, 64) matters for the result.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">How do I convert a negative number to binary?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Negative integers in computers are most commonly represented in two's complement. To convert: invert all bits of the positive value and add 1. The result's most significant bit is 1 for negative numbers. The bit width (8, 16, 32, 64) matters for the result.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Can I convert between any two bases, or only the common ones?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Mathematically, conversion works between any bases 2–36 (using digits 0–9 and letters A–Z). This tool supports bases 2 through 36. Less common bases like base 3 (ternary) and base 60 (sexagesimal, used for time) are valid inputs.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Can I convert between any two bases, or only the common ones?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Mathematically, conversion works between any bases 2–36 (using digits 0–9 and letters A–Z). This tool supports bases 2 through 36. Less common bases like base 3 (ternary) and base 60 (sexagesimal, used for time) are valid inputs.</p>
                 </div>
               </div>
           </div>
@@ -274,63 +274,63 @@ export default function NumberBaseConverterPage() {
                 <Fingerprint className="w-5 h-5 text-rose-500" />Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/json-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-purple-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <FileJson className="w-5 h-5 text-purple-500" />JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Clock className="w-5 h-5 text-amber-500" />Unix Timestamp
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert Unix timestamps to human-readable dates and back.</p>
+              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back.</p>
             </Link>
             <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <KeyRound className="w-5 h-5 text-violet-500" />UUID Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
             <Link href="/base64-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Hash className="w-5 h-5 text-green-500" />Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode strings using Base64 encoding.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
             </Link>
             <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Link2 className="w-5 h-5 text-cyan-500" />URL Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode URLs with percent-encoding instantly.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <ShieldCheck className="w-5 h-5 text-blue-500" />JWT Decoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens securely in your browser.</p>
+              <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Search className="w-5 h-5 text-orange-500" />Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Database className="w-5 h-5 text-fuchsia-500" />SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL with dialect support for MySQL, PostgreSQL, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL with dialect support for MySQL, PostgreSQL, and more.</p>
             </Link>
             <Link href="/color-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">

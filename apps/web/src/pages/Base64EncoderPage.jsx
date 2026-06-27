@@ -96,11 +96,11 @@ const Base64EncoderPage = () => {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">Base64 Encoder & Decoder</h1>
-          <p className="text-sm text-slate-400">Encode text to Base64 or decode Base64 strings instantly. Two-way real-time conversion with full UTF-8 support.</p>
+          <p className="text-sm text-muted-foreground">Encode text to Base64 or decode Base64 strings instantly. Two-way real-time conversion with full UTF-8 support.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Two-way sync</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />UTF-8 support</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Client-side only</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Two-way sync</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />UTF-8 support</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Client-side only</span>
           </div>
         </div>
       </div>
@@ -236,10 +236,10 @@ const Base64EncoderPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is Base64 Encoding?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Base64 is a binary-to-text encoding scheme that represents binary data using 64 printable ASCII
                 characters (A–Z, a–z, 0–9, +, /). It was designed to safely transmit binary data over channels
                 that only support text — such as email (MIME), HTTP headers, and JSON payloads. Encoding increases
@@ -249,7 +249,7 @@ const Base64EncoderPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Embed images, fonts, or binary assets directly in HTML, CSS, or JSON as data URIs</li>
                 <li>Encode credentials for HTTP Basic Authentication headers</li>
                 <li>Transmit binary data through APIs that only accept text payloads</li>
@@ -259,7 +259,7 @@ const Base64EncoderPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 Base64 works by grouping the input bytes into 6-bit chunks (since 2⁶ = 64) and mapping each chunk
                 to one of 64 characters. Every 3 bytes of input produce exactly 4 Base64 characters. If the input
                 length is not a multiple of 3, padding characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">=</code>) are
@@ -267,20 +267,20 @@ const Base64EncoderPage = () => {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Is Base64 a form of encryption?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">No. Base64 is encoding, not encryption. It is trivially reversible by anyone with the encoded string. Never use Base64 to protect sensitive data — use proper encryption algorithms like AES-256 instead.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Is Base64 a form of encryption?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">No. Base64 is encoding, not encryption. It is trivially reversible by anyone with the encoded string. Never use Base64 to protect sensitive data — use proper encryption algorithms like AES-256 instead.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between standard and URL-safe Base64?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Standard Base64 uses <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">+</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, which have special meanings in URLs. URL-safe Base64 replaces them with <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">-</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">_</code>, making the output safe to embed in URLs and filenames without percent-encoding.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What is the difference between standard and URL-safe Base64?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Standard Base64 uses <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">+</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">/</code>, which have special meanings in URLs. URL-safe Base64 replaces them with <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">-</code> and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">_</code>, making the output safe to embed in URLs and filenames without percent-encoding.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Why does my Base64 string end with == ?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Padding characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">=</code>) are added to make the encoded length a multiple of 4. One or two padding characters appear when the input byte count is not divisible by 3.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Why does my Base64 string end with == ?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Padding characters (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">=</code>) are added to make the encoded length a multiple of 4. One or two padding characters appear when the input byte count is not divisible by 3.</p>
                 </div>
               </div>
           </div>
@@ -296,7 +296,7 @@ const Base64EncoderPage = () => {
                 JWT Decoder 
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens securely in your browser.</p>
+              <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/json-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-purple-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -304,7 +304,7 @@ const Base64EncoderPage = () => {
                 JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly with syntax highlighting.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly with syntax highlighting.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -312,7 +312,7 @@ const Base64EncoderPage = () => {
                 Unix Timestamp
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert Unix timestamps to human-readable dates and back instantly.</p>
+              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
             <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -320,7 +320,7 @@ const Base64EncoderPage = () => {
                 URL Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode URLs with percent-encoding instantly.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
             <Link href="/hash-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-rose-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -328,7 +328,7 @@ const Base64EncoderPage = () => {
                 Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -336,7 +336,7 @@ const Base64EncoderPage = () => {
                 JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -344,7 +344,7 @@ const Base64EncoderPage = () => {
                 Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -352,7 +352,7 @@ const Base64EncoderPage = () => {
                 UUID Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
             <Link href="/jwt-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-teal-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -368,7 +368,7 @@ const Base64EncoderPage = () => {
                 Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -376,7 +376,7 @@ const Base64EncoderPage = () => {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -384,7 +384,7 @@ const Base64EncoderPage = () => {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -392,7 +392,7 @@ const Base64EncoderPage = () => {
                 SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -400,7 +400,7 @@ const Base64EncoderPage = () => {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -426,7 +426,7 @@ const Base64EncoderPage = () => {
       <div className="border-t bg-muted/30 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">What is Base64?</span> Base64 is a group of binary-to-text encoding schemes that represent binary data in an ASCII string format.
             </p>
             <p className="text-xs text-muted-foreground">

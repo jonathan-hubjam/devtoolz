@@ -152,11 +152,11 @@ const JWTDecoderPage = () => {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">JWT Decoder</h1>
-          <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens instantly. View headers, payload, and expiration without sending data anywhere.</p>
+          <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens instantly. View headers, payload, and expiration without sending data anywhere.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Real-time decoding</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Instant validation</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Real-time decoding</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Instant validation</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -554,7 +554,7 @@ const JWTDecoderPage = () => {
                         </div>
                       </div>
                       <h3 className="font-semibold text-foreground">Secure & Private</h3>
-                      <p className="text-sm text-slate-400">
+                      <p className="text-sm text-muted-foreground">
                         All decoding happens in your browser. No data is sent to any server.
                       </p>
                     </div>
@@ -565,7 +565,7 @@ const JWTDecoderPage = () => {
                         </div>
                       </div>
                       <h3 className="font-semibold text-foreground">Real-time Validation</h3>
-                      <p className="text-sm text-slate-400">
+                      <p className="text-sm text-muted-foreground">
                         Instant feedback on token structure and validity as you type.
                       </p>
                     </div>
@@ -576,7 +576,7 @@ const JWTDecoderPage = () => {
                         </div>
                       </div>
                       <h3 className="font-semibold text-foreground">Developer Friendly</h3>
-                      <p className="text-sm text-slate-400">
+                      <p className="text-sm text-muted-foreground">
                         Clean interface with copy buttons and formatted JSON output.
                       </p>
                     </div>
@@ -590,10 +590,10 @@ const JWTDecoderPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a JWT Decoder?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A JWT (JSON Web Token) decoder is a tool that parses and displays the contents of a JWT without
                 needing the secret key. JWTs are compact, URL-safe tokens used to represent claims between two
                 parties — typically for authentication and authorization in web applications and APIs. Each token
@@ -603,7 +603,7 @@ const JWTDecoderPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Inspect the claims inside a JWT received from an OAuth or OpenID Connect provider</li>
                 <li>Debug authentication issues by checking token expiry (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code>) and issued-at (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">iat</code>) fields</li>
                 <li>Verify the algorithm (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">alg</code>) used to sign a token during a security review</li>
@@ -613,7 +613,7 @@ const JWTDecoderPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 The decoder splits your token on the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">.</code> separator and Base64URL-decodes each segment.
                 The header and payload are then parsed as JSON and pretty-printed. The signature is displayed as-is
                 because verifying it requires the secret key or public certificate — which never leaves your machine
@@ -621,20 +621,20 @@ const JWTDecoderPage = () => {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Is it safe to paste a JWT into this tool?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Yes. Decoding runs entirely in your browser using JavaScript — nothing is transmitted to a server. That said, avoid pasting production tokens containing sensitive data into any online tool as a best practice.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Is it safe to paste a JWT into this tool?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Yes. Decoding runs entirely in your browser using JavaScript — nothing is transmitted to a server. That said, avoid pasting production tokens containing sensitive data into any online tool as a best practice.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Can this tool verify the JWT signature?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">No. Signature verification requires the secret key (HMAC) or public key (RSA/ECDSA), which you should never share with a third-party tool. This decoder only reads the payload claims.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Can this tool verify the JWT signature?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">No. Signature verification requires the secret key (HMAC) or public key (RSA/ECDSA), which you should never share with a third-party tool. This decoder only reads the payload claims.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What does "token expired" mean?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code> claim is a Unix timestamp indicating when the token stops being valid. If the current time is past that timestamp, the token is expired and will be rejected by most servers.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What does "token expired" mean?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">The <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code> claim is a Unix timestamp indicating when the token stops being valid. If the current time is past that timestamp, the token is expired and will be rejected by most servers.</p>
                 </div>
               </div>
           </div>
@@ -650,7 +650,7 @@ const JWTDecoderPage = () => {
                 JSON Formatter 
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly with syntax highlighting.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly with syntax highlighting.</p>
             </Link>
             <Link href="/base64-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -658,7 +658,7 @@ const JWTDecoderPage = () => {
                 Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode strings or files using Base64 encoding.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode strings or files using Base64 encoding.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -666,7 +666,7 @@ const JWTDecoderPage = () => {
                 Unix Timestamp
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert Unix timestamps to human-readable dates and back instantly.</p>
+              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
             <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -674,7 +674,7 @@ const JWTDecoderPage = () => {
                 URL Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode URLs with percent-encoding instantly.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
             <Link href="/hash-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-rose-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -682,7 +682,7 @@ const JWTDecoderPage = () => {
                 Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -690,7 +690,7 @@ const JWTDecoderPage = () => {
                 JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -698,7 +698,7 @@ const JWTDecoderPage = () => {
                 Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -706,7 +706,7 @@ const JWTDecoderPage = () => {
                 UUID Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
             <Link href="/jwt-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-teal-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -722,7 +722,7 @@ const JWTDecoderPage = () => {
                 Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -730,7 +730,7 @@ const JWTDecoderPage = () => {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -738,7 +738,7 @@ const JWTDecoderPage = () => {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -746,7 +746,7 @@ const JWTDecoderPage = () => {
                 SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -754,7 +754,7 @@ const JWTDecoderPage = () => {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -779,7 +779,7 @@ const JWTDecoderPage = () => {
       <div className="border-t bg-muted/30 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">What is a JWT?</span> JSON Web Tokens are an open, industry standard RFC 7519 method for representing claims securely between two parties.
             </p>
             <p className="text-xs text-muted-foreground">

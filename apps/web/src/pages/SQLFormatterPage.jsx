@@ -116,13 +116,13 @@ export default function SQLFormatterPage() {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">SQL Formatter</h1>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-muted-foreground">
             Format and minify SQL queries instantly. Supports MySQL, PostgreSQL, SQLite, T-SQL and more.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />7 dialects</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Format &amp; minify</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />7 dialects</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Format &amp; minify</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -299,10 +299,10 @@ export default function SQLFormatterPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a SQL Formatter?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A SQL formatter (or SQL beautifier) takes raw or minified SQL queries and reformats them with consistent
                 indentation, keyword capitalisation, and line breaks, making complex queries dramatically easier to read
                 and review. Unformatted SQL — especially auto-generated ORM queries or legacy stored procedures —
@@ -312,7 +312,7 @@ export default function SQLFormatterPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Beautify ORM-generated queries for debugging and performance analysis</li>
                 <li>Standardise SQL style across a team's codebase and migrations</li>
                 <li>Review stored procedures or views that were written without formatting</li>
@@ -322,7 +322,7 @@ export default function SQLFormatterPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 This formatter uses the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">sql-formatter</code> library to parse your SQL
                 into an abstract syntax tree and then serialise it back to text with configurable indentation and
                 keyword case. You can choose the SQL dialect (MySQL, PostgreSQL, SQLite, etc.) to get
@@ -331,20 +331,20 @@ export default function SQLFormatterPage() {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Does formatting change how a query executes?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">No. SQL is case-insensitive for keywords and whitespace-insensitive. Formatting only affects how the query looks — the database query planner sees the exact same logical structure regardless of indentation.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Does formatting change how a query executes?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">No. SQL is case-insensitive for keywords and whitespace-insensitive. Formatting only affects how the query looks — the database query planner sees the exact same logical structure regardless of indentation.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Why do I need to select a SQL dialect?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Different databases have different reserved words and syntax extensions. Selecting the correct dialect ensures that database-specific keywords (like PostgreSQL's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">RETURNING</code> or MySQL's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">LIMIT</code> placement) are handled correctly.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Why do I need to select a SQL dialect?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Different databases have different reserved words and syntax extensions. Selecting the correct dialect ensures that database-specific keywords (like PostgreSQL's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">RETURNING</code> or MySQL's <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">LIMIT</code> placement) are handled correctly.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Should SQL keywords be uppercase or lowercase?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Convention favours uppercase keywords (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">SELECT</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">FROM</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">WHERE</code>) to visually distinguish them from table and column names. Most style guides and linters enforce this, though it is purely aesthetic.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Should SQL keywords be uppercase or lowercase?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Convention favours uppercase keywords (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">SELECT</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">FROM</code>, <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">WHERE</code>) to visually distinguish them from table and column names. Most style guides and linters enforce this, though it is purely aesthetic.</p>
                 </div>
               </div>
           </div>
@@ -360,7 +360,7 @@ export default function SQLFormatterPage() {
                 JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -368,7 +368,7 @@ export default function SQLFormatterPage() {
                 Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/text-diff" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -376,7 +376,7 @@ export default function SQLFormatterPage() {
                 Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -384,7 +384,7 @@ export default function SQLFormatterPage() {
                 JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/hash-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-rose-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -392,7 +392,7 @@ export default function SQLFormatterPage() {
                 Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/base64-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -400,7 +400,7 @@ export default function SQLFormatterPage() {
                 Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode strings using Base64 encoding.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
             </Link>
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -408,7 +408,7 @@ export default function SQLFormatterPage() {
                 JWT Decoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens securely in your browser.</p>
+              <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -416,7 +416,7 @@ export default function SQLFormatterPage() {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -424,7 +424,7 @@ export default function SQLFormatterPage() {
                 URL Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode URLs with percent-encoding instantly.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -432,7 +432,7 @@ export default function SQLFormatterPage() {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and preview next scheduled runs.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and preview next scheduled runs.</p>
             </Link>
             <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -440,7 +440,7 @@ export default function SQLFormatterPage() {
                 UUID Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -448,7 +448,7 @@ export default function SQLFormatterPage() {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">

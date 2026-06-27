@@ -290,11 +290,11 @@ export default function TextDiffPage() {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">Text Diff Tool</h1>
-          <p className="text-sm text-slate-400">Paste two blocks of text to compare them line by line. Highlights additions, deletions, and unchanged lines instantly.</p>
+          <p className="text-sm text-muted-foreground">Paste two blocks of text to compare them line by line. Highlights additions, deletions, and unchanged lines instantly.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Unified & split view</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Ignore whitespace</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Unified & split view</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Ignore whitespace</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -423,10 +423,10 @@ export default function TextDiffPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a Text Diff Tool?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A text diff tool compares two pieces of text and highlights the differences — additions, deletions,
                 and unchanged lines — using colour-coded output similar to the <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">git diff</code>
                 or Unix <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">diff</code> commands. It is an essential tool for reviewing
@@ -436,7 +436,7 @@ export default function TextDiffPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Compare two versions of a config file to find what changed after a deployment</li>
                 <li>Spot differences between two API responses for the same endpoint</li>
                 <li>Review a colleague's code changes before a formal code review</li>
@@ -446,7 +446,7 @@ export default function TextDiffPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 The diff algorithm (an implementation of the Myers diff algorithm or similar LCS-based approach)
                 computes the longest common subsequence of lines between the two inputs and classifies each line as
                 unchanged, added (green), or removed (red). Line-level diffing is the default; word-level or
@@ -455,20 +455,20 @@ export default function TextDiffPage() {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between unified and side-by-side diff?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Unified diff shows both versions interleaved in a single column with + and - markers — compact and good for terminals. Side-by-side diff shows the two versions in parallel columns — easier to read for longer files or prose comparisons.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What is the difference between unified and side-by-side diff?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Unified diff shows both versions interleaved in a single column with + and - markers — compact and good for terminals. Side-by-side diff shows the two versions in parallel columns — easier to read for longer files or prose comparisons.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Does whitespace matter in the comparison?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">By default, trailing whitespace and line-ending differences (CRLF vs LF) are included in the diff. Most tools offer an "ignore whitespace" option that skips purely cosmetic whitespace changes so you can focus on meaningful content differences.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Does whitespace matter in the comparison?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">By default, trailing whitespace and line-ending differences (CRLF vs LF) are included in the diff. Most tools offer an "ignore whitespace" option that skips purely cosmetic whitespace changes so you can focus on meaningful content differences.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">How large a file can I diff in the browser?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Browser-based diff tools handle files up to a few hundred kilobytes comfortably. For very large files (megabytes), the diff algorithm can become slow due to the quadratic nature of LCS computation. Use command-line tools like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">diff</code> or <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">git diff</code> for large files.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">How large a file can I diff in the browser?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Browser-based diff tools handle files up to a few hundred kilobytes comfortably. For very large files (megabytes), the diff algorithm can become slow due to the quadratic nature of LCS computation. Use command-line tools like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">diff</code> or <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">git diff</code> for large files.</p>
                 </div>
               </div>
           </div>
@@ -564,7 +564,7 @@ export default function TextDiffPage() {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -572,7 +572,7 @@ export default function TextDiffPage() {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -580,7 +580,7 @@ export default function TextDiffPage() {
                 SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -588,7 +588,7 @@ export default function TextDiffPage() {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">

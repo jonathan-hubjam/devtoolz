@@ -138,11 +138,11 @@ export default function JWTGeneratorPage() {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">JWT Generator</h1>
-          <p className="text-sm text-slate-400">Build and sign JSON Web Tokens with a custom header, payload, and secret. All signing happens locally — nothing leaves your browser.</p>
+          <p className="text-sm text-muted-foreground">Build and sign JSON Web Tokens with a custom header, payload, and secret. All signing happens locally — nothing leaves your browser.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />HS256 / HS384 / HS512</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Live generation</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />HS256 / HS384 / HS512</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Live generation</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -333,10 +333,10 @@ export default function JWTGeneratorPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a JWT Generator?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A JWT generator creates signed JSON Web Tokens from a payload you define and a secret or key you
                 provide. JWTs are used to securely transmit information between parties as a compact, self-contained
                 token. The generator lets you specify standard claims like expiry (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">exp</code>),
@@ -347,7 +347,7 @@ export default function JWTGeneratorPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Generate test tokens with specific roles or claims for local API development</li>
                 <li>Create tokens with custom expiry times to test token refresh logic</li>
                 <li>Prototype authentication flows before integrating a real identity provider</li>
@@ -357,7 +357,7 @@ export default function JWTGeneratorPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 The tool Base64URL-encodes the header JSON and payload JSON, concatenates them with a dot, then signs
                 the result using the selected algorithm. For HMAC algorithms (HS256/HS384/HS512) the
                 <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs"> SubtleCrypto.sign()</code> API signs with your provided secret. The
@@ -366,20 +366,20 @@ export default function JWTGeneratorPage() {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Is it safe to use this tool with real secrets?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Signing runs in your browser and nothing is transmitted, but treat production secrets with care. For sensitive environments, prefer generating tokens locally with a library like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">jsonwebtoken</code> (Node.js) rather than any online tool.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Is it safe to use this tool with real secrets?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Signing runs in your browser and nothing is transmitted, but treat production secrets with care. For sensitive environments, prefer generating tokens locally with a library like <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">jsonwebtoken</code> (Node.js) rather than any online tool.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What is the difference between HS256 and RS256?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">HS256 uses a shared secret (HMAC-SHA256) — both the issuer and verifier need the same key, so it is only suitable when you control both sides. RS256 uses an RSA private key to sign and a public key to verify — the public key can be shared freely, making it suitable for public-facing APIs.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What is the difference between HS256 and RS256?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">HS256 uses a shared secret (HMAC-SHA256) — both the issuer and verifier need the same key, so it is only suitable when you control both sides. RS256 uses an RSA private key to sign and a public key to verify — the public key can be shared freely, making it suitable for public-facing APIs.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What should I put in the payload?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Include only the claims your application needs: user ID, roles, expiry, and issuer. Avoid storing sensitive data (passwords, PII) in the payload — JWT payloads are Base64-encoded, not encrypted, so anyone with the token can read them.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What should I put in the payload?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Include only the claims your application needs: user ID, roles, expiry, and issuer. Avoid storing sensitive data (passwords, PII) in the payload — JWT payloads are Base64-encoded, not encrypted, so anyone with the token can read them.</p>
                 </div>
               </div>
           </div>
@@ -467,7 +467,7 @@ export default function JWTGeneratorPage() {
                 Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -475,7 +475,7 @@ export default function JWTGeneratorPage() {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -483,7 +483,7 @@ export default function JWTGeneratorPage() {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -491,7 +491,7 @@ export default function JWTGeneratorPage() {
                 SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -499,7 +499,7 @@ export default function JWTGeneratorPage() {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">

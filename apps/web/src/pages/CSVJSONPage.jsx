@@ -176,13 +176,13 @@ export default function CSVJSONPage() {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">CSV ↔ JSON Converter</h1>
-          <p className="text-sm text-slate-400">
+          <p className="text-sm text-muted-foreground">
             Convert CSV to JSON or JSON to CSV instantly. Handles quoted fields, custom delimiters, and nested headers.
           </p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Two-way conversion</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Custom delimiter</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Two-way conversion</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Custom delimiter</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -356,10 +356,10 @@ export default function CSVJSONPage() {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a CSV ↔ JSON Converter?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A CSV ↔ JSON converter transforms data between two ubiquitous formats. CSV (Comma-Separated Values)
                 is a plain-text tabular format widely used for spreadsheets, database exports, and data pipelines.
                 JSON (JavaScript Object Notation) is the standard format for web APIs and application data. Being
@@ -369,7 +369,7 @@ export default function CSVJSONPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Convert a database export (CSV) into JSON to load into a REST API or NoSQL database</li>
                 <li>Transform an API response (JSON array) into CSV for import into Excel or Google Sheets</li>
                 <li>Prepare test fixtures from spreadsheet data for a backend application</li>
@@ -379,7 +379,7 @@ export default function CSVJSONPage() {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 CSV to JSON: the first row is treated as the header and used as JSON object keys. Each subsequent row
                 is zipped with the headers to produce an object; all rows become an array. Quoted fields, commas
                 within quotes, and escaped quotes are handled per RFC 4180. JSON to CSV: the keys of the first
@@ -388,20 +388,20 @@ export default function CSVJSONPage() {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">What happens with nested JSON objects?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">CSV is a flat format — it cannot represent nested structures directly. Nested objects are typically serialised as a JSON string in a single CSV cell, or flattened into dot-notation column names (e.g. <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">address.city</code>). This tool serialises nested values as strings.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">What happens with nested JSON objects?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">CSV is a flat format — it cannot represent nested structures directly. Nested objects are typically serialised as a JSON string in a single CSV cell, or flattened into dot-notation column names (e.g. <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">address.city</code>). This tool serialises nested values as strings.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">My CSV uses semicolons, not commas — will it work?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Semicolon-separated files are common in European locales where commas are used as decimal separators. Select the correct delimiter in the options to handle semicolon, tab (TSV), or pipe-separated files.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">My CSV uses semicolons, not commas — will it work?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Semicolon-separated files are common in European locales where commas are used as decimal separators. Select the correct delimiter in the options to handle semicolon, tab (TSV), or pipe-separated files.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Are all values treated as strings?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">By default, yes — CSV has no type information. The converter can optionally infer types (treating <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">123</code> as a number and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">true</code>/<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">false</code> as booleans) when converting to JSON.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Are all values treated as strings?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">By default, yes — CSV has no type information. The converter can optionally infer types (treating <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">123</code> as a number and <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">true</code>/<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">false</code> as booleans) when converting to JSON.</p>
                 </div>
               </div>
           </div>
@@ -416,63 +416,63 @@ export default function CSVJSONPage() {
                 <FileJson className="w-5 h-5 text-purple-500" />JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <FileCode className="w-5 h-5 text-indigo-500" />JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Database className="w-5 h-5 text-fuchsia-500" />SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL with dialect support for MySQL, PostgreSQL, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL with dialect support for MySQL, PostgreSQL, and more.</p>
             </Link>
             <Link href="/text-diff" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <GitCompare className="w-5 h-5 text-green-500" />Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight what changed.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight what changed.</p>
             </Link>
             <Link href="/base64-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-green-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Hash className="w-5 h-5 text-green-500" />Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode strings using Base64 encoding.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
             </Link>
             <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Link2 className="w-5 h-5 text-cyan-500" />URL Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode URLs with percent-encoding instantly.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
             <Link href="/hash-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-rose-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Fingerprint className="w-5 h-5 text-rose-500" />Hash Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
+              <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <CaseSensitive className="w-5 h-5 text-sky-500" />Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, and more.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
                 <Search className="w-5 h-5 text-orange-500" />Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">

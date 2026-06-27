@@ -62,7 +62,7 @@ async function computeHashes(text) {
 }
 
 const ALGO_META = [
-  { key: 'MD5',     label: 'MD5',     bits: 128, badge: 'bg-slate-500/10 text-slate-400 border-slate-500/20' },
+  { key: 'MD5',     label: 'MD5',     bits: 128, badge: 'bg-slate-500/10 text-muted-foreground border-slate-500/20' },
   { key: 'SHA-1',   label: 'SHA-1',   bits: 160, badge: 'bg-orange-500/10 text-orange-400 border-orange-500/20' },
   { key: 'SHA-256', label: 'SHA-256', bits: 256, badge: 'bg-green-500/10 text-green-400 border-green-500/20' },
   { key: 'SHA-512', label: 'SHA-512', bits: 512, badge: 'bg-purple-500/10 text-purple-400 border-purple-500/20' },
@@ -114,11 +114,11 @@ const HashGeneratorPage = () => {
       <div className="border-b border-slate-800/50 bg-[#0B1120] py-5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-2xl sm:text-3xl font-bold tracking-tight mb-1 text-white">Hash Generator</h1>
-          <p className="text-sm text-slate-400">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly. All hashing happens locally in your browser.</p>
+          <p className="text-sm text-muted-foreground">Generate MD5, SHA-1, SHA-256, and SHA-512 hashes instantly. All hashing happens locally in your browser.</p>
           <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />4 algorithms at once</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Real-time generation</span>
-            <span className="flex items-center gap-1.5 text-xs text-slate-400"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />4 algorithms at once</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />Real-time generation</span>
+            <span className="flex items-center gap-1.5 text-xs text-muted-foreground"><CheckCircle2 className="w-3.5 h-3.5 text-blue-400 shrink-0" />No data stored</span>
           </div>
         </div>
       </div>
@@ -225,10 +225,10 @@ const HashGeneratorPage = () => {
         
         {/* SEO Content */}
         <div className="mt-12 space-y-6">
-          <div className="bg-muted/50 border border-border rounded-xl p-6 space-y-4">
+          <div className="bg-sky-50/80 border border-sky-200/70 rounded-xl p-6 space-y-5">
             <div>
               <h2 className="text-base font-semibold text-foreground mb-2">What is a Hash Generator?</h2>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 A hash generator applies a cryptographic hash function to input data and produces a fixed-length
                 hexadecimal digest. Hash functions are one-way — the same input always produces the same output,
                 but you cannot reverse the hash to recover the original data. Commonly supported algorithms include
@@ -239,7 +239,7 @@ const HashGeneratorPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">Common Use Cases</h3>
-              <ul className="text-sm text-slate-400 space-y-1 list-disc list-inside">
+              <ul className="text-sm text-muted-foreground space-y-1 list-disc list-inside">
                 <li>Verify file integrity by comparing checksums before and after download or transfer</li>
                 <li>Store password hashes in a database instead of plaintext credentials</li>
                 <li>Generate cache keys or ETags from content for HTTP caching</li>
@@ -249,7 +249,7 @@ const HashGeneratorPage = () => {
             </div>
             <div>
               <h3 className="text-sm font-semibold text-foreground/80 mb-2">How It Works</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">
+              <p className="text-sm text-muted-foreground leading-relaxed">
                 This tool uses the browser's native <code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">SubtleCrypto</code> API
                 (<code className="bg-muted text-foreground/90 px-1 py-0.5 rounded font-mono text-xs">crypto.subtle.digest()</code>) for SHA-family algorithms, providing
                 hardware-accelerated hashing without any server round-trips. MD5 is computed with a pure-JavaScript
@@ -258,20 +258,20 @@ const HashGeneratorPage = () => {
               </p>
             </div>
           </div>
-          <div className="bg-muted/50 border border-border rounded-xl p-6">
+          <div className="bg-amber-50/70 border border-amber-200/70 rounded-xl p-6">
             <h2 className="text-base font-semibold text-foreground mb-4">Frequently Asked Questions</h2>
-            <div className="space-y-4">
+            <div className="space-y-5">
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Should I use MD5 or SHA-256 for checksums?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">SHA-256 is preferred for anything security-related because MD5 is vulnerable to collision attacks. For non-security checksums (detecting accidental data corruption), MD5 is fast and still reliable.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Should I use MD5 or SHA-256 for checksums?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">SHA-256 is preferred for anything security-related because MD5 is vulnerable to collision attacks. For non-security checksums (detecting accidental data corruption), MD5 is fast and still reliable.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Can two different inputs produce the same hash?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">Yes — this is called a "collision." Modern algorithms like SHA-256 make finding collisions computationally infeasible. MD5 and SHA-1 have known collision vulnerabilities, which is why they are not recommended for digital signatures or certificates.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Can two different inputs produce the same hash?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">Yes — this is called a "collision." Modern algorithms like SHA-256 make finding collisions computationally infeasible. MD5 and SHA-1 have known collision vulnerabilities, which is why they are not recommended for digital signatures or certificates.</p>
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-foreground mb-1">Is hashing the same as encryption?</p>
-                  <p className="text-sm text-slate-400 leading-relaxed">No. Hashing is one-way and cannot be reversed. Encryption is two-way — data can be decrypted with the correct key. Use hashing for integrity checks and storing passwords (with a salt); use encryption when you need to recover the original data.</p>
+                  <p className="text-sm font-semibold text-foreground mb-2">Is hashing the same as encryption?</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">No. Hashing is one-way and cannot be reversed. Encryption is two-way — data can be decrypted with the correct key. Use hashing for integrity checks and storing passwords (with a salt); use encryption when you need to recover the original data.</p>
                 </div>
               </div>
           </div>
@@ -287,7 +287,7 @@ const HashGeneratorPage = () => {
                 Base64 Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode strings using Base64 encoding.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode strings using Base64 encoding.</p>
             </Link>
             <Link href="/jwt-decoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-blue-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -295,7 +295,7 @@ const HashGeneratorPage = () => {
                 JWT Decoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Decode and inspect JSON Web Tokens securely in your browser.</p>
+              <p className="text-sm text-muted-foreground">Decode and inspect JSON Web Tokens securely in your browser.</p>
             </Link>
             <Link href="/url-encoder" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-cyan-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -303,7 +303,7 @@ const HashGeneratorPage = () => {
                 URL Encoder
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Encode and decode URLs with percent-encoding instantly.</p>
+              <p className="text-sm text-muted-foreground">Encode and decode URLs with percent-encoding instantly.</p>
             </Link>
             <Link href="/json-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-purple-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -311,7 +311,7 @@ const HashGeneratorPage = () => {
                 JSON Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format, validate, and minify JSON data instantly.</p>
+              <p className="text-sm text-muted-foreground">Format, validate, and minify JSON data instantly.</p>
             </Link>
             <Link href="/unix-timestamp" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-amber-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -319,7 +319,7 @@ const HashGeneratorPage = () => {
                 Unix Timestamp
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert Unix timestamps to human-readable dates and back instantly.</p>
+              <p className="text-sm text-muted-foreground">Convert Unix timestamps to human-readable dates and back instantly.</p>
             </Link>
             <Link href="/json-yaml-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-indigo-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -327,7 +327,7 @@ const HashGeneratorPage = () => {
                 JSON ↔ YAML
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert between JSON and YAML instantly with real-time validation.</p>
+              <p className="text-sm text-muted-foreground">Convert between JSON and YAML instantly with real-time validation.</p>
             </Link>
             <Link href="/regex-tester" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-orange-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -335,7 +335,7 @@ const HashGeneratorPage = () => {
                 Regex Tester
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Test and debug regular expressions with live match highlighting.</p>
+              <p className="text-sm text-muted-foreground">Test and debug regular expressions with live match highlighting.</p>
             </Link>
             <Link href="/uuid-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-violet-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -343,7 +343,7 @@ const HashGeneratorPage = () => {
                 UUID Generator
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Generate UUID v4 values instantly, with bulk generation and validation.</p>
+              <p className="text-sm text-muted-foreground">Generate UUID v4 values instantly, with bulk generation and validation.</p>
             </Link>
             <Link href="/jwt-generator" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-teal-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -359,7 +359,7 @@ const HashGeneratorPage = () => {
                 Text Diff
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
+              <p className="text-sm text-muted-foreground">Compare two blocks of text and highlight additions, deletions, and unchanged lines.</p>
             </Link>
             <Link href="/case-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-sky-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -367,7 +367,7 @@ const HashGeneratorPage = () => {
                 Case Converter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
+              <p className="text-sm text-muted-foreground">Convert text to camelCase, snake_case, UPPERCASE, kebab-case, and more.</p>
             </Link>
             <Link href="/cron-parser" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-yellow-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -375,7 +375,7 @@ const HashGeneratorPage = () => {
                 Cron Parser
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Parse cron expressions into plain English and see the next scheduled run times.</p>
+              <p className="text-sm text-muted-foreground">Parse cron expressions into plain English and see the next scheduled run times.</p>
             </Link>
             <Link href="/sql-formatter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-fuchsia-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -383,7 +383,7 @@ const HashGeneratorPage = () => {
                 SQL Formatter
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
+              <p className="text-sm text-muted-foreground">Format and minify SQL queries with dialect support for MySQL, PostgreSQL, SQLite, and more.</p>
             </Link>
             <Link href="/csv-json" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-emerald-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -391,7 +391,7 @@ const HashGeneratorPage = () => {
                 CSV ↔ JSON
                 <ArrowRight className="w-4 h-4 ml-auto opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </h3>
-              <p className="text-sm text-slate-400">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
+              <p className="text-sm text-muted-foreground">Convert CSV to JSON or JSON to CSV with support for custom delimiters and quoted fields.</p>
             </Link>
             <Link href="/number-base-converter" className="group block p-6 bg-card border rounded-xl hover:shadow-md transition-all hover:-translate-y-1 hover:border-pink-500/30">
               <h3 className="text-lg font-semibold mb-2 group-hover:text-primary transition-colors flex items-center gap-2">
@@ -417,7 +417,7 @@ const HashGeneratorPage = () => {
       <div className="border-t bg-muted/30 mt-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="text-center space-y-2">
-            <p className="text-sm text-slate-400">
+            <p className="text-sm text-muted-foreground">
               <span className="font-semibold text-foreground">About these algorithms:</span> SHA-256 and SHA-512 are recommended for security use. MD5 and SHA-1 are considered cryptographically broken and should only be used for checksums or legacy compatibility.
             </p>
             <p className="text-xs text-muted-foreground">
